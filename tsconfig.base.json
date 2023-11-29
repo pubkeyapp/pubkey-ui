@@ -15,6 +15,7 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "@pubkey-ui/core": ["packages/core/src/index.ts"],
       "@pubkey-ui/generators": ["packages/generators/src/index.ts"]
     }
   },

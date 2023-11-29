@@ -1,0 +1,10 @@
+import { Container, ContainerProps } from '@mantine/core'
+import { ReactNode } from 'react'
+
+export interface <%= prefix.className %>ContainerProps extends ContainerProps {
+  children: ReactNode
+}
+
+export function <%= prefix.className %>Container({ children, ...props }: <%= prefix.className %>ContainerProps) {
+  return <Container {...props}>{children}</Container>
+}

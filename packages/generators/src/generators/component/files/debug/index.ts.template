@@ -1,0 +1,2 @@
+export * from './<%= prefixFileName %>-debug'
+export * from './<%= prefixFileName %>-debug-modal'

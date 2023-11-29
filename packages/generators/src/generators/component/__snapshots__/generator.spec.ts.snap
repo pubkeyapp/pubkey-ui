@@ -1,0 +1,642 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`component generator should create files for alert 1`] = `
+{
+  ".prettierrc": {
+    "content": [
+      "{ "singleQuote": true }",
+    ],
+    "isBinary": false,
+    "path": "./.prettierrc",
+  },
+  "nx.json": {
+    "content": [
+      "{",
+      ""affected": { "defaultBase": "main" },",
+      ""targetDefaults": {",
+      ""build": { "cache": true },",
+      ""lint": { "cache": true },",
+      ""e2e": { "cache": true }",
+      "}",
+      "}",
+    ],
+    "isBinary": false,
+    "path": "./nx.json",
+  },
+  "package.json": {
+    "content": [
+      "{",
+      ""name": "@proj/source",",
+      ""dependencies": {},",
+      ""devDependencies": {}",
+      "}",
+    ],
+    "isBinary": false,
+    "path": "./package.json",
+  },
+  "test": {
+    "children": {
+      "index.ts": {
+        "content": [
+          "export * from './ui-alert';",
+        ],
+        "isBinary": false,
+        "path": "./test/index.ts",
+      },
+      "ui-alert.tsx": {
+        "content": [
+          "import { Alert, AlertProps } from '@mantine/core';",
+          "import { ReactNode } from 'react';",
+          "export interface UiAlertProps extends AlertProps {",
+          "message: ReactNode;",
+          "title: ReactNode;",
+          "}",
+          "export function UiAlert({ message, ...props }: UiAlertProps) {",
+          "return <Alert {...props}>{message}</Alert>;",
+          "}",
+        ],
+        "isBinary": false,
+        "path": "./test/ui-alert.tsx",
+      },
+    },
+    "path": "./test",
+  },
+  "tsconfig.base.json": {
+    "content": [
+      "{",
+      ""compilerOptions": {",
+      ""paths": {}",
+      "}",
+      "}",
+    ],
+    "isBinary": false,
+    "path": "./tsconfig.base.json",
+  },
+}
+`;
+
+exports[`component generator should create files for container 1`] = `
+{
+  ".prettierrc": {
+    "content": [
+      "{ "singleQuote": true }",
+    ],
+    "isBinary": false,
+    "path": "./.prettierrc",
+  },
+  "nx.json": {
+    "content": [
+      "{",
+      ""affected": { "defaultBase": "main" },",
+      ""targetDefaults": {",
+      ""build": { "cache": true },",
+      ""lint": { "cache": true },",
+      ""e2e": { "cache": true }",
+      "}",
+      "}",
+    ],
+    "isBinary": false,
+    "path": "./nx.json",
+  },
+  "package.json": {
+    "content": [
+      "{",
+      ""name": "@proj/source",",
+      ""dependencies": {},",
+      ""devDependencies": {}",
+      "}",
+    ],
+    "isBinary": false,
+    "path": "./package.json",
+  },
+  "test": {
+    "children": {
+      "index.ts": {
+        "content": [
+          "export * from './ui-container';",
+        ],
+        "isBinary": false,
+        "path": "./test/index.ts",
+      },
+      "ui-container.tsx": {
+        "content": [
+          "import { Container, ContainerProps } from '@mantine/core';",
+          "import { ReactNode } from 'react';",
+          "export interface UiContainerProps extends ContainerProps {",
+          "children: ReactNode;",
+          "}",
+          "export function UiContainer({ children, ...props }: UiContainerProps) {",
+          "return <Container {...props}>{children}</Container>;",
+          "}",
+        ],
+        "isBinary": false,
+        "path": "./test/ui-container.tsx",
+      },
+    },
+    "path": "./test",
+  },
+  "tsconfig.base.json": {
+    "content": [
+      "{",
+      ""compilerOptions": {",
+      ""paths": {}",
+      "}",
+      "}",
+    ],
+    "isBinary": false,
+    "path": "./tsconfig.base.json",
+  },
+}
+`;
+
+exports[`component generator should create files for copy 1`] = `
+{
+  ".prettierrc": {
+    "content": [
+      "{ "singleQuote": true }",
+    ],
+    "isBinary": false,
+    "path": "./.prettierrc",
+  },
+  "nx.json": {
+    "content": [
+      "{",
+      ""affected": { "defaultBase": "main" },",
+      ""targetDefaults": {",
+      ""build": { "cache": true },",
+      ""lint": { "cache": true },",
+      ""e2e": { "cache": true }",
+      "}",
+      "}",
+    ],
+    "isBinary": false,
+    "path": "./nx.json",
+  },
+  "package.json": {
+    "content": [
+      "{",
+      ""name": "@proj/source",",
+      ""dependencies": {},",
+      ""devDependencies": {}",
+      "}",
+    ],
+    "isBinary": false,
+    "path": "./package.json",
+  },
+  "test": {
+    "children": {
+      "index.ts": {
+        "content": [
+          "export * from './ui-copy';",
+        ],
+        "isBinary": false,
+        "path": "./test/index.ts",
+      },
+      "ui-copy.tsx": {
+        "content": [
+          "import { ActionIcon, CopyButton, Tooltip } from '@mantine/core';",
+          "import { IconCheck, IconCopy } from '@tabler/icons-react';",
+          "export function UiCopy({ text, tooltip }: { text: string; tooltip?: string }) {",
+          "return (",
+          "<CopyButton value={text} timeout={2000}>",
+          "{({ copied, copy }) => (",
+          "<Tooltip",
+          "label={copied ? 'Copied' : tooltip ?? 'Copy'}",
+          "withArrow",
+          "position="top"",
+          ">",
+          "<ActionIcon",
+          "variant="light"",
+          "size="sm"",
+          "color={copied ? 'brand' : 'gray'}",
+          "onClick={copy}",
+          ">",
+          "{copied ? <IconCheck size={16} /> : <IconCopy size={16} />}",
+          "</ActionIcon>",
+          "</Tooltip>",
+          ")}",
+          "</CopyButton>",
+          ");",
+          "}",
+        ],
+        "isBinary": false,
+        "path": "./test/ui-copy.tsx",
+      },
+    },
+    "path": "./test",
+  },
+  "tsconfig.base.json": {
+    "content": [
+      "{",
+      ""compilerOptions": {",
+      ""paths": {}",
+      "}",
+      "}",
+    ],
+    "isBinary": false,
+    "path": "./tsconfig.base.json",
+  },
+}
+`;
+
+exports[`component generator should create files for debug 1`] = `
+{
+  ".prettierrc": {
+    "content": [
+      "{ "singleQuote": true }",
+    ],
+    "isBinary": false,
+    "path": "./.prettierrc",
+  },
+  "nx.json": {
+    "content": [
+      "{",
+      ""affected": { "defaultBase": "main" },",
+      ""targetDefaults": {",
+      ""build": { "cache": true },",
+      ""lint": { "cache": true },",
+      ""e2e": { "cache": true }",
+      "}",
+      "}",
+    ],
+    "isBinary": false,
+    "path": "./nx.json",
+  },
+  "package.json": {
+    "content": [
+      "{",
+      ""name": "@proj/source",",
+      ""dependencies": {},",
+      ""devDependencies": {}",
+      "}",
+    ],
+    "isBinary": false,
+    "path": "./package.json",
+  },
+  "test": {
+    "children": {
+      "index.ts": {
+        "content": [
+          "export * from './ui-debug';",
+          "export * from './ui-debug-modal';",
+        ],
+        "isBinary": false,
+        "path": "./test/index.ts",
+      },
+      "ui-debug-modal.tsx": {
+        "content": [
+          "import { ActionIcon, Tooltip } from '@mantine/core';",
+          "import { modals } from '@mantine/modals';",
+          "import { IconBug } from '@tabler/icons-react';",
+          "import { UiDebug } from './ui-debug';",
+          "export function handleDebugModalClick({",
+          "data,",
+          "title,",
+          "}: {",
+          "data: string | unknown;",
+          "title?: string;",
+          "}) {",
+          "return modals.open({",
+          "size: 'lg',",
+          "title: title ?? 'Debug',",
+          "children: <UiDebug data={data} open hideButton />,",
+          "});",
+          "}",
+          "export function UiDebugModal({",
+          "data,",
+          "title,",
+          "}: {",
+          "data: string | unknown;",
+          "title?: string;",
+          "}) {",
+          "return (",
+          "<Tooltip label="Show debug data">",
+          "<ActionIcon",
+          "color="brand"",
+          "variant="subtle"",
+          "onClick={() => handleDebugModalClick({ data, title })}",
+          ">",
+          "<IconBug size={16} />",
+          "</ActionIcon>",
+          "</Tooltip>",
+          ");",
+          "}",
+        ],
+        "isBinary": false,
+        "path": "./test/ui-debug-modal.tsx",
+      },
+      "ui-debug.tsx": {
+        "content": [
+          "import {",
+          "Box,",
+          "Group,",
+          "Paper,",
+          "Text,",
+          "UnstyledButton,",
+          "useMantineTheme,",
+          "} from '@mantine/core';",
+          "import { IconEye, IconEyeOff } from '@tabler/icons-react';",
+          "import { ReactNode, useState } from 'react';",
+          "export function UiDebug({",
+          "data,",
+          "hideButton,",
+          "open,",
+          "}: {",
+          "data: string | unknown;",
+          "open?: boolean;",
+          "hideButton?: boolean;",
+          "}) {",
+          "const theme = useMantineTheme();",
+          "const [show, setShow] = useState(open);",
+          "const content: ReactNode =",
+          "typeof data === 'string' ? data : JSON.stringify(data, null, 2);",
+          "return (",
+          "<Box>",
+          "<Paper",
+          "component="pre"",
+          "fz="xs"",
+          "m={0}",
+          "p={theme.spacing.xs}",
+          "style={{ overflow: 'auto', textOverflow: 'ellipsis' }}",
+          "withBorder",
+          ">",
+          "{hideButton ? null : (",
+          "<UnstyledButton onClick={() => setShow(!show)}>",
+          "<Group p="xs" gap="xs">",
+          "{show ? <IconEyeOff size={16} /> : <IconEye size={16} />}",
+          "<Text size="xs">{show ? 'Hide' : 'Show'} debug data</Text>",
+          "</Group>",
+          "</UnstyledButton>",
+          ")}",
+          "<Box display={show ? 'block' : 'none'}>{content}</Box>",
+          "</Paper>",
+          "</Box>",
+          ");",
+          "}",
+        ],
+        "isBinary": false,
+        "path": "./test/ui-debug.tsx",
+      },
+    },
+    "path": "./test",
+  },
+  "tsconfig.base.json": {
+    "content": [
+      "{",
+      ""compilerOptions": {",
+      ""paths": {}",
+      "}",
+      "}",
+    ],
+    "isBinary": false,
+    "path": "./tsconfig.base.json",
+  },
+}
+`;
+
+exports[`component generator should create files for group 1`] = `
+{
+  ".prettierrc": {
+    "content": [
+      "{ "singleQuote": true }",
+    ],
+    "isBinary": false,
+    "path": "./.prettierrc",
+  },
+  "nx.json": {
+    "content": [
+      "{",
+      ""affected": { "defaultBase": "main" },",
+      ""targetDefaults": {",
+      ""build": { "cache": true },",
+      ""lint": { "cache": true },",
+      ""e2e": { "cache": true }",
+      "}",
+      "}",
+    ],
+    "isBinary": false,
+    "path": "./nx.json",
+  },
+  "package.json": {
+    "content": [
+      "{",
+      ""name": "@proj/source",",
+      ""dependencies": {},",
+      ""devDependencies": {}",
+      "}",
+    ],
+    "isBinary": false,
+    "path": "./package.json",
+  },
+  "test": {
+    "children": {
+      "index.ts": {
+        "content": [
+          "export * from './ui-group';",
+        ],
+        "isBinary": false,
+        "path": "./test/index.ts",
+      },
+      "ui-group.tsx": {
+        "content": [
+          "import { Group, GroupProps } from '@mantine/core';",
+          "import { ReactNode } from 'react';",
+          "export interface UiGroupProps extends GroupProps {",
+          "children: ReactNode;",
+          "}",
+          "export function UiGroup({ children, ...props }: UiGroupProps) {",
+          "return <Group {...props}>{children}</Group>;",
+          "}",
+        ],
+        "isBinary": false,
+        "path": "./test/ui-group.tsx",
+      },
+    },
+    "path": "./test",
+  },
+  "tsconfig.base.json": {
+    "content": [
+      "{",
+      ""compilerOptions": {",
+      ""paths": {}",
+      "}",
+      "}",
+    ],
+    "isBinary": false,
+    "path": "./tsconfig.base.json",
+  },
+}
+`;
+
+exports[`component generator should create files for stack 1`] = `
+{
+  ".prettierrc": {
+    "content": [
+      "{ "singleQuote": true }",
+    ],
+    "isBinary": false,
+    "path": "./.prettierrc",
+  },
+  "nx.json": {
+    "content": [
+      "{",
+      ""affected": { "defaultBase": "main" },",
+      ""targetDefaults": {",
+      ""build": { "cache": true },",
+      ""lint": { "cache": true },",
+      ""e2e": { "cache": true }",
+      "}",
+      "}",
+    ],
+    "isBinary": false,
+    "path": "./nx.json",
+  },
+  "package.json": {
+    "content": [
+      "{",
+      ""name": "@proj/source",",
+      ""dependencies": {},",
+      ""devDependencies": {}",
+      "}",
+    ],
+    "isBinary": false,
+    "path": "./package.json",
+  },
+  "test": {
+    "children": {
+      "index.ts": {
+        "content": [
+          "export * from './ui-stack';",
+        ],
+        "isBinary": false,
+        "path": "./test/index.ts",
+      },
+      "ui-stack.tsx": {
+        "content": [
+          "import { Stack, StackProps } from '@mantine/core';",
+          "import { ReactNode } from 'react';",
+          "export interface UiStackProps extends StackProps {",
+          "children: ReactNode;",
+          "}",
+          "export function UiStack({ children, ...props }: UiStackProps) {",
+          "return <Stack {...props}>{children}</Stack>;",
+          "}",
+        ],
+        "isBinary": false,
+        "path": "./test/ui-stack.tsx",
+      },
+    },
+    "path": "./test",
+  },
+  "tsconfig.base.json": {
+    "content": [
+      "{",
+      ""compilerOptions": {",
+      ""paths": {}",
+      "}",
+      "}",
+    ],
+    "isBinary": false,
+    "path": "./tsconfig.base.json",
+  },
+}
+`;
+
+exports[`component generator should create files for theme 1`] = `
+{
+  ".prettierrc": {
+    "content": [
+      "{ "singleQuote": true }",
+    ],
+    "isBinary": false,
+    "path": "./.prettierrc",
+  },
+  "nx.json": {
+    "content": [
+      "{",
+      ""affected": { "defaultBase": "main" },",
+      ""targetDefaults": {",
+      ""build": { "cache": true },",
+      ""lint": { "cache": true },",
+      ""e2e": { "cache": true }",
+      "}",
+      "}",
+    ],
+    "isBinary": false,
+    "path": "./nx.json",
+  },
+  "package.json": {
+    "content": [
+      "{",
+      ""name": "@proj/source",",
+      ""dependencies": {},",
+      ""devDependencies": {}",
+      "}",
+    ],
+    "isBinary": false,
+    "path": "./package.json",
+  },
+  "test": {
+    "children": {
+      "index.ts": {
+        "content": [
+          "export * from './ui-theme';",
+        ],
+        "isBinary": false,
+        "path": "./test/index.ts",
+      },
+      "ui-theme.tsx": {
+        "content": [
+          "import {",
+          "createTheme,",
+          "DEFAULT_THEME,",
+          "Loader,",
+          "MantineProvider,",
+          "} from '@mantine/core';",
+          "import { ReactNode, Suspense } from 'react';",
+          "import { Notifications } from '@mantine/notifications';",
+          "import { ModalsProvider } from '@mantine/modals';",
+          "// Core styles",
+          "import '@mantine/core/styles.css';",
+          "// Package styles",
+          "import '@mantine/dates/styles.css';",
+          "import '@mantine/notifications/styles.css';",
+          "export interface UiThemeProps {",
+          "children: ReactNode;",
+          "}",
+          "const theme = createTheme({",
+          "colors: {",
+          "brand: DEFAULT_THEME.colors.blue,",
+          "},",
+          "primaryColor: 'brand',",
+          "});",
+          "export function UiTheme({ children }: UiThemeProps) {",
+          "return (",
+          "<MantineProvider theme={theme} defaultColorScheme="dark">",
+          "<ModalsProvider>",
+          "<Notifications />",
+          "<Suspense fallback={<Loader />}>{children}</Suspense>",
+          "</ModalsProvider>",
+          "</MantineProvider>",
+          ");",
+          "}",
+        ],
+        "isBinary": false,
+        "path": "./test/ui-theme.tsx",
+      },
+    },
+    "path": "./test",
+  },
+  "tsconfig.base.json": {
+    "content": [
+      "{",
+      ""compilerOptions": {",
+      ""paths": {}",
+      "}",
+      "}",
+    ],
+    "isBinary": false,
+    "path": "./tsconfig.base.json",
+  },
+}
+`;

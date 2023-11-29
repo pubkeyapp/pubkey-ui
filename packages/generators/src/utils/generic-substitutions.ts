@@ -1,32 +1,25 @@
-import { detectPackageManager, names } from '@nx/devkit'
+import { names, Tree } from '@nx/devkit'
+import { getNpmScope } from '@nx/js/src/utils/package-json/get-npm-scope'
 
 export interface GenericSubstitutions {
-  anchor: string
-  anchorName: string
-  licenseAuthor?: string
+  tree: Tree
   name: string
-  npmScope: string
-  preset?: 'next' | 'react'
+  prefix?: string
+  user?: string
 }
 export function genericSubstitutions({
-  licenseAuthor = process.env['USER'] ?? '',
-  anchor,
-  anchorName,
+  tree,
   name,
-  npmScope,
-  preset,
+  prefix,
+  user = process.env['USER'] ?? 'anon',
 }: GenericSubstitutions) {
-  const pm = detectPackageManager()
-  const runCmd = pm === 'npm' ? 'npm run' : pm.toString()
-
+  const npmScope = getNpmScope(tree)
+  const prefixNames = names(prefix ?? 'ui')
   return {
     ...names(name),
-    licenseAuthor,
-    anchor: names(anchor),
-    anchorName: names(anchorName),
     npmScope,
-    currentFullYear: new Date().getFullYear(),
-    preset: preset ?? 'react',
-    runCmd,
+    prefixFileName: prefixNames.fileName,
+    prefix: prefixNames,
+    user,
   }
 }

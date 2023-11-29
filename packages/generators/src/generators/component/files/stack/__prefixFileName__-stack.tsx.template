@@ -1,0 +1,10 @@
+import { Stack, StackProps } from '@mantine/core'
+import { ReactNode } from 'react'
+
+export interface <%= prefix.className %>StackProps extends StackProps {
+  children: ReactNode
+}
+
+export function <%= prefix.className %>Stack({ children, ...props }: <%= prefix.className %>StackProps) {
+  return <Stack {...props}>{children}</Stack>
+}

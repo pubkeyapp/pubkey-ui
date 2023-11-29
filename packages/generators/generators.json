@@ -1,5 +1,15 @@
 {
   "generators": {
+    "component": {
+      "factory": "./src/generators/component/generator",
+      "schema": "./src/generators/component/schema.json",
+      "description": "component generator"
+    },
+    "components": {
+      "factory": "./src/generators/components/components-generator",
+      "schema": "./src/generators/components/components-generator-schema.json",
+      "description": "components generator"
+    },
     "theme": {
       "factory": "./src/generators/theme/generator",
       "schema": "./src/generators/theme/schema.json",

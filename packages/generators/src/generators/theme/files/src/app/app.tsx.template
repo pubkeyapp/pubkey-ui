@@ -1,9 +1,9 @@
-import { UiThemeProvider } from './ui/ui-theme-provider'
+import { UiTheme } from './ui/ui-theme'
 
 export function App() {
   return (
-    <UiThemeProvider>
+    <UiTheme>
       <div>Welcome <%= directory %></div>
-    </UiThemeProvider>
+    </UiTheme>
   )
 }

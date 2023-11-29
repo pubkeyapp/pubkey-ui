@@ -61,6 +61,13 @@ async function main() {
 
       await compileFromFile(schemaPath, {
         additionalProperties: false,
+        style: {
+          singleQuote: true,
+          printWidth: 120,
+          semi: false,
+          trailingComma: 'all',
+          arrowParens: 'always',
+        },
       }).then((schema) => {
         if (JSON.stringify(schemaPathDtsBefore) !== JSON.stringify(schema)) {
           changes.push({ file: schemaPathDts, schema })

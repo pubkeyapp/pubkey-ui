@@ -1,7 +1,8 @@
-import { addDependenciesToPackageJson, formatFiles, generateFiles, Tree } from '@nx/devkit'
-import { runPackageManagerInstall } from '@nx/plugin/testing'
-import { applicationCleanup } from '../../'
+import { addDependenciesToPackageJson, formatFiles, generateFiles, installPackagesTask, Tree } from '@nx/devkit'
 import * as path from 'path'
+import { join } from 'path'
+import { applicationCleanup } from '../../'
+import componentsGenerator from '../components/components-generator'
 import { ThemeGeneratorSchema } from './schema'
 
 export async function themeGenerator(tree: Tree, options: ThemeGeneratorSchema) {
@@ -11,17 +12,22 @@ export async function themeGenerator(tree: Tree, options: ThemeGeneratorSchema) 
     'src/app/nx-welcome.tsx',
   ])
   generateFiles(tree, path.join(__dirname, 'files'), options.directory, options)
+
+  await componentsGenerator(tree, {
+    directory: join(options.directory, 'src', 'app', 'ui'),
+    prefix: 'ui',
+  })
+
   addDependenciesToPackageJson(
     tree,
     {
       '@mantine/core': '^7.2.2',
       '@mantine/dates': '^7.2.2',
-      '@mantine/dropzone': '^7.2.2',
       '@mantine/form': '^7.2.2',
       '@mantine/hooks': '^7.2.2',
       '@mantine/modals': '^7.2.2',
       '@mantine/notifications': '^7.2.2',
-      '@mantine/spotlight': '^7.2.2',
+      '@tabler/icons-react': '^2.42.0',
       dayjs: '^1.11.10',
     },
     {
@@ -32,7 +38,7 @@ export async function themeGenerator(tree: Tree, options: ThemeGeneratorSchema) 
   )
   await formatFiles(tree)
   return () => {
-    runPackageManagerInstall()
+    installPackagesTask(tree)
   }
 }
 

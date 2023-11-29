@@ -1,0 +1,28 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "$id": "ComponentGeneratorSchema",
+  "title": "",
+  "type": "object",
+  "properties": {
+    "directory": {
+      "type": "string",
+      "description": "The directory at which to create the files",
+      "alias": "dir",
+      "x-priority": "important",
+      "x-prompt": "What directory should the theme be created in?",
+      "default": "."
+    },
+    "type": {
+      "type": "string",
+      "description": "The type of component to create",
+      "enum": ["alert", "container", "copy", "debug", "group", "stack", "theme"],
+      "x-prompt": "What type of component do you want to create?"
+    },
+    "prefix": {
+      "type": "string",
+      "description": "The prefix to use for the component",
+      "default": "ui"
+    }
+  },
+  "required": ["directory", "type"]
+}

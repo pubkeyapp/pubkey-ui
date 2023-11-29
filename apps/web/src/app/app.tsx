@@ -1,9 +1,10 @@
-import { UiThemeProvider } from './ui/ui-theme-provider'
+import { UiTheme } from '@pubkey-ui/core'
+import { DemoFeature } from './features/demo/demo-feature'
 
 export function App() {
   return (
-    <UiThemeProvider>
-      <div>Welcome apps/web</div>
-    </UiThemeProvider>
+    <UiTheme>
+      <DemoFeature />
+    </UiTheme>
   )
 }

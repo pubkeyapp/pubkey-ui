@@ -1,0 +1,10 @@
+import { Group, GroupProps } from '@mantine/core'
+import { ReactNode } from 'react'
+
+export interface <%= prefix.className %>GroupProps extends GroupProps {
+  children: ReactNode
+}
+
+export function <%= prefix.className %>Group({ children, ...props }: <%= prefix.className %>GroupProps) {
+  return <Group {...props}>{children}</Group>
+}

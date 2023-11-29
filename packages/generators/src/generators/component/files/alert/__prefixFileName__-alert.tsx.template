@@ -1,0 +1,28 @@
+import { Alert, AlertProps } from '@mantine/core'
+import { IconAlertCircle, IconCheck, IconCircleX, IconInfoCircle } from '@tabler/icons-react'
+import { ReactNode } from 'react'
+
+export interface <%= prefix.className %>AlertProps extends AlertProps {
+  message: ReactNode
+  title: ReactNode
+}
+
+export function <%= prefix.className %>Alert({ message, ...props }: <%= prefix.className %>AlertProps) {
+  return <Alert {...props}>{message}</Alert>
+}
+
+export function <%= prefix.className %>Error({ ...props }: <%= prefix.className %>AlertProps) {
+  return <<%= prefix.className %>Alert {...props} color="red" icon={props.icon ?? <IconCircleX />} />
+}
+
+export function <%= prefix.className %>Info({ ...props }: <%= prefix.className %>AlertProps) {
+  return <<%= prefix.className %>Alert {...props} color="blue" icon={props.icon ?? <IconInfoCircle />} />
+}
+
+export function <%= prefix.className %>Success({ ...props }: <%= prefix.className %>AlertProps) {
+  return <<%= prefix.className %>Alert {...props} color="green" icon={props.icon ?? <IconCheck />} />
+}
+
+export function <%= prefix.className %>Warning({ ...props }: <%= prefix.className %>AlertProps) {
+  return <<%= prefix.className %>Alert {...props} color="yellow" icon={props.icon ?? <IconAlertCircle />} />
+}
