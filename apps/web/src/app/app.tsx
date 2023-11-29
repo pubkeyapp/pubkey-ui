@@ -1,14 +1,9 @@
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-import styles from './app.module.css'
-
-import NxWelcome from './nx-welcome'
+import { UiThemeProvider } from './ui/ui-theme-provider'
 
 export function App() {
   return (
-    <div>
-      <NxWelcome title="web" />
-    </div>
+    <UiThemeProvider>
+      <div>Welcome apps/web</div>
+    </UiThemeProvider>
   )
 }
-
-export default App
