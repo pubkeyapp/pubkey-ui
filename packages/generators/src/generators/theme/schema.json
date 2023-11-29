@@ -1,8 +1,17 @@
 {
   "$schema": "http://json-schema.org/schema",
-  "$id": "Theme",
+  "$id": "ThemeGeneratorSchema",
   "title": "",
   "type": "object",
-  "properties": {},
-  "required": []
+  "properties": {
+    "directory": {
+      "type": "string",
+      "description": "The directory at which to create the files",
+      "alias": "dir",
+      "x-priority": "important",
+      "x-prompt": "What directory should the theme be created in?",
+      "default": "."
+    }
+  },
+  "required": ["directory"]
 }

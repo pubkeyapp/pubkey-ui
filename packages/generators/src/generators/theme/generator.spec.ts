@@ -1,12 +1,12 @@
+import { Tree } from '@nx/devkit'
 import { createTreeWithEmptyWorkspace } from '@nx/devkit/testing'
-import { Tree, readProjectConfiguration } from '@nx/devkit'
-
+import { getRecursiveFileContents } from '../../'
 import { themeGenerator } from './generator'
 import { ThemeGeneratorSchema } from './schema'
 
 describe('theme generator', () => {
   let tree: Tree
-  const options: ThemeGeneratorSchema = { name: 'test' }
+  const options: ThemeGeneratorSchema = { directory: 'test-target' }
 
   beforeEach(() => {
     tree = createTreeWithEmptyWorkspace()
@@ -14,7 +14,8 @@ describe('theme generator', () => {
 
   it('should run successfully', async () => {
     await themeGenerator(tree, options)
-    const config = readProjectConfiguration(tree, 'test')
-    expect(config).toBeDefined()
+
+    const contents = getRecursiveFileContents(tree, '.')
+    expect(contents).toMatchSnapshot()
   })
 })

@@ -5,4 +5,9 @@
  * and run json-schema-to-typescript to regenerate this file.
  */
 
-export interface Theme {}
+export interface ThemeGeneratorSchema {
+  /**
+   * The directory at which to create the files
+   */
+  directory: string
+}

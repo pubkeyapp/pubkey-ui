@@ -1,0 +1,157 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`theme generator should run successfully 1`] = `
+{
+  ".prettierrc": {
+    "content": [
+      "{ "singleQuote": true }",
+    ],
+    "isBinary": false,
+    "path": "./.prettierrc",
+  },
+  "nx.json": {
+    "content": [
+      "{",
+      ""affected": { "defaultBase": "main" },",
+      ""targetDefaults": {",
+      ""build": { "cache": true },",
+      ""lint": { "cache": true },",
+      ""e2e": { "cache": true }",
+      "}",
+      "}",
+    ],
+    "isBinary": false,
+    "path": "./nx.json",
+  },
+  "package.json": {
+    "content": [
+      "{",
+      ""name": "@proj/source",",
+      ""dependencies": {",
+      ""@mantine/core": "^7.2.2",",
+      ""@mantine/dates": "^7.2.2",",
+      ""@mantine/dropzone": "^7.2.2",",
+      ""@mantine/form": "^7.2.2",",
+      ""@mantine/hooks": "^7.2.2",",
+      ""@mantine/modals": "^7.2.2",",
+      ""@mantine/notifications": "^7.2.2",",
+      ""@mantine/spotlight": "^7.2.2",",
+      ""dayjs": "^1.11.10"",
+      "},",
+      ""devDependencies": {",
+      ""postcss": "^8.4.31",",
+      ""postcss-preset-mantine": "^1.11.0",",
+      ""postcss-simple-vars": "^7.0.1"",
+      "}",
+      "}",
+    ],
+    "isBinary": false,
+    "path": "./package.json",
+  },
+  "test-target": {
+    "children": {
+      "postcss.config.cjs": {
+        "content": [
+          "module.exports = {",
+          "plugins: {",
+          "'postcss-preset-mantine': {},",
+          "'postcss-simple-vars': {",
+          "variables: {",
+          "'mantine-breakpoint-xs': '36em',",
+          "'mantine-breakpoint-sm': '48em',",
+          "'mantine-breakpoint-md': '62em',",
+          "'mantine-breakpoint-lg': '75em',",
+          "'mantine-breakpoint-xl': '88em',",
+          "},",
+          "},",
+          "},",
+          "};",
+        ],
+        "isBinary": false,
+        "path": "./test-target/postcss.config.cjs",
+      },
+      "src": {
+        "children": {
+          "app": {
+            "children": {
+              "app.tsx": {
+                "content": [
+                  "import { UiThemeProvider } from './ui/ui-theme-provider';",
+                  "export function App() {",
+                  "return (",
+                  "<UiThemeProvider>",
+                  "<div>Welcome test-target</div>",
+                  "</UiThemeProvider>",
+                  ");",
+                  "}",
+                ],
+                "isBinary": false,
+                "path": "./test-target/src/app/app.tsx",
+              },
+              "ui": {
+                "children": {
+                  "ui-theme-provider.tsx": {
+                    "content": [
+                      "import { MantineProvider } from '@mantine/core';",
+                      "import { ReactNode } from 'react';",
+                      "import '@mantine/core/styles.css';",
+                      "export function UiThemeProvider({ children }: { children: ReactNode }) {",
+                      "return <MantineProvider>{children}</MantineProvider>;",
+                      "}",
+                    ],
+                    "isBinary": false,
+                    "path": "./test-target/src/app/ui/ui-theme-provider.tsx",
+                  },
+                },
+                "path": "./test-target/src/app/ui",
+              },
+            },
+            "path": "./test-target/src/app",
+          },
+          "main.tsx": {
+            "content": [
+              "import { StrictMode } from 'react';",
+              "import * as ReactDOM from 'react-dom/client';",
+              "import { App } from './app/app';",
+              "const root = ReactDOM.createRoot(",
+              "document.getElementById('root') as HTMLElement",
+              ");",
+              "root.render(",
+              "<StrictMode>",
+              "<App />",
+              "</StrictMode>",
+              ");",
+            ],
+            "isBinary": false,
+            "path": "./test-target/src/main.tsx",
+          },
+          "styles.css": {
+            "content": [
+              "html,",
+              "body,",
+              "#root {",
+              "height: 100%;",
+              "}",
+            ],
+            "isBinary": false,
+            "path": "./test-target/src/styles.css",
+          },
+        },
+        "path": "./test-target/src",
+      },
+    },
+    "path": "./test-target",
+  },
+  "tsconfig.base.json": {
+    "content": [
+      "{",
+      ""compilerOptions": {",
+      ""paths": {}",
+      "}",
+      "}",
+    ],
+    "isBinary": false,
+    "path": "./tsconfig.base.json",
+  },
+}
+`;
