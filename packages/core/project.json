@@ -20,15 +20,7 @@
         "tsConfig": "packages/core/tsconfig.lib.json",
         "project": "packages/core/package.json",
         "entryFile": "packages/core/src/index.ts",
-        "external": [
-          "@remix-run/router",
-          "core-js",
-          "react",
-          "react-dom",
-          "react-router",
-          "react-router-dom",
-          "react/jsx-runtime"
-        ],
+        "external": "all",
         "rollupConfig": "@nx/react/plugins/bundle-rollup",
         "compiler": "babel",
         "assets": [
