@@ -7,6 +7,7 @@ import { DemoFeatureGroup } from './demo-feature-group'
 import { DemoFeatureSearchInput } from './demo-feature-search-input'
 import { DemoFeatureStack } from './demo-feature-stack'
 import { DemoFeatureTime } from './demo-feature-time'
+import { DemoFeatureToast } from './demo-feature-toast'
 
 export function DemoFeature() {
   return (
@@ -20,6 +21,7 @@ export function DemoFeature() {
         <DemoFeatureSearchInput />
         <DemoFeatureStack />
         <DemoFeatureTime />
+        <DemoFeatureToast />
       </UiStack>
     </UiContainer>
   )

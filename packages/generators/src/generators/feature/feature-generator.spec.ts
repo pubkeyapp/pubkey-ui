@@ -1,20 +1,23 @@
+import { Tree } from '@nx/devkit'
 import { createTreeWithEmptyWorkspace } from '@nx/devkit/testing'
-import { Tree, readProjectConfiguration } from '@nx/devkit'
+import { getRecursiveFileContents } from '../../'
+import { features } from '../features/features'
 
 import { featureGenerator } from './feature-generator'
 import { FeatureGeneratorSchema } from './feature-generator-schema'
 
 describe('feature generator', () => {
   let tree: Tree
-  const options: FeatureGeneratorSchema = { name: 'test' }
+  const options: FeatureGeneratorSchema = { directory: 'test', type: 'demo' }
 
   beforeEach(() => {
     tree = createTreeWithEmptyWorkspace()
   })
 
-  it('should run successfully', async () => {
-    await featureGenerator(tree, options)
-    const config = readProjectConfiguration(tree, 'test')
-    expect(config).toBeDefined()
+  it.each(features)('should create files for %s', async (type) => {
+    await featureGenerator(tree, { ...options, type })
+
+    const contents = getRecursiveFileContents(tree, '.')
+    expect(contents).toMatchSnapshot()
   })
 })

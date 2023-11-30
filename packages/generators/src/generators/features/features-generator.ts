@@ -2,12 +2,12 @@ import { formatFiles, Tree } from '@nx/devkit'
 import { join } from 'path'
 import featureGenerator from '../feature/feature-generator'
 import { FeaturesGeneratorSchema } from './features-generator-schema'
-import { templates } from './templates'
+import { features } from './features'
 
 export async function featuresGenerator(tree: Tree, options: FeaturesGeneratorSchema) {
   const prefix = options.prefix ?? 'ui'
   const exports: string[] = []
-  for (const type of templates) {
+  for (const type of features) {
     const target = type
     await featureGenerator(tree, {
       directory: join(options.directory, target),
