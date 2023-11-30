@@ -11,6 +11,7 @@ import { execSync } from 'child_process'
 import { readFileSync, writeFileSync } from 'fs'
 
 import devkit from '@nx/devkit'
+
 const { readCachedProjectGraph } = devkit
 
 function invariant(condition, message) {
@@ -48,6 +49,17 @@ process.chdir(outputPath)
 try {
   const json = JSON.parse(readFileSync(`package.json`).toString())
   json.version = version
+
+  // Update all dependencies with the same scope to the same version
+  const deps = json.dependencies || {}
+  const npmScope = json.name.split('/')[0]
+  const packages = Object.keys(deps).filter((dep) => dep.includes(`${npmScope}/`))
+
+  json.dependencies = {
+    ...deps,
+    ...packages.reduce((acc, dep) => ({...acc, [dep]: version}), {}),
+  }
+
   writeFileSync(`package.json`, JSON.stringify(json, null, 2))
 } catch (e) {
   console.error(`Error reading package.json file from library build output.`)
