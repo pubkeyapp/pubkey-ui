@@ -6,6 +6,7 @@ import { DemoFeatureDebug } from './demo-feature-debug'
 import { DemoFeatureGroup } from './demo-feature-group'
 import { DemoFeatureSearchInput } from './demo-feature-search-input'
 import { DemoFeatureStack } from './demo-feature-stack'
+import { DemoFeatureTabRoutes } from './demo-feature-tab-routes'
 import { DemoFeatureTime } from './demo-feature-time'
 import { DemoFeatureToast } from './demo-feature-toast'
 
@@ -20,6 +21,7 @@ export function DemoFeature() {
         <DemoFeatureGroup />
         <DemoFeatureSearchInput />
         <DemoFeatureStack />
+        <DemoFeatureTabRoutes />
         <DemoFeatureTime />
         <DemoFeatureToast />
       </UiStack>

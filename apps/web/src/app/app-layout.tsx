@@ -1,10 +1,10 @@
 import { ActionIcon, Anchor, Box, Card, Group, Text } from '@mantine/core'
-import { UiContainer, useUiColorScheme } from '@pubkey-ui/core'
+import { UiContainer, useUiColorScheme, useUiTheme } from '@pubkey-ui/core'
 import { IconMoon, IconSun } from '@tabler/icons-react'
 import { ReactNode } from 'react'
-import { Link } from 'react-router-dom'
 
 export function AppLayout({ children }: { children: ReactNode }) {
+  const { Link } = useUiTheme()
   return (
     <Box>
       <Card p="0" display="block">

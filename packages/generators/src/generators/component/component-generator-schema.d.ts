@@ -22,6 +22,7 @@ export interface ComponentGeneratorSchema {
     | 'group'
     | 'search-input'
     | 'stack'
+    | 'tab-routes'
     | 'theme'
     | 'time'
     | 'toast'

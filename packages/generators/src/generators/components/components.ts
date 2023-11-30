@@ -9,6 +9,7 @@ export const components: ComponentGeneratorSchema['type'][] = [
   'group',
   'search-input',
   'stack',
+  'tab-routes',
   'theme',
   'time',
   'toast',
