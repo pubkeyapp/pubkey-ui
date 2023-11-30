@@ -1,7 +1,7 @@
 import { Anchor, Button } from '@mantine/core'
 import { UiCard, UiContainer, useUiTheme } from '@pubkey-ui/core'
 
-export function DevFeatureSearch() {
+export function DevFeatureLink() {
   const { Link } = useUiTheme()
   return (
     <UiContainer>

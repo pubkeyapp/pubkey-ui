@@ -1,16 +1,15 @@
 import { SimpleGrid } from '@mantine/core'
-import { UiDebug, UiDebugModal } from '@pubkey-ui/core'
-import { DemoCard } from './demo-card'
+import { UiCard, UiDebug, UiDebugModal } from '@pubkey-ui/core'
 
 export function DemoFeatureDebug() {
   return (
-    <DemoCard title="Debug">
+    <UiCard title="Debug">
       <SimpleGrid cols={2}>
         <UiDebug data={{ foo: 'bar' }} open hideButton />
         <UiDebug data={{ foo: 'bar' }} />
         <UiDebug data={{ foo: 'bar' }} open />
         <UiDebugModal data={{ foo: 'bar' }} />
       </SimpleGrid>
-    </DemoCard>
+    </UiCard>
   )
 }

@@ -1,0 +1,4 @@
+export * from './<%= prefixFileName %>-logo'
+export * from './<%= prefixFileName %>-logo-type'
+export * from './<%= prefixFileName %>-logo-type-black'
+export * from './<%= prefixFileName %>-logo-type-white'

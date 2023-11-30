@@ -1,5 +1,12 @@
-import { DevFeatureSearch } from './dev-feature-search'
+import { UiContainer } from '@pubkey-ui/core'
+import { DevFeatureLink } from './dev-feature-link'
+import { DevFeatureLogo } from './dev-feature-logo'
 
 export function DevFeature() {
-  return <DevFeatureSearch />
+  return (
+    <UiContainer>
+      <DevFeatureLogo />
+      <DevFeatureLink />
+    </UiContainer>
+  )
 }

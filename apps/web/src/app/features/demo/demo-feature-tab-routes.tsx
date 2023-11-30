@@ -1,10 +1,9 @@
 import { SimpleGrid } from '@mantine/core'
 import { UiCard, UiTabRoutes } from '@pubkey-ui/core'
-import { DemoCard } from './demo-card'
 
 export function DemoFeatureTabRoutes() {
   return (
-    <DemoCard title="Time">
+    <UiCard title="Time">
       <UiTabRoutes
         baseUrl="/demo"
         tabs={[
@@ -37,6 +36,6 @@ export function DemoFeatureTabRoutes() {
           },
         ]}
       />
-    </DemoCard>
+    </UiCard>
   )
 }

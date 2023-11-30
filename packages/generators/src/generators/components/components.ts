@@ -7,6 +7,7 @@ export const components: ComponentGeneratorSchema['type'][] = [
   'copy',
   'debug',
   'group',
+  'logo',
   'search-input',
   'stack',
   'tab-routes',

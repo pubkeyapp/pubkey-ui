@@ -1,10 +1,9 @@
 import { SimpleGrid } from '@mantine/core'
-import { UiGroup, UiSearchInput } from '@pubkey-ui/core'
-import { DemoCard } from './demo-card'
+import { UiCard, UiGroup, UiSearchInput } from '@pubkey-ui/core'
 
 export function DemoFeatureSearchInput() {
   return (
-    <DemoCard title="SearchInput">
+    <UiCard title="SearchInput">
       <SimpleGrid cols={2}>
         <UiSearchInput />
         <UiSearchInput icon={{ radius: 0 }} text={{ radius: 0 }} />
@@ -18,6 +17,6 @@ export function DemoFeatureSearchInput() {
         <UiSearchInput />
         <UiSearchInput />
       </UiGroup>
-    </DemoCard>
+    </UiCard>
   )
 }

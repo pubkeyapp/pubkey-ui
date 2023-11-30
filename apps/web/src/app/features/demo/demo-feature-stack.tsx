@@ -1,10 +1,9 @@
 import { Button, SimpleGrid } from '@mantine/core'
-import { UiStack } from '@pubkey-ui/core'
-import { DemoCard } from './demo-card'
+import { UiCard, UiStack } from '@pubkey-ui/core'
 
 export function DemoFeatureStack() {
   return (
-    <DemoCard title="Stack">
+    <UiCard title="Stack">
       <SimpleGrid cols={2}>
         <UiStack justify="space-between">
           <Button>Save</Button> <Button variant="default">Cancel</Button>
@@ -25,6 +24,6 @@ export function DemoFeatureStack() {
           <Button>Save</Button> <Button variant="default">Cancel</Button>
         </UiStack>
       </SimpleGrid>
-    </DemoCard>
+    </UiCard>
   )
 }

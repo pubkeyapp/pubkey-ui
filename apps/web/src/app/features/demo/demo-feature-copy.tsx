@@ -1,12 +1,11 @@
-import { UiCopy, UiStack } from '@pubkey-ui/core'
-import { DemoCard } from './demo-card'
+import { UiCard, UiCopy, UiStack } from '@pubkey-ui/core'
 
 export function DemoFeatureCopy() {
   return (
-    <DemoCard title="Copy">
+    <UiCard title="Copy">
       <UiStack>
         <UiCopy text="Hello PubKey UI" />
       </UiStack>
-    </DemoCard>
+    </UiCard>
   )
 }

@@ -1,10 +1,9 @@
 import { Button, SimpleGrid } from '@mantine/core'
-import { <%= prefix.className %>Group } from '@pubkey-ui/core'
-import { DemoCard } from './demo-card'
+import { <%= prefix.className %>Card, <%= prefix.className %>Group } from '@pubkey-ui/core'
 
 export function DemoFeatureGroup() {
   return (
-    <DemoCard title="Group">
+    <<%= prefix.className %>Card title="Group">
       <SimpleGrid cols={2}>
         <<%= prefix.className %>Group justify="space-between">
           <Button>Save</Button> <Button variant="default">Cancel</Button>
@@ -25,6 +24,6 @@ export function DemoFeatureGroup() {
           <Button>Save</Button> <Button variant="default">Cancel</Button>
         </<%= prefix.className %>Group>
       </SimpleGrid>
-    </DemoCard>
+    </<%= prefix.className %>Card>
   )
 }

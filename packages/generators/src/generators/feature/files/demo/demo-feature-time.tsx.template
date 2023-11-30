@@ -1,10 +1,9 @@
 import { SimpleGrid } from '@mantine/core'
-import { <%= prefix.className %>Time } from '@pubkey-ui/core'
-import { DemoCard } from './demo-card'
+import { <%= prefix.className %>Card, <%= prefix.className %>Time } from '@pubkey-ui/core'
 
 export function DemoFeatureTime() {
   return (
-    <DemoCard title="Time">
+    <<%= prefix.className %>Card title="Time">
       <SimpleGrid cols={2}>
         <<%= prefix.className %>Time date={new Date(new Date().setMonth(new Date().getMonth() - 1))} />
         <<%= prefix.className %>Time date={new Date(new Date().setDate(new Date().getDate() - 7))} />
@@ -17,6 +16,6 @@ export function DemoFeatureTime() {
         <<%= prefix.className %>Time date={new Date(new Date().setFullYear(new Date().getFullYear() + 1))} />
         <<%= prefix.className %>Time date={new Date('2021-01-01')} />
       </SimpleGrid>
-    </DemoCard>
+    </<%= prefix.className %>Card>
   )
 }

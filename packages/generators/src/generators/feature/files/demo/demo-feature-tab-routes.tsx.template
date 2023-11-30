@@ -1,10 +1,9 @@
 import { SimpleGrid } from '@mantine/core'
 import { <%= prefix.className %>Card, <%= prefix.className %>TabRoutes } from '@pubkey-ui/core'
-import { DemoCard } from './demo-card'
 
 export function DemoFeatureTabRoutes() {
   return (
-    <DemoCard title="Time">
+    <<%= prefix.className %>Card title="Time">
       <<%= prefix.className %>TabRoutes
         baseUrl="/demo"
         tabs={[
@@ -37,6 +36,6 @@ export function DemoFeatureTabRoutes() {
           },
         ]}
       />
-    </DemoCard>
+    </<%= prefix.className %>Card>
   )
 }

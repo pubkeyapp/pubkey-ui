@@ -4,6 +4,7 @@ import { DemoFeatureCard } from './demo-feature-card'
 import { DemoFeatureCopy } from './demo-feature-copy'
 import { DemoFeatureDebug } from './demo-feature-debug'
 import { DemoFeatureGroup } from './demo-feature-group'
+import { DemoFeatureLogo } from './demo-feature-logo'
 import { DemoFeatureSearchInput } from './demo-feature-search-input'
 import { DemoFeatureStack } from './demo-feature-stack'
 import { DemoFeatureTabRoutes } from './demo-feature-tab-routes'
@@ -19,6 +20,7 @@ export function DemoFeature() {
         <DemoFeatureCopy />
         <DemoFeatureDebug />
         <DemoFeatureGroup />
+        <DemoFeatureLogo />
         <DemoFeatureSearchInput />
         <DemoFeatureStack />
         <DemoFeatureTabRoutes />

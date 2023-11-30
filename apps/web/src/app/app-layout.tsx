@@ -1,5 +1,5 @@
-import { ActionIcon, Anchor, Box, Card, Group, Text } from '@mantine/core'
-import { UiContainer, useUiColorScheme, useUiTheme } from '@pubkey-ui/core'
+import { ActionIcon, Anchor, Box, Card, Group } from '@mantine/core'
+import { UiContainer, UiLogoType, useUiColorScheme, useUiTheme } from '@pubkey-ui/core'
 import { IconMoon, IconSun } from '@tabler/icons-react'
 import { ReactNode } from 'react'
 
@@ -10,10 +10,10 @@ export function AppLayout({ children }: { children: ReactNode }) {
       <Card p="0" display="block">
         <UiContainer py="sm">
           <Group justify="space-between">
-            <Group>
-              <Text component={Link} to="/" size="xl" fw={700}>
-                Pubkey UI
-              </Text>
+            <Group align="center">
+              <Anchor component={Link} to="/" display="flex">
+                <UiLogoType height={32} />
+              </Anchor>
               <Anchor component={Link} to="/dashboard">
                 Dashboard
               </Anchor>

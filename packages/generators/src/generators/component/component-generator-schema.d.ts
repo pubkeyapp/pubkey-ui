@@ -20,6 +20,7 @@ export interface ComponentGeneratorSchema {
     | 'copy'
     | 'debug'
     | 'group'
+    | 'logo'
     | 'search-input'
     | 'stack'
     | 'tab-routes'

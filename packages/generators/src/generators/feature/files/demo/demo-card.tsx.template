@@ -1,9 +1,0 @@
-import { <%= prefix.className %>Card, <%= prefix.className %>Stack } from '@pubkey-ui/core'
-
-export function DemoCard({ children, title }: { children: React.ReactNode; title: string }) {
-  return (
-    <<%= prefix.className %>Card title={title}>
-      <<%= prefix.className %>Stack>{children}</<%= prefix.className %>Stack>
-    </<%= prefix.className %>Card>
-  )
-}

@@ -1,10 +1,9 @@
 import { Button, SimpleGrid } from '@mantine/core'
-import { UiGroup } from '@pubkey-ui/core'
-import { DemoCard } from './demo-card'
+import { UiCard, UiGroup } from '@pubkey-ui/core'
 
 export function DemoFeatureGroup() {
   return (
-    <DemoCard title="Group">
+    <UiCard title="Group">
       <SimpleGrid cols={2}>
         <UiGroup justify="space-between">
           <Button>Save</Button> <Button variant="default">Cancel</Button>
@@ -25,6 +24,6 @@ export function DemoFeatureGroup() {
           <Button>Save</Button> <Button variant="default">Cancel</Button>
         </UiGroup>
       </SimpleGrid>
-    </DemoCard>
+    </UiCard>
   )
 }

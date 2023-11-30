@@ -1,10 +1,9 @@
 import { Button, SimpleGrid } from '@mantine/core'
-import { toastError, toastInfo, toastSuccess, toastWarning } from '@pubkey-ui/core'
-import { DemoCard } from './demo-card'
+import { UiCard, toastError, toastInfo, toastSuccess, toastWarning } from '@pubkey-ui/core'
 
 export function DemoFeatureToast() {
   return (
-    <DemoCard title="Toast">
+    <UiCard title="Toast">
       <SimpleGrid cols={2}>
         <Button color="green" onClick={() => toastSuccess('This is a success toast')}>
           Toast Success
@@ -19,6 +18,6 @@ export function DemoFeatureToast() {
           Toast Info
         </Button>
       </SimpleGrid>
-    </DemoCard>
+    </UiCard>
   )
 }

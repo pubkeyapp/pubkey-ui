@@ -1,0 +1,14 @@
+import { use<%= prefix.className %>ColorScheme } from '../<%= prefix.fileName %>-theme'
+import { SVGProps } from 'react'
+import { <%= prefix.className %>LogoTypeBlack } from './<%= prefix.fileName %>-logo-type-black'
+import { <%= prefix.className %>LogoTypeWhite } from './<%= prefix.fileName %>-logo-type-white'
+
+export interface <%= prefix.className %>LogoTypeProps extends SVGProps<SVGSVGElement> {
+  height?: number
+  width?: number
+}
+export function <%= prefix.className %>LogoType(props: <%= prefix.className %>LogoTypeProps = {}) {
+  const { colorScheme } = use<%= prefix.className %>ColorScheme()
+
+  return colorScheme === 'dark' ? <<%= prefix.className %>LogoTypeWhite {...props} /> : <<%= prefix.className %>LogoTypeBlack {...props} />
+}
