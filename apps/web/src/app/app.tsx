@@ -1,5 +1,5 @@
 import { UiTheme } from '@pubkey-ui/core'
-import { DemoFeature } from './features/demo/demo-feature'
+import { DemoFeature } from './features'
 
 export function App() {
   return (

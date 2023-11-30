@@ -14,6 +14,16 @@
       "factory": "./src/generators/theme/theme-generator",
       "schema": "./src/generators/theme/theme-generator-schema.json",
       "description": "theme generator"
+    },
+    "feature": {
+      "factory": "./src/generators/feature/feature-generator",
+      "schema": "./src/generators/feature/feature-generator-schema.json",
+      "description": "feature generator"
+    },
+    "features": {
+      "factory": "./src/generators/features/features-generator",
+      "schema": "./src/generators/features/features-generator-schema.json",
+      "description": "features generator"
     }
   }
 }

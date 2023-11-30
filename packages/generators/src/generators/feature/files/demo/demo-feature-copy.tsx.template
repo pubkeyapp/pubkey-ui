@@ -1,0 +1,12 @@
+import { <%= prefix.className %>Copy, <%= prefix.className %>Stack } from '@pubkey-ui/core'
+import { DemoCard } from './demo-card'
+
+export function DemoFeatureCopy() {
+  return (
+    <DemoCard title="Copy">
+      <<%= prefix.className %>Stack>
+        <<%= prefix.className %>Copy text="Hello PubKey UI" />
+      </<%= prefix.className %>Stack>
+    </DemoCard>
+  )
+}

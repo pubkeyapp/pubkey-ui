@@ -1,0 +1,17 @@
+import { SimpleGrid } from '@mantine/core'
+import { <%= prefix.className %>Alert, <%= prefix.className %>Error, <%= prefix.className %>Info, <%= prefix.className %>Success, <%= prefix.className %>Warning } from '@pubkey-ui/core'
+import { DemoCard } from './demo-card'
+
+export function DemoFeatureAlerts() {
+  return (
+    <DemoCard title="Alerts">
+      <SimpleGrid cols={2}>
+        <<%= prefix.className %>Error title="Error" message="Hello World" />
+        <<%= prefix.className %>Info title="Info" message="Hello World" />
+        <<%= prefix.className %>Success title="Success" message="Hello World" />
+        <<%= prefix.className %>Warning title="Warning" message="Hello World" />
+        <<%= prefix.className %>Alert title="Alert" message="Hello World" />
+      </SimpleGrid>
+    </DemoCard>
+  )
+}

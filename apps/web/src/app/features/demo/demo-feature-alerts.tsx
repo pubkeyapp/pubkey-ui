@@ -1,10 +1,10 @@
 import { SimpleGrid } from '@mantine/core'
 import { UiAlert, UiError, UiInfo, UiSuccess, UiWarning } from '@pubkey-ui/core'
-import { DemoUiCard } from './demo-ui-card'
+import { DemoCard } from './demo-card'
 
 export function DemoFeatureAlerts() {
   return (
-    <DemoUiCard title="Alerts">
+    <DemoCard title="Alerts">
       <SimpleGrid cols={2}>
         <UiError title="Error" message="Hello World" />
         <UiInfo title="Info" message="Hello World" />
@@ -12,6 +12,6 @@ export function DemoFeatureAlerts() {
         <UiWarning title="Warning" message="Hello World" />
         <UiAlert title="Alert" message="Hello World" />
       </SimpleGrid>
-    </DemoUiCard>
+    </DemoCard>
   )
 }

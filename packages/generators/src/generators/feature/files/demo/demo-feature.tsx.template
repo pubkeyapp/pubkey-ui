@@ -1,0 +1,20 @@
+import { <%= prefix.className %>Container, <%= prefix.className %>Stack } from '@pubkey-ui/core'
+import { DemoFeatureAlerts } from './demo-feature-alerts'
+import { DemoFeatureCopy } from './demo-feature-copy'
+import { DemoFeatureDebug } from './demo-feature-debug'
+import { DemoFeatureGroup } from './demo-feature-group'
+import { DemoFeatureStack } from './demo-feature-stack'
+
+export function DemoFeature() {
+  return (
+    <<%= prefix.className %>Container py="lg">
+      <<%= prefix.className %>Stack>
+        <DemoFeatureAlerts />
+        <DemoFeatureCopy />
+        <DemoFeatureDebug />
+        <DemoFeatureGroup />
+        <DemoFeatureStack />
+      </<%= prefix.className %>Stack>
+    </<%= prefix.className %>Container>
+  )
+}

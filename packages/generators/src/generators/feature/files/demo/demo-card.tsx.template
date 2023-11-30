@@ -1,0 +1,15 @@
+import { Card, Text } from '@mantine/core'
+import { <%= prefix.className %>Group, <%= prefix.className %>Stack } from '@pubkey-ui/core'
+
+export function DemoCard({ children, title }: { children: React.ReactNode; title: string }) {
+  return (
+    <Card>
+      <<%= prefix.className %>Group justify="space-between" mb="md">
+        <Text size="lg" fw={700}>
+          {title}
+        </Text>
+      </<%= prefix.className %>Group>
+      <<%= prefix.className %>Stack>{children}</<%= prefix.className %>Stack>
+    </Card>
+  )
+}

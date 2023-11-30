@@ -1,0 +1,16 @@
+import { SimpleGrid } from '@mantine/core'
+import { <%= prefix.className %>Debug, <%= prefix.className %>DebugModal } from '@pubkey-ui/core'
+import { DemoCard } from './demo-card'
+
+export function DemoFeatureDebug() {
+  return (
+    <DemoCard title="Debug">
+      <SimpleGrid cols={2}>
+        <<%= prefix.className %>Debug data={{ foo: 'bar' }} open hideButton />
+        <<%= prefix.className %>Debug data={{ foo: 'bar' }} />
+        <<%= prefix.className %>Debug data={{ foo: 'bar' }} open />
+        <<%= prefix.className %>DebugModal data={{ foo: 'bar' }} />
+      </SimpleGrid>
+    </DemoCard>
+  )
+}

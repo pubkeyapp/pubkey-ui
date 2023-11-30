@@ -3,6 +3,7 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
+    "generate-demo": "nx g @pubkey-ui/generators:feature --directory apps/web/src/app/features --type demo",
     "generate-core-components": "nx g @pubkey-ui/generators:components --directory packages/core/src/lib --prefix ui",
     "sync-schemas": "ts-node ./tools/scripts/sync-schemas.ts"
   },

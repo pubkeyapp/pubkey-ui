@@ -1,29 +1,29 @@
 import { Button, SimpleGrid } from '@mantine/core'
-import { UiGroup } from '@pubkey-ui/core'
+import { <%= prefix.className %>Group } from '@pubkey-ui/core'
 import { DemoCard } from './demo-card'
 
 export function DemoFeatureGroup() {
   return (
     <DemoCard title="Group">
       <SimpleGrid cols={2}>
-        <UiGroup justify="space-between">
+        <<%= prefix.className %>Group justify="space-between">
           <Button>Save</Button> <Button variant="default">Cancel</Button>
-        </UiGroup>
-        <UiGroup gap="xs">
+        </<%= prefix.className %>Group>
+        <<%= prefix.className %>Group gap="xs">
           <Button>Save</Button> <Button variant="default">Cancel</Button>
-        </UiGroup>
-        <UiGroup gap="sm">
+        </<%= prefix.className %>Group>
+        <<%= prefix.className %>Group gap="sm">
           <Button>Save</Button> <Button variant="default">Cancel</Button>
-        </UiGroup>
-        <UiGroup gap="md">
+        </<%= prefix.className %>Group>
+        <<%= prefix.className %>Group gap="md">
           <Button>Save</Button> <Button variant="default">Cancel</Button>
-        </UiGroup>
-        <UiGroup gap="lg">
+        </<%= prefix.className %>Group>
+        <<%= prefix.className %>Group gap="lg">
           <Button>Save</Button> <Button variant="default">Cancel</Button>
-        </UiGroup>
-        <UiGroup gap="xl">
+        </<%= prefix.className %>Group>
+        <<%= prefix.className %>Group gap="xl">
           <Button>Save</Button> <Button variant="default">Cancel</Button>
-        </UiGroup>
+        </<%= prefix.className %>Group>
       </SimpleGrid>
     </DemoCard>
   )

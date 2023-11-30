@@ -1,29 +1,29 @@
 import { Button, SimpleGrid } from '@mantine/core'
-import { UiStack } from '@pubkey-ui/core'
+import { <%= prefix.className %>Stack } from '@pubkey-ui/core'
 import { DemoCard } from './demo-card'
 
 export function DemoFeatureStack() {
   return (
     <DemoCard title="Stack">
       <SimpleGrid cols={2}>
-        <UiStack justify="space-between">
+        <<%= prefix.className %>Stack justify="space-between">
           <Button>Save</Button> <Button variant="default">Cancel</Button>
-        </UiStack>
-        <UiStack gap="xs">
+        </<%= prefix.className %>Stack>
+        <<%= prefix.className %>Stack gap="xs">
           <Button>Save</Button> <Button variant="default">Cancel</Button>
-        </UiStack>
-        <UiStack gap="sm">
+        </<%= prefix.className %>Stack>
+        <<%= prefix.className %>Stack gap="sm">
           <Button>Save</Button> <Button variant="default">Cancel</Button>
-        </UiStack>
-        <UiStack gap="md">
+        </<%= prefix.className %>Stack>
+        <<%= prefix.className %>Stack gap="md">
           <Button>Save</Button> <Button variant="default">Cancel</Button>
-        </UiStack>
-        <UiStack gap="lg">
+        </<%= prefix.className %>Stack>
+        <<%= prefix.className %>Stack gap="lg">
           <Button>Save</Button> <Button variant="default">Cancel</Button>
-        </UiStack>
-        <UiStack gap="xl">
+        </<%= prefix.className %>Stack>
+        <<%= prefix.className %>Stack gap="xl">
           <Button>Save</Button> <Button variant="default">Cancel</Button>
-        </UiStack>
+        </<%= prefix.className %>Stack>
       </SimpleGrid>
     </DemoCard>
   )
