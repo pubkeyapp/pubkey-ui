@@ -1,10 +1,16 @@
 import { Container, ContainerProps } from '@mantine/core'
 import { ReactNode } from 'react'
+import { use<%= prefix.className %>Breakpoints } from '../<%= prefix.fileName %>-theme'
 
 export interface <%= prefix.className %>ContainerProps extends ContainerProps {
   children: ReactNode
 }
 
 export function <%= prefix.className %>Container({ children, ...props }: <%= prefix.className %>ContainerProps) {
-  return <Container {...props}>{children}</Container>
+  const { isSm } = use<%= prefix.className %>Breakpoints()
+  return (
+    <Container fluid={isSm} size="xl" px={isSm ? 'xs' : undefined} py={isSm ? 'xs' : 'md'} {...props}>
+      {children}
+    </Container>
+  )
 }

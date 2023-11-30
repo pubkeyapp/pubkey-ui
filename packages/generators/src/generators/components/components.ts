@@ -2,10 +2,13 @@ import { ComponentGeneratorSchema } from '../component/component-generator-schem
 
 export const components: ComponentGeneratorSchema['type'][] = [
   'alert',
+  'card',
   'container',
   'copy',
   'debug',
   'group',
+  'search-input',
   'stack',
+  'time',
   'theme',
 ]

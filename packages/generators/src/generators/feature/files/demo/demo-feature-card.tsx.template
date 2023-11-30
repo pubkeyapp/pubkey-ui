@@ -1,0 +1,11 @@
+import { <%= prefix.className %>Card, <%= prefix.className %>Stack } from '@pubkey-ui/core'
+
+export function DemoFeatureCard() {
+  return (
+    <<%= prefix.className %>Stack>
+      <<%= prefix.className %>Card withBorder title="Card" shadow="lg">
+        CARD CONTENT
+      </<%= prefix.className %>Card>
+    </<%= prefix.className %>Stack>
+  )
+}

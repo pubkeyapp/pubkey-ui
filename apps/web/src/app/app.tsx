@@ -1,10 +1,11 @@
-import { UiTheme } from '@pubkey-ui/core'
-import { DemoFeature } from './features'
+import { AppLayout } from './app-layout'
+
+import { AppRoutes } from './app-routes'
 
 export function App() {
   return (
-    <UiTheme>
-      <DemoFeature />
-    </UiTheme>
+    <AppLayout>
+      <AppRoutes />
+    </AppLayout>
   )
 }

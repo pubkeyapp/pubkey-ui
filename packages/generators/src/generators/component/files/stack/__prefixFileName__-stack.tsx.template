@@ -1,10 +1,16 @@
 import { Stack, StackProps } from '@mantine/core'
 import { ReactNode } from 'react'
+import { use<%= prefix.className %>Breakpoints } from '../<%= prefixFileName %>-theme'
 
 export interface <%= prefix.className %>StackProps extends StackProps {
   children: ReactNode
 }
 
 export function <%= prefix.className %>Stack({ children, ...props }: <%= prefix.className %>StackProps) {
-  return <Stack {...props}>{children}</Stack>
+  const { isSm } = use<%= prefix.className %>Breakpoints()
+  return (
+    <Stack gap={isSm ? 'xs' : 'md'} {...props}>
+      {children}
+    </Stack>
+  )
 }

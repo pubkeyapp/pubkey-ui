@@ -1,0 +1,23 @@
+import { Box, Card, CardProps, Skeleton } from '@mantine/core'
+import { use<%= prefix.className %>Breakpoints } from '../<%= prefix.fileName %>-theme'
+import { ReactNode } from 'react'
+import { <%= prefix.className %>CardTitle } from './<%= prefix.fileName %>-card-title'
+
+interface <%= prefix.className %>CardProps extends CardProps {
+  children: ReactNode
+  loading?: boolean
+  title?: ReactNode
+}
+
+export function <%= prefix.className %>Card({ loading, title, ...props }: <%= prefix.className %>CardProps) {
+  const { isSm } = use<%= prefix.className %>Breakpoints()
+
+  return (
+    <Card p={isSm ? 'xs' : 'md'} {...props}>
+      {title ? (
+        <Box mb={isSm ? 'xs' : 'md'}>{typeof title === 'string' ? <<%= prefix.className %>CardTitle>{title}</<%= prefix.className %>CardTitle> : title}</Box>
+      ) : null}
+     {loading ? <Skeleton visible={loading}>{props.children}</Skeleton> : props.children}
+    </Card>
+  )
+}

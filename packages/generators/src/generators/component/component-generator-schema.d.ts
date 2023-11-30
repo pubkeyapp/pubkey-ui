@@ -13,7 +13,7 @@ export interface ComponentGeneratorSchema {
   /**
    * The type of component to create
    */
-  type: 'alert' | 'container' | 'copy' | 'debug' | 'group' | 'stack' | 'theme'
+  type: 'alert' | 'card' | 'container' | 'copy' | 'debug' | 'group' | 'search-input' | 'stack' | 'time' | 'theme'
   /**
    * The prefix to use for the component
    */

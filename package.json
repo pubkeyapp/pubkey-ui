@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
-    "generate-demo": "nx g @pubkey-ui/generators:feature --directory apps/web/src/app/features --type demo",
+    "generate-features": "nx g @pubkey-ui/generators:features --directory apps/web/src/app/features",
     "generate-core-components": "nx g @pubkey-ui/generators:components --directory packages/core/src/lib --prefix ui",
     "sync-schemas": "ts-node ./tools/scripts/sync-schemas.ts"
   },
@@ -23,6 +23,8 @@
     "dayjs": "^1.11.10",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "react-router-dom": "^6.20.0",
+    "timeago-react": "^3.0.6",
     "tslib": "^2.3.0"
   },
   "devDependencies": {

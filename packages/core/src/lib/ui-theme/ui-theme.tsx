@@ -1,17 +1,11 @@
-import { createTheme, DEFAULT_THEME, Loader, MantineProvider } from '@mantine/core'
-import { ReactNode, Suspense } from 'react'
-import { Notifications } from '@mantine/notifications'
+import { ColorSchemeScript, createTheme, DEFAULT_THEME, Loader, MantineProvider } from '@mantine/core'
 import { ModalsProvider } from '@mantine/modals'
+import { Notifications } from '@mantine/notifications'
+import { ReactNode, Suspense } from 'react'
+import { UiColorSchemeProvider } from './ui-color-scheme-provider'
 
-// Core styles
-import '@mantine/core/styles.css'
-// Package styles
-import '@mantine/dates/styles.css'
-import '@mantine/notifications/styles.css'
-
-export interface UiThemeProps {
-  children: ReactNode
-}
+// Import the mantine theme styles
+import './ui-theme-styles'
 
 const theme = createTheme({
   colors: {
@@ -20,13 +14,18 @@ const theme = createTheme({
   primaryColor: 'brand',
 })
 
-export function UiTheme({ children }: UiThemeProps) {
+export function UiTheme({ children }: { children: ReactNode }) {
   return (
-    <MantineProvider theme={theme} defaultColorScheme="dark">
-      <ModalsProvider>
-        <Notifications />
-        <Suspense fallback={<Loader />}>{children}</Suspense>
-      </ModalsProvider>
-    </MantineProvider>
+    <>
+      <ColorSchemeScript defaultColorScheme="auto" />
+      <MantineProvider theme={theme} defaultColorScheme="auto">
+        <UiColorSchemeProvider>
+          <ModalsProvider>
+            <Notifications />
+            <Suspense fallback={<Loader />}>{children}</Suspense>
+          </ModalsProvider>
+        </UiColorSchemeProvider>
+      </MantineProvider>
+    </>
   )
 }

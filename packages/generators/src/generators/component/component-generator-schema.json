@@ -15,7 +15,7 @@
     "type": {
       "type": "string",
       "description": "The type of component to create",
-      "enum": ["alert", "container", "copy", "debug", "group", "stack", "theme"],
+      "enum": ["alert", "card", "container", "copy", "debug", "group", "search-input", "stack", "time", "theme"],
       "x-prompt": "What type of component do you want to create?"
     },
     "prefix": {

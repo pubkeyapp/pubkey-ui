@@ -1,0 +1,18 @@
+import { Text, TextProps } from '@mantine/core'
+import TimeAgo from 'timeago-react'
+
+export interface <%= prefix.className %>TimeProps extends TextProps {
+date: Date
+prefix?: string
+suffix?: string
+}
+
+export function <%= prefix.className %>Time({ date, prefix, suffix, ...props }: <%= prefix.className %>TimeProps) {
+return (
+<Text {...props} title={date.toISOString()}>
+    {prefix}
+    <TimeAgo datetime={date} locale="en_US" />
+    {suffix}
+</Text>
+)
+}

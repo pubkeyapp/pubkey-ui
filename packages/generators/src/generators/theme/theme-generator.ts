@@ -29,6 +29,7 @@ export async function themeGenerator(tree: Tree, options: ThemeGeneratorSchema) 
       '@mantine/notifications': '^7.2.2',
       '@tabler/icons-react': '^2.42.0',
       dayjs: '^1.11.10',
+      'timeago-react': '^3.0.6',
     },
     {
       postcss: '^8.4.31',

@@ -1,32 +1,31 @@
-import { createTheme, DEFAULT_THEME, Loader, MantineProvider } from '@mantine/core'
-import { ReactNode, Suspense } from 'react'
-import { Notifications } from '@mantine/notifications'
+import { ColorSchemeScript, createTheme, DEFAULT_THEME, Loader, MantineProvider } from '@mantine/core'
 import { ModalsProvider } from '@mantine/modals'
+import { Notifications } from '@mantine/notifications'
+import { ReactNode, Suspense } from 'react'
+import { <%= prefix.className %>ColorSchemeProvider } from './<%= prefix.fileName %>-color-scheme-provider'
 
-// Core styles
-import '@mantine/core/styles.css'
-// Package styles
-import '@mantine/dates/styles.css'
-import '@mantine/notifications/styles.css'
-
-export interface <%= prefix.className %>ThemeProps {
-  children: ReactNode
-}
+// Import the mantine theme styles
+import './<%= prefix.fileName %>-theme-styles'
 
 const theme = createTheme({
-  colors: {
+    colors: {
     brand: DEFAULT_THEME.colors.blue,
   },
   primaryColor: 'brand',
 })
 
-export function <%= prefix.className %>Theme({ children }: <%= prefix.className %>ThemeProps) {
+export function <%= prefix.className %>Theme({ children }: { children: ReactNode }) {
   return (
-    <MantineProvider theme={theme} defaultColorScheme="dark">
-      <ModalsProvider>
-        <Notifications />
-        <Suspense fallback={<Loader />}>{children}</Suspense>
-      </ModalsProvider>
-    </MantineProvider>
+    <>
+      <ColorSchemeScript defaultColorScheme="auto" />
+      <MantineProvider theme={theme} defaultColorScheme="auto">
+        <<%= prefix.className %>ColorSchemeProvider>
+          <ModalsProvider>
+            <Notifications />
+            <Suspense fallback={<Loader />}>{children}</Suspense>
+          </ModalsProvider>
+        </<%= prefix.className %>ColorSchemeProvider>
+      </MantineProvider>
+    </>
   )
 }
