@@ -13,5 +13,5 @@ export interface ComponentsGeneratorSchema {
   /**
    * The prefix to use for the component
    */
-  prefix: string
+  prefix?: string
 }

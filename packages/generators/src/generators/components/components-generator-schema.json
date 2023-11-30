@@ -14,8 +14,9 @@
     },
     "prefix": {
       "type": "string",
-      "description": "The prefix to use for the component"
+      "description": "The prefix to use for the component",
+      "default": "ui"
     }
   },
-  "required": ["directory", "prefix"]
+  "required": ["directory"]
 }

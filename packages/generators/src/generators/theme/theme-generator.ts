@@ -3,7 +3,7 @@ import * as path from 'path'
 import { join } from 'path'
 import { applicationCleanup } from '../../'
 import componentsGenerator from '../components/components-generator'
-import { ThemeGeneratorSchema } from './schema'
+import { ThemeGeneratorSchema } from './theme-generator-schema'
 
 export async function themeGenerator(tree: Tree, options: ThemeGeneratorSchema) {
   applicationCleanup(tree, options.directory, [

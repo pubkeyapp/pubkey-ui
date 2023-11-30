@@ -1,8 +1,8 @@
 import { Tree } from '@nx/devkit'
 import { createTreeWithEmptyWorkspace } from '@nx/devkit/testing'
 import { getRecursiveFileContents } from '../../'
-import { themeGenerator } from './generator'
-import { ThemeGeneratorSchema } from './schema'
+import { themeGenerator } from './theme-generator'
+import { ThemeGeneratorSchema } from './theme-generator-schema'
 
 describe('theme generator', () => {
   let tree: Tree

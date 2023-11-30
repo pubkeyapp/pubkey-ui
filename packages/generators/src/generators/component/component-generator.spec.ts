@@ -1,10 +1,10 @@
 import { Tree } from '@nx/devkit'
 import { createTreeWithEmptyWorkspace } from '@nx/devkit/testing'
 import { getRecursiveFileContents } from '../../'
-import { components } from './components'
+import { components } from '../components/components'
 
-import { componentGenerator } from './generator'
-import { ComponentGeneratorSchema } from './schema'
+import { componentGenerator } from './component-generator'
+import { ComponentGeneratorSchema } from './component-generator-schema'
 
 describe('component generator', () => {
   let tree: Tree
