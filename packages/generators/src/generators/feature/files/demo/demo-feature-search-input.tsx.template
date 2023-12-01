@@ -1,5 +1,5 @@
 import { SimpleGrid } from '@mantine/core'
-import { <%= prefix.className %>Card, <%= prefix.className %>Group, <%= prefix.className %>SearchInput } from '@pubkey-ui/core'
+import { <%= prefix.className %>Card, <%= prefix.className %>Group, <%= prefix.className %>SearchInput } from '<%= uiImport %>'
 
 export function DemoFeatureSearchInput() {
   return (

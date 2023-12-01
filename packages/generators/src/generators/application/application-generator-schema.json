@@ -1,0 +1,39 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "$id": "ApplicationGeneratorSchema",
+  "title": "",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Name of the application",
+      "$default": {
+        "$source": "argv",
+        "index": 0
+      },
+      "x-prompt": "What name would you like to use?"
+    },
+    "webName": {
+      "type": "string",
+      "description": "Name of the web application (overrides name)"
+    },
+    "skipFormat": {
+      "description": "Skip formatting files",
+      "type": "boolean",
+      "default": false,
+      "x-priority": "internal"
+    },
+    "anchor": {
+      "type": "string",
+      "description": "Anchor template to use",
+      "enum": ["none", "counter", "hello-world"],
+      "default": "counter"
+    },
+    "anchorName": {
+      "type": "string",
+      "description": "Anchor project name",
+      "default": "anchor"
+    }
+  },
+  "required": ["name"]
+}

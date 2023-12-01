@@ -1,4 +1,4 @@
-import { <%= prefix.className %>Container, <%= prefix.className %>Stack } from '@pubkey-ui/core'
+import { <%= prefix.className %>Container, <%= prefix.className %>Stack } from '<%= uiImport %>'
 import { DemoFeatureAlerts } from './demo-feature-alerts'
 import { DemoFeatureCard } from './demo-feature-card'
 import { DemoFeatureCopy } from './demo-feature-copy'

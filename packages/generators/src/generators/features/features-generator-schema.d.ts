@@ -14,4 +14,8 @@ export interface FeaturesGeneratorSchema {
    * The prefix to use for the component
    */
   prefix?: string
+  /**
+   * The import path to the UI components
+   */
+  uiImport?: string
 }

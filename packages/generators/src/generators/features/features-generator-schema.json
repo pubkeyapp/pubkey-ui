@@ -16,6 +16,11 @@
       "type": "string",
       "description": "The prefix to use for the component",
       "default": "ui"
+    },
+    "uiImport": {
+      "type": "string",
+      "description": "The import path to the UI components",
+      "default": "@pubkey-ui/core"
     }
   },
   "required": ["directory"]

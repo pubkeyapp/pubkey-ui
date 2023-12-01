@@ -1,0 +1,38 @@
+{
+  "name": "create-pubkey-ui-app",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "packages/create-pubkey-ui-app/bin",
+  "projectType": "library",
+  "targets": {
+    "build": {
+      "executor": "@nx/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/packages/create-pubkey-ui-app",
+        "main": "packages/create-pubkey-ui-app/bin/index.ts",
+        "tsConfig": "packages/create-pubkey-ui-app/tsconfig.lib.json",
+        "assets": ["packages/create-pubkey-ui-app/*.md"]
+      }
+    },
+    "publish": {
+      "command": "node tools/scripts/publish.mjs create-pubkey-ui-app {args.ver} {args.tag}",
+      "dependsOn": ["build"]
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["packages/create-pubkey-ui-app/**/*.ts", "packages/create-pubkey-ui-app/package.json"]
+      }
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "packages/create-pubkey-ui-app/jest.config.ts"
+      }
+    }
+  },
+  "tags": [],
+  "implicitDependencies": ["generators"]
+}

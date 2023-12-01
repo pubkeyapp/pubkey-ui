@@ -1,9 +1,13 @@
-import { UiThemeProvider } from './ui/ui-theme'
+import { UiThemeProvider } from './ui/'
+import { AppLayout } from './app-layout'
+import { AppRoutes, ThemeLink } from './app-routes'
 
 export function App() {
   return (
-    <UiThemeProvider>
-      <div>Welcome <%= directory %></div>
+    <UiThemeProvider link={ThemeLink}>
+      <AppLayout>
+        <AppRoutes />
+      </AppLayout>
     </UiThemeProvider>
   )
 }

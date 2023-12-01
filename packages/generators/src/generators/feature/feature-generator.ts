@@ -13,6 +13,9 @@ export async function featureGenerator(tree: Tree, options: FeatureGeneratorSche
       tree,
       name: options.type,
       prefix: options.prefix,
+      options: {
+        uiImport: options.uiImport ?? '@pubkey-ui/core',
+      },
     }),
   )
 

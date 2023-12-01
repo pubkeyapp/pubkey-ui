@@ -13,6 +13,7 @@ export async function featuresGenerator(tree: Tree, options: FeaturesGeneratorSc
       directory: join(options.directory, target),
       prefix,
       type,
+      uiImport: options.uiImport ?? '@pubkey-ui/core',
     })
     exports.push(`export * from './${target}/${type}-feature'`)
   }

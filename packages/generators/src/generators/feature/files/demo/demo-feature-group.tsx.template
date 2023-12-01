@@ -1,5 +1,5 @@
 import { Button, SimpleGrid } from '@mantine/core'
-import { <%= prefix.className %>Card, <%= prefix.className %>Group } from '@pubkey-ui/core'
+import { <%= prefix.className %>Card, <%= prefix.className %>Group } from '<%= uiImport %>'
 
 export function DemoFeatureGroup() {
   return (

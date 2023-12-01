@@ -1,5 +1,5 @@
 import { Button, SimpleGrid } from '@mantine/core'
-import { <%= prefix.className %>Card, toastError, toastInfo, toastSuccess, toastWarning } from '@pubkey-ui/core'
+import { <%= prefix.className %>Card, toastError, toastInfo, toastSuccess, toastWarning } from '<%= uiImport %>'
 
 export function DemoFeatureToast() {
   return (

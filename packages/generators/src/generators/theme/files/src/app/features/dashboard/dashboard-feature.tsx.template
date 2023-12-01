@@ -1,0 +1,11 @@
+import { UiCard, UiContainer } from '../../ui'
+
+export function DashboardFeature() {
+  return (
+    <UiContainer>
+      <UiCard title="Dashboard">
+        <div>GM</div>
+      </UiCard>
+    </UiContainer>
+  )
+}

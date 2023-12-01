@@ -1,5 +1,5 @@
 import { SimpleGrid } from '@mantine/core'
-import { <%= prefix.className %>Card, <%= prefix.className %>Alert, <%= prefix.className %>Error, <%= prefix.className %>Info, <%= prefix.className %>Success, <%= prefix.className %>Warning } from '@pubkey-ui/core'
+import { <%= prefix.className %>Card, <%= prefix.className %>Alert, <%= prefix.className %>Error, <%= prefix.className %>Info, <%= prefix.className %>Success, <%= prefix.className %>Warning } from '<%= uiImport %>'
 
 export function DemoFeatureAlerts() {
   return (

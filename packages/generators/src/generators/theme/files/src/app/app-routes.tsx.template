@@ -1,0 +1,16 @@
+import { UiThemeLink } from './ui/'
+import { Link, Navigate, RouteObject, useRoutes } from 'react-router-dom'
+import { DemoFeature } from './features'
+import { DashboardFeature } from './features/dashboard/dashboard-feature'
+
+const routes: RouteObject[] = [
+  { path: '/', element: <Navigate to="/dashboard" replace /> },
+  { path: '/dashboard', element: <DashboardFeature /> },
+  { path: '/demo/*', element: <DemoFeature /> },
+]
+
+export function AppRoutes() {
+  return useRoutes(routes)
+}
+
+export const ThemeLink: UiThemeLink = ({ children, ...props }) => <Link {...props}>{children}</Link>

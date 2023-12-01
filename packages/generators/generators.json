@@ -1,5 +1,11 @@
 {
   "generators": {
+    "application": {
+      "factory": "./src/generators/application/application-generator",
+      "schema": "./src/generators/application/application-generator-schema.json",
+      "description": "application generator",
+      "aliases": ["preset"]
+    },
     "component": {
       "factory": "./src/generators/component/component-generator",
       "schema": "./src/generators/component/component-generator-schema.json",
@@ -10,11 +16,6 @@
       "schema": "./src/generators/components/components-generator-schema.json",
       "description": "components generator"
     },
-    "theme": {
-      "factory": "./src/generators/theme/theme-generator",
-      "schema": "./src/generators/theme/theme-generator-schema.json",
-      "description": "theme generator"
-    },
     "feature": {
       "factory": "./src/generators/feature/feature-generator",
       "schema": "./src/generators/feature/feature-generator-schema.json",
@@ -24,6 +25,11 @@
       "factory": "./src/generators/features/features-generator",
       "schema": "./src/generators/features/features-generator-schema.json",
       "description": "features generator"
+    },
+    "theme": {
+      "factory": "./src/generators/theme/theme-generator",
+      "schema": "./src/generators/theme/theme-generator-schema.json",
+      "description": "theme generator"
     }
   }
 }

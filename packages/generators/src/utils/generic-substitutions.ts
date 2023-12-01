@@ -6,12 +6,14 @@ export interface GenericSubstitutions {
   name: string
   prefix?: string
   user?: string
+  options?: Record<string, string>
 }
 export function genericSubstitutions({
   tree,
   name,
   prefix,
   user = process.env['USER'] ?? 'anon',
+  options = {},
 }: GenericSubstitutions) {
   const npmScope = getNpmScope(tree)
   const prefixNames = names(prefix ?? 'ui')
@@ -21,5 +23,6 @@ export function genericSubstitutions({
     prefixFileName: prefixNames.fileName,
     prefix: prefixNames,
     user,
+    ...options,
   }
 }
