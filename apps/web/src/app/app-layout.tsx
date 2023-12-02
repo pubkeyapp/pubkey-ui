@@ -1,57 +1,56 @@
-import { ActionIcon, Anchor, Box, Card, Group } from '@mantine/core'
-import { UiContainer, UiLogoType, useUiColorScheme, useUiTheme } from '@pubkey-ui/core'
-import { IconMoon, IconSun } from '@tabler/icons-react'
+import { Avatar, Group, rem } from '@mantine/core'
+import { UiHeader, UiLayout, UiMenu, UiThemeSwitch } from '@pubkey-ui/core'
+import { IconSettings, IconUser, IconUserCog } from '@tabler/icons-react'
 import { ReactNode } from 'react'
 import { AccountChecker } from './features/account/account-ui'
-import { ClusterChecker, ClusterUiSelect } from './features/cluster/cluster-ui'
+import { ClusterChecker } from './features/cluster/cluster-ui'
 
 export function AppLayout({ children }: { children: ReactNode }) {
-  const { Link } = useUiTheme()
   return (
-    <Box>
-      <Card p="0" display="block">
-        <UiContainer py="sm">
-          <Group justify="space-between">
-            <Group align="center">
-              <Anchor component={Link} to="/" display="flex">
-                <UiLogoType height={32} />
-              </Anchor>
-              <Anchor component={Link} to="/dashboard">
-                Dashboard
-              </Anchor>
-              <Anchor component={Link} to="/account">
-                Account
-              </Anchor>
-              <Anchor component={Link} to="/demo">
-                Demo
-              </Anchor>
-              <Anchor component={Link} to="/dev">
-                Dev
-              </Anchor>
-            </Group>
+    <UiLayout
+      header={
+        <UiHeader
+          links={[
+            { label: 'Dashboard', link: '/dashboard' },
+            { label: 'Account', link: '/account' },
+            { label: 'Demo', link: '/demo' },
+            { label: 'Dev', link: '/dev' },
+          ]}
+          profile={
             <Group>
-              <ClusterUiSelect />
-              <ThemeToggle />
+              <UiThemeSwitch />
+              <UiMenu
+                position="bottom-end"
+                withArrow
+                arrowOffset={14}
+                icon={
+                  <Avatar src="https://avatars.githubusercontent.com/u/36491?v=4" size={32}>
+                    <IconUser />
+                  </Avatar>
+                }
+                items={[
+                  { label: 'Account', type: 'label' },
+                  {
+                    label: 'Settings',
+                    type: 'item',
+                    leftSection: <IconSettings style={{ width: rem(14), height: rem(14) }} />,
+                  },
+                  {
+                    label: 'Profile',
+                    type: 'item',
+                    leftSection: <IconUserCog style={{ width: rem(14), height: rem(14) }} />,
+                  },
+                ]}
+              />
             </Group>
-          </Group>
-        </UiContainer>
-      </Card>
+          }
+        />
+      }
+    >
       <ClusterChecker>
         <AccountChecker />
       </ClusterChecker>
       {children}
-    </Box>
-  )
-}
-
-function ThemeToggle() {
-  const { toggleColorScheme, colorScheme } = useUiColorScheme()
-
-  return (
-    <Group justify="center">
-      <ActionIcon onClick={() => toggleColorScheme()} variant="default" size="xl" aria-label="Toggle color scheme">
-        {colorScheme === 'dark' ? <IconSun stroke={1.5} /> : <IconMoon stroke={1.5} />}
-      </ActionIcon>
-    </Group>
+    </UiLayout>
   )
 }

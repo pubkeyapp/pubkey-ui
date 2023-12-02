@@ -1,13 +1,40 @@
 import { SimpleGrid } from '@mantine/core'
-import { <%= prefix.className %>Card, <%= prefix.className %>LogoType, <%= prefix.className %>LogoTypeBlack, <%= prefix.className %>LogoTypeWhite } from '<%= uiImport %>'
+import {
+  <%= prefix.className %>Card,
+  <%= prefix.className %>Group,
+  <%= prefix.className %>Logo,
+  <%= prefix.className %>LogoType,
+  <%= prefix.className %>LogoTypeBlack,
+  <%= prefix.className %>LogoTypeWhite,
+  <%= prefix.className %>Stack,
+  <%= prefix.className %>ThemeSwitch,
+} from '<%= uiImport %>'
 
 export function DemoFeatureLogo() {
   return (
-    <<%= prefix.className %>Card title="Logo">
+    <<%= prefix.className %>Card title="Logo and LogoType">
       <SimpleGrid cols={2}>
-        <<%= prefix.className %>LogoType height={64} />
-        <<%= prefix.className %>LogoTypeBlack height={64} />
-        <<%= prefix.className %>LogoTypeWhite height={64} />
+        <<%= prefix.className %>Stack align="center">
+          <<%= prefix.className %>Logo height={64} />
+        </<%= prefix.className %>Stack>
+        <<%= prefix.className %>Stack align="center">
+          <<%= prefix.className %>Logo height={128} />
+        </<%= prefix.className %>Stack>
+        <<%= prefix.className %>Stack align="center">
+          <<%= prefix.className %>LogoTypeBlack height={64} />
+        </<%= prefix.className %>Stack>
+        <<%= prefix.className %>Stack align="center">
+          <<%= prefix.className %>LogoTypeWhite height={64} />
+        </<%= prefix.className %>Stack>
+        <<%= prefix.className %>Stack align="center">
+          <<%= prefix.className %>LogoType height={64} />
+        </<%= prefix.className %>Stack>
+        <<%= prefix.className %>Group>
+          <<%= prefix.className %>Stack align="center">
+            <span>Toggle the theme to see the logo change color.</span>
+            <<%= prefix.className %>ThemeSwitch />
+          </<%= prefix.className %>Stack>
+        </<%= prefix.className %>Group>
       </SimpleGrid>
     </<%= prefix.className %>Card>
   )

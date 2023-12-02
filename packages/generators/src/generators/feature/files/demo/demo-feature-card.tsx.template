@@ -3,6 +3,7 @@ import { <%= prefix.className %>Card, <%= prefix.className %>Stack } from '<%= u
 export function DemoFeatureCard() {
   return (
     <<%= prefix.className %>Stack>
+      <<%= prefix.className %>Card title="Default Card">CARD CONTENT</<%= prefix.className %>Card>
       <<%= prefix.className %>Card withBorder title="Card" shadow="lg">
         CARD CONTENT
       </<%= prefix.className %>Card>

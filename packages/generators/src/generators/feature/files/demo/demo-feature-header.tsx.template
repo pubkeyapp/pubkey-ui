@@ -1,0 +1,136 @@
+import { ActionIcon, Avatar, Button, Group, rem, Text } from '@mantine/core'
+import { useDisclosure } from '@mantine/hooks'
+import { <%= prefix.className %>Card, <%= prefix.className %>Header, <%= prefix.className %>Menu, <%= prefix.className %>SearchInput, <%= prefix.className %>Stack } from '<%= uiImport %>'
+import {
+  IconDoorExit,
+  IconLetterP,
+  IconMessageCircle,
+  IconPhoto,
+  IconSearch,
+  IconSettings,
+  IconUser,
+  IconUserCog,
+} from '@tabler/icons-react'
+import { useState } from 'react'
+import { Route, Routes } from 'react-router-dom'
+
+export function DemoFeatureHeader() {
+  const [opened, { toggle }] = useDisclosure(false)
+  const [signedIn, setSignedIn] = useState(false)
+  return (
+    <<%= prefix.className %>Card title="Header">
+      <<%= prefix.className %>Stack gap="xl">
+        <<%= prefix.className %>Header
+          base="/demo/header"
+          opened={opened}
+          toggle={toggle}
+          links={[
+            { link: '/demo/header/about', label: 'Features' },
+            { link: '/demo/header/pricing', label: 'Pricing' },
+            { link: '/demo/header/learn', label: 'Learn' },
+          ]}
+          profile={<<%= prefix.className %>SearchInput text={{ size: 'sm' }} />}
+        />
+        <<%= prefix.className %>Header
+          profile={
+            <ActionIcon radius="xl" size="lg" variant="light">
+              <IconSearch style={{ width: rem(16), height: rem(16) }} stroke={1.5} />
+            </ActionIcon>
+          }
+        />
+        <<%= prefix.className %>Header
+          base="/demo/header"
+          logo={
+            <Group gap={6}>
+              <IconLetterP size={28} />
+              <Text size="xl" fw="bold">
+                PubKey
+              </Text>
+            </Group>
+          }
+          logoSmall={<IconLetterP size={28} />}
+        />
+        <<%= prefix.className %>Header
+          profile={
+            <Group gap="xs">
+              {signedIn ? (
+                <<%= prefix.className %>Menu
+                  position="bottom-end"
+                  withArrow
+                  arrowOffset={14}
+                  icon={
+                    <Avatar src="https://avatars.githubusercontent.com/u/36491?v=4" size={32}>
+                      <IconUser />
+                    </Avatar>
+                  }
+                  items={[
+                    { label: 'Application', type: 'label' },
+                    {
+                      label: 'Settings',
+                      type: 'item',
+                      leftSection: <IconSettings style={{ width: rem(14), height: rem(14) }} />,
+                    },
+                    {
+                      label: 'Messages',
+                      type: 'item',
+                      leftSection: <IconMessageCircle style={{ width: rem(14), height: rem(14) }} />,
+                    },
+                    {
+                      label: 'Gallery',
+                      type: 'item',
+                      leftSection: <IconPhoto style={{ width: rem(14), height: rem(14) }} />,
+                    },
+                    {
+                      label: 'Search',
+                      type: 'item',
+                      leftSection: <IconSearch style={{ width: rem(14), height: rem(14) }} />,
+                      rightSection: (
+                        <Text size="xs" c="dimmed">
+                          ⌘K
+                        </Text>
+                      ),
+                    },
+                    {
+                      label: 'Account',
+                      type: 'label',
+                    },
+                    {
+                      label: 'Profile',
+                      type: 'item',
+                      leftSection: <IconUserCog style={{ width: rem(14), height: rem(14) }} />,
+                    },
+                    {
+                      label: 'Sign out',
+                      type: 'item',
+                      leftSection: <IconDoorExit style={{ width: rem(14), height: rem(14) }} />,
+                      onClick: () => setSignedIn(false),
+                    },
+                  ]}
+                />
+              ) : (
+                <Button size="sm" variant="light" onClick={() => setSignedIn(true)}>
+                  Sign in
+                </Button>
+              )}
+            </Group>
+          }
+        />
+        <<%= prefix.className %>Stack hiddenFrom="md">
+          {opened ? (
+            <Button onClick={toggle}>Close menu</Button>
+          ) : (
+            <Button variant="light" onClick={toggle}>
+              Open menu
+            </Button>
+          )}
+        </<%= prefix.className %>Stack>
+
+        <Routes>
+          <Route path="about" element={<div>About</div>} />
+          <Route path="pricing" element={<div>Pricing</div>} />
+          <Route path="learn" element={<div>Learn</div>} />
+        </Routes>
+      </<%= prefix.className %>Stack>
+    </<%= prefix.className %>Card>
+  )
+}

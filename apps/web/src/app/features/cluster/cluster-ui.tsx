@@ -59,6 +59,10 @@ export function ClusterChecker({ children }: { children: ReactNode }) {
   if (query.isError || !query.data) {
     return (
       <UiWarning
+        styles={{
+          root: { display: 'flex', justifyContent: 'center' },
+          title: { justifyContent: 'center' },
+        }}
         title="Error connecting to cluster"
         icon={<IconNetworkOff />}
         message={

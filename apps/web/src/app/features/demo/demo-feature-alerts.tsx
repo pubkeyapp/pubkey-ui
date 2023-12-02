@@ -1,5 +1,5 @@
 import { SimpleGrid } from '@mantine/core'
-import { UiCard, UiAlert, UiError, UiInfo, UiSuccess, UiWarning } from '@pubkey-ui/core'
+import { UiAlert, UiCard, UiError, UiInfo, UiSuccess, UiWarning } from '@pubkey-ui/core'
 
 export function DemoFeatureAlerts() {
   return (

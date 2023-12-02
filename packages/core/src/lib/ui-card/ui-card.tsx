@@ -13,7 +13,7 @@ export function UiCard({ loading, title, ...props }: UiCardProps) {
   const { isSm } = useUiBreakpoints()
 
   return (
-    <Card p={isSm ? 'xs' : 'md'} {...props}>
+    <Card p={isSm ? 'xs' : 'md'} withBorder {...props}>
       {title ? (
         <Box mb={isSm ? 'xs' : 'md'}>{typeof title === 'string' ? <UiCardTitle>{title}</UiCardTitle> : title}</Box>
       ) : null}

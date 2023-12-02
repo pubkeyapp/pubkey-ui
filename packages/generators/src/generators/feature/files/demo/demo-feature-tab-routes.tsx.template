@@ -3,9 +3,9 @@ import { <%= prefix.className %>Card, <%= prefix.className %>TabRoutes } from '<
 
 export function DemoFeatureTabRoutes() {
   return (
-    <<%= prefix.className %>Card title="Time">
+    <<%= prefix.className %>Card title="Tab Routes">
       <<%= prefix.className %>TabRoutes
-        baseUrl="/demo"
+        baseUrl="/demo/tab-routes"
         tabs={[
           {
             value: 'overview',

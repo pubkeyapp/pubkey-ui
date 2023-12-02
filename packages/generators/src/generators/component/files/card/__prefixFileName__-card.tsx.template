@@ -13,7 +13,7 @@ export function <%= prefix.className %>Card({ loading, title, ...props }: <%= pr
   const { isSm } = use<%= prefix.className %>Breakpoints()
 
   return (
-    <Card p={isSm ? 'xs' : 'md'} {...props}>
+    <Card p={isSm ? 'xs' : 'md'} withBorder {...props}>
       {title ? (
         <Box mb={isSm ? 'xs' : 'md'}>{typeof title === 'string' ? <<%= prefix.className %>CardTitle>{title}</<%= prefix.className %>CardTitle> : title}</Box>
       ) : null}

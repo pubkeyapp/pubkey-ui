@@ -3,9 +3,9 @@ import { UiCard, UiTabRoutes } from '@pubkey-ui/core'
 
 export function DemoFeatureTabRoutes() {
   return (
-    <UiCard title="Time">
+    <UiCard title="Tab Routes">
       <UiTabRoutes
-        baseUrl="/demo"
+        baseUrl="/demo/tab-routes"
         tabs={[
           {
             value: 'overview',

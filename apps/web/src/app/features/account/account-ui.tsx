@@ -57,6 +57,10 @@ export function AccountBalanceCheck({ address }: { address: PublicKey }) {
   if (query.isError || !query.data) {
     return (
       <UiWarning
+        styles={{
+          root: { display: 'flex', justifyContent: 'center' },
+          title: { justifyContent: 'center' },
+        }}
         title="Account not found"
         icon={<IconUserOff size={24} />}
         message={
