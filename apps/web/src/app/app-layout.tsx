@@ -2,6 +2,8 @@ import { ActionIcon, Anchor, Box, Card, Group } from '@mantine/core'
 import { UiContainer, UiLogoType, useUiColorScheme, useUiTheme } from '@pubkey-ui/core'
 import { IconMoon, IconSun } from '@tabler/icons-react'
 import { ReactNode } from 'react'
+import { AccountChecker } from './features/account/account-ui'
+import { ClusterChecker, ClusterUiSelect } from './features/cluster/cluster-ui'
 
 export function AppLayout({ children }: { children: ReactNode }) {
   const { Link } = useUiTheme()
@@ -17,6 +19,9 @@ export function AppLayout({ children }: { children: ReactNode }) {
               <Anchor component={Link} to="/dashboard">
                 Dashboard
               </Anchor>
+              <Anchor component={Link} to="/account">
+                Account
+              </Anchor>
               <Anchor component={Link} to="/demo">
                 Demo
               </Anchor>
@@ -24,10 +29,16 @@ export function AppLayout({ children }: { children: ReactNode }) {
                 Dev
               </Anchor>
             </Group>
-            <ThemeToggle />
+            <Group>
+              <ClusterUiSelect />
+              <ThemeToggle />
+            </Group>
           </Group>
         </UiContainer>
       </Card>
+      <ClusterChecker>
+        <AccountChecker />
+      </ClusterChecker>
       {children}
     </Box>
   )
@@ -39,7 +50,7 @@ function ThemeToggle() {
   return (
     <Group justify="center">
       <ActionIcon onClick={() => toggleColorScheme()} variant="default" size="xl" aria-label="Toggle color scheme">
-        {colorScheme === 'dark' ? <IconSun className={''} stroke={1.5} /> : <IconMoon className={''} stroke={1.5} />}
+        {colorScheme === 'dark' ? <IconSun stroke={1.5} /> : <IconMoon stroke={1.5} />}
       </ActionIcon>
     </Group>
   )
