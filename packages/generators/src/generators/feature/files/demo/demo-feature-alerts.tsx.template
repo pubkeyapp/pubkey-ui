@@ -5,11 +5,11 @@ export function DemoFeatureAlerts() {
   return (
     <<%= prefix.className %>Card title="Alerts">
       <SimpleGrid cols={2}>
-        <<%= prefix.className %>Error title="Error" message="Hello World" />
-        <<%= prefix.className %>Info title="Info" message="Hello World" />
-        <<%= prefix.className %>Success title="Success" message="Hello World" />
-        <<%= prefix.className %>Warning title="Warning" message="Hello World" />
-        <<%= prefix.className %>Alert title="Alert" message="Hello World" />
+        <<%= prefix.className %>Error message="Hello World" />
+        <<%= prefix.className %>Info message="Hello World" />
+        <<%= prefix.className %>Success message="Hello World" />
+        <<%= prefix.className %>Warning message="Hello World" />
+        <<%= prefix.className %>Alert message="Hello World" />
       </SimpleGrid>
     </<%= prefix.className %>Card>
   )

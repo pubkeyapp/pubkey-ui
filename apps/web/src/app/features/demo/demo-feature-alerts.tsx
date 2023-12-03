@@ -5,11 +5,11 @@ export function DemoFeatureAlerts() {
   return (
     <UiCard title="Alerts">
       <SimpleGrid cols={2}>
-        <UiError title="Error" message="Hello World" />
-        <UiInfo title="Info" message="Hello World" />
-        <UiSuccess title="Success" message="Hello World" />
-        <UiWarning title="Warning" message="Hello World" />
-        <UiAlert title="Alert" message="Hello World" />
+        <UiError message="Hello World" />
+        <UiInfo message="Hello World" />
+        <UiSuccess message="Hello World" />
+        <UiWarning message="Hello World" />
+        <UiAlert message="Hello World" />
       </SimpleGrid>
     </UiCard>
   )

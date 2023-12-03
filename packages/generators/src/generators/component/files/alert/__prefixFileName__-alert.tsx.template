@@ -4,25 +4,29 @@ import { ReactNode } from 'react'
 
 export interface <%= prefix.className %>AlertProps extends AlertProps {
   message: ReactNode
-  title: ReactNode
+  title?: ReactNode
 }
 
 export function <%= prefix.className %>Alert({ message, ...props }: <%= prefix.className %>AlertProps) {
-  return <Alert {...props}>{message}</Alert>
+  return (
+    <Alert title={props.title ?? 'Alert'} {...props}>
+      {message}
+    </Alert>
+  )
 }
 
 export function <%= prefix.className %>Error({ ...props }: <%= prefix.className %>AlertProps) {
-  return <<%= prefix.className %>Alert {...props} color="red" icon={props.icon ?? <IconCircleX />} />
+  return <<%= prefix.className %>Alert title={props.title ?? 'Error'} color="red" icon={props.icon ?? <IconCircleX />} {...props} />
 }
 
 export function <%= prefix.className %>Info({ ...props }: <%= prefix.className %>AlertProps) {
-  return <<%= prefix.className %>Alert {...props} color="blue" icon={props.icon ?? <IconInfoCircle />} />
+  return <<%= prefix.className %>Alert title={props.title ?? 'Info'} color="blue" icon={props.icon ?? <IconInfoCircle />} {...props} />
 }
 
 export function <%= prefix.className %>Success({ ...props }: <%= prefix.className %>AlertProps) {
-  return <<%= prefix.className %>Alert {...props} color="green" icon={props.icon ?? <IconCheck />} />
+  return <<%= prefix.className %>Alert title={props.title ?? 'Success'} color="green" icon={props.icon ?? <IconCheck />} {...props} />
 }
 
 export function <%= prefix.className %>Warning({ ...props }: <%= prefix.className %>AlertProps) {
-  return <<%= prefix.className %>Alert {...props} color="yellow" icon={props.icon ?? <IconAlertCircle />} />
+  return <<%= prefix.className %>Alert title={props.title ?? 'Warning'} color="yellow" icon={props.icon ?? <IconAlertCircle />} {...props} />
 }
