@@ -790,6 +790,93 @@ exports[`component generator should create files for header 1`] = `
 }
 `;
 
+exports[`component generator should create files for layout 1`] = `
+{
+  ".prettierrc": {
+    "content": [
+      "{ "singleQuote": true }",
+    ],
+    "isBinary": false,
+    "path": "./.prettierrc",
+  },
+  "nx.json": {
+    "content": [
+      "{",
+      ""affected": { "defaultBase": "main" },",
+      ""targetDefaults": {",
+      ""build": { "cache": true },",
+      ""lint": { "cache": true },",
+      ""e2e": { "cache": true }",
+      "}",
+      "}",
+    ],
+    "isBinary": false,
+    "path": "./nx.json",
+  },
+  "package.json": {
+    "content": [
+      "{",
+      ""name": "@proj/source",",
+      ""dependencies": {},",
+      ""devDependencies": {}",
+      "}",
+    ],
+    "isBinary": false,
+    "path": "./package.json",
+  },
+  "test": {
+    "children": {
+      "index.ts": {
+        "content": [
+          "export * from './ui-layout';",
+        ],
+        "isBinary": false,
+        "path": "./test/index.ts",
+      },
+      "ui-layout.tsx": {
+        "content": [
+          "import { AppShell, AppShellProps, Loader, rem } from '@mantine/core';",
+          "import { ReactNode, Suspense } from 'react';",
+          "export function UiLayout({",
+          "children,",
+          "header,",
+          "headerHeight = rem(56),",
+          "...props",
+          "}: Omit<AppShellProps, 'header'> & {",
+          "children: ReactNode;",
+          "header: ReactNode;",
+          "headerHeight?: string;",
+          "}) {",
+          "return (",
+          "<AppShell header={{ height: headerHeight }} padding="md" {...props}>",
+          "<AppShell.Header>{header}</AppShell.Header>",
+          "<AppShell.Main>",
+          "<Suspense fallback={<Loader />}>{children}</Suspense>",
+          "</AppShell.Main>",
+          "</AppShell>",
+          ");",
+          "}",
+        ],
+        "isBinary": false,
+        "path": "./test/ui-layout.tsx",
+      },
+    },
+    "path": "./test",
+  },
+  "tsconfig.base.json": {
+    "content": [
+      "{",
+      ""compilerOptions": {",
+      ""paths": {}",
+      "}",
+      "}",
+    ],
+    "isBinary": false,
+    "path": "./tsconfig.base.json",
+  },
+}
+`;
+
 exports[`component generator should create files for logo 1`] = `
 {
   ".prettierrc": {
@@ -1623,6 +1710,104 @@ exports[`component generator should create files for theme 1`] = `
         ],
         "isBinary": false,
         "path": "./test/use-ui-breakpoints.ts",
+      },
+    },
+    "path": "./test",
+  },
+  "tsconfig.base.json": {
+    "content": [
+      "{",
+      ""compilerOptions": {",
+      ""paths": {}",
+      "}",
+      "}",
+    ],
+    "isBinary": false,
+    "path": "./tsconfig.base.json",
+  },
+}
+`;
+
+exports[`component generator should create files for theme-switch 1`] = `
+{
+  ".prettierrc": {
+    "content": [
+      "{ "singleQuote": true }",
+    ],
+    "isBinary": false,
+    "path": "./.prettierrc",
+  },
+  "nx.json": {
+    "content": [
+      "{",
+      ""affected": { "defaultBase": "main" },",
+      ""targetDefaults": {",
+      ""build": { "cache": true },",
+      ""lint": { "cache": true },",
+      ""e2e": { "cache": true }",
+      "}",
+      "}",
+    ],
+    "isBinary": false,
+    "path": "./nx.json",
+  },
+  "package.json": {
+    "content": [
+      "{",
+      ""name": "@proj/source",",
+      ""dependencies": {},",
+      ""devDependencies": {}",
+      "}",
+    ],
+    "isBinary": false,
+    "path": "./package.json",
+  },
+  "test": {
+    "children": {
+      "index.ts": {
+        "content": [
+          "export * from './ui-theme-switch';",
+        ],
+        "isBinary": false,
+        "path": "./test/index.ts",
+      },
+      "ui-theme-switch.tsx": {
+        "content": [
+          "import { rem, Switch, SwitchProps, useMantineTheme } from '@mantine/core';",
+          "import { IconMoonStars, IconSun } from '@tabler/icons-react';",
+          "import { useUiColorScheme } from '../ui-theme';",
+          "export function UiThemeSwitch(props: SwitchProps) {",
+          "const theme = useMantineTheme();",
+          "const sunIcon = (",
+          "<IconSun",
+          "style={{ width: rem(16), height: rem(16) }}",
+          "stroke={2.5}",
+          "color={theme.colors.yellow[4]}",
+          "/>",
+          ");",
+          "const moonIcon = (",
+          "<IconMoonStars",
+          "style={{ width: rem(16), height: rem(16) }}",
+          "stroke={2.5}",
+          "color={theme.colors.brand[6]}",
+          "/>",
+          ");",
+          "const { toggleColorScheme, colorScheme } = useUiColorScheme();",
+          "return (",
+          "<Switch",
+          "size="lg"",
+          "color={'dark.6'}",
+          "onLabel={sunIcon}",
+          "offLabel={moonIcon}",
+          "onChange={() => toggleColorScheme()}",
+          "checked={colorScheme === 'dark'}",
+          "{...props}",
+          "/>",
+          ");",
+          "}",
+        ],
+        "isBinary": false,
+        "path": "./test/ui-theme-switch.tsx",
       },
     },
     "path": "./test",
