@@ -1,10 +1,8 @@
-import { Anchor, Burger, Group } from '@mantine/core'
+import { Anchor, Box, Burger, Flex, Group, rem } from '@mantine/core'
 import { ReactNode } from 'react'
-import cx from 'clsx'
 import { Link, useLocation } from 'react-router-dom'
 import { UiLogo, UiLogoType } from '../ui-logo'
-
-import classes from './ui-header.module.css'
+import { useUiColorScheme } from '../ui-theme'
 
 export interface UiHeaderProps {
   base?: string
@@ -21,23 +19,41 @@ export interface UiHeaderLink {
 }
 
 export function UiHeader({ base, links = [], logo, logoSmall, opened, profile, toggle }: UiHeaderProps) {
+  const { colorScheme } = useUiColorScheme()
+  const isDark = colorScheme === 'dark'
   const { pathname } = useLocation()
-  const items = links.map((link) => (
-    <Anchor
-      component={Link}
-      key={link.label}
-      to={link.link}
-      className={cx(classes.link, { [classes.linkActive]: pathname.startsWith(link.link) })}
-    >
-      {link.label}
-    </Anchor>
-  ))
+  const items = links.map((link) => {
+    const active = pathname.startsWith(link.link)
+    const linkColor = isDark ? 'gray.4' : 'dark.8'
+    const activeLinkColor = isDark ? 'brand.6' : 'brand.4'
+
+    return (
+      <Anchor
+        component={Link}
+        key={link.label}
+        to={link.link}
+        display="block"
+        bg={active ? (isDark ? 'dark.6' : 'gray.0') : 'transparent'}
+        c={active ? activeLinkColor : linkColor}
+        fw={500}
+        fz={rem(14)}
+        lh={1}
+        p={`${rem(8)} ${rem(12)}`}
+        style={{
+          borderRadius: rem(4),
+          textDecoration: 'none',
+        }}
+      >
+        {link.label}
+      </Anchor>
+    )
+  })
 
   const burger = toggle ? <Burger opened={opened} onClick={toggle} size="sm" hiddenFrom="md" /> : null
 
   return (
-    <header className={classes.header}>
-      <div className={classes.inner}>
+    <Box component="header" px="md" h={rem(56)} bg={isDark ? 'dark.9' : 'white'}>
+      <Flex justify="space-between" align="center" style={{ height: rem(56) }}>
         <Group>
           <Group>
             {burger}
@@ -46,13 +62,13 @@ export function UiHeader({ base, links = [], logo, logoSmall, opened, profile, t
               <Group visibleFrom="md">{logo ?? <UiLogoType height={28} />}</Group>
             </Anchor>
           </Group>
-          <Group gap={5} className={classes.links} visibleFrom="md">
+          <Group gap={5} visibleFrom="md">
             {items}
           </Group>
         </Group>
 
         <Group>{profile}</Group>
-      </div>
-    </header>
+      </Flex>
+    </Box>
   )
 }
