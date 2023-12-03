@@ -19,6 +19,7 @@ export interface ComponentGeneratorSchema {
     | 'container'
     | 'copy'
     | 'debug'
+    | 'dashboard-grid'
     | 'group'
     | 'header'
     | 'layout'

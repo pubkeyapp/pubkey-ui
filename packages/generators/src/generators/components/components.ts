@@ -5,6 +5,7 @@ export const components: ComponentGeneratorSchema['type'][] = [
   'card',
   'container',
   'copy',
+  'dashboard-grid',
   'debug',
   'group',
   'header',

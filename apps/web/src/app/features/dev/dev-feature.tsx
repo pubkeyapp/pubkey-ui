@@ -1,11 +1,11 @@
 import { UiContainer } from '@pubkey-ui/core'
 import { DevFeatureLink } from './dev-feature-link'
-import { DevFeatureLogo } from './dev-feature-logo'
+import { DevFeatureActionGrid } from './dev-feature-action-grid'
 
 export function DevFeature() {
   return (
     <UiContainer>
-      <DevFeatureLogo />
+      <DevFeatureActionGrid />
       <DevFeatureLink />
     </UiContainer>
   )

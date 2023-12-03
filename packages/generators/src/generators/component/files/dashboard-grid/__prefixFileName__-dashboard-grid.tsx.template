@@ -1,0 +1,42 @@
+import { SimpleGrid, Text, UnstyledButton, useMantineTheme } from '@mantine/core'
+import { use<%= prefix.className %>Theme } from '../<%= prefix.fileName %>-theme'
+import { ComponentType } from 'react'
+
+import classes from './<%= prefix.fileName %>-dashboard-grid.module.css'
+
+const linkColors = ['violet', 'indigo', 'blue', 'green', 'teal', 'cyan', 'pink', 'red', 'orange']
+
+export function getColorByIndex(index: number) {
+  return linkColors[index % linkColors.length]
+}
+
+export interface <%= prefix.className %>DashboardItem {
+  icon: ComponentType<{ color?: string; size: number | string }>
+  label: string
+  to: string
+  color?: string
+}
+
+export interface <%= prefix.className %>DashboardGridProps {
+  links: <%= prefix.className %>DashboardItem[]
+}
+
+export function <%= prefix.className %>DashboardGrid({ links }: <%= prefix.className %>DashboardGridProps) {
+  const { Link } = use<%= prefix.className %>Theme()
+  const theme = useMantineTheme()
+
+  const items = links.map((item, index) => (
+    <UnstyledButton component={Link} to={item.to} key={item.label} className={classes.item}>
+      <item.icon color={theme.colors[item.color ?? getColorByIndex(index)][6]} size={64} />
+      <Text size="xs" mt={7}>
+        {item.label}
+      </Text>
+    </UnstyledButton>
+  ))
+
+  return (
+    <SimpleGrid cols={{ xs: 1, sm: 2, md: 3 }} spacing={{ base: 'sm', md: 'xl' }}>
+      {items}
+    </SimpleGrid>
+  )
+}
