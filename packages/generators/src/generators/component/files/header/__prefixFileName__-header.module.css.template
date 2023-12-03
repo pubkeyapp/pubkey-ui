@@ -1,6 +1,6 @@
 .header {
   height: rem(56px);
-  background-color: var(--mantine-color-body);
+  background-color: light-dark(var(--mantine-color-white), var(--mantine-color-dark-9));
   padding-left: var(--mantine-spacing-md);
   padding-right: var(--mantine-spacing-md);
 }
@@ -25,4 +25,8 @@
   @mixin hover {
     background-color: light-dark(var(--mantine-color-gray-0), var(--mantine-color-dark-6));
   }
+}
+.linkActive {
+  background-color: light-dark(var(--mantine-color-gray-0), var(--mantine-color-dark-6));
+  color: light-dark(var(--mantine-color-brand-6), var(--mantine-color-brand-4));
 }

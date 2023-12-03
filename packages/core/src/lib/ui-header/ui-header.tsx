@@ -1,6 +1,7 @@
 import { Anchor, Burger, Group } from '@mantine/core'
 import { ReactNode } from 'react'
-import { Link } from 'react-router-dom'
+import cx from 'clsx'
+import { Link, useLocation } from 'react-router-dom'
 import { UiLogo, UiLogoType } from '../ui-logo'
 
 import classes from './ui-header.module.css'
@@ -20,8 +21,14 @@ export interface UiHeaderLink {
 }
 
 export function UiHeader({ base, links = [], logo, logoSmall, opened, profile, toggle }: UiHeaderProps) {
+  const { pathname } = useLocation()
   const items = links.map((link) => (
-    <Anchor component={Link} key={link.label} to={link.link} className={classes.link}>
+    <Anchor
+      component={Link}
+      key={link.label}
+      to={link.link}
+      className={cx(classes.link, { [classes.linkActive]: pathname.startsWith(link.link) })}
+    >
       {link.label}
     </Anchor>
   ))

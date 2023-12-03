@@ -28,7 +28,9 @@ export async function themeGenerator(tree: Tree, options: ThemeGeneratorSchema) 
       '@mantine/modals': '^7.2.2',
       '@mantine/notifications': '^7.2.2',
       '@tabler/icons-react': '^2.42.0',
+      clsx: '2.0.0',
       dayjs: '^1.11.10',
+      'react-router-dom': '6.20.1',
       'timeago-react': '^3.0.6',
     },
     {
