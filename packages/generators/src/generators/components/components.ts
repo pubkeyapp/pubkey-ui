@@ -12,6 +12,7 @@ export const components: ComponentGeneratorSchema['type'][] = [
   'layout',
   'logo',
   'menu',
+  'not-found',
   'search-input',
   'stack',
   'tab-routes',

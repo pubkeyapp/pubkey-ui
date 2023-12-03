@@ -1,5 +1,5 @@
 import { Grid, NavLink } from '@mantine/core'
-import { UiContainer, UiStack } from '@pubkey-ui/core'
+import { UiContainer, UiNotFound, UiStack } from '@pubkey-ui/core'
 import { ReactNode } from 'react'
 import { Link, Navigate, useLocation, useRoutes } from 'react-router-dom'
 import { DemoFeatureAlerts } from './demo-feature-alerts'
@@ -11,6 +11,7 @@ import { DemoFeatureGroup } from './demo-feature-group'
 import { DemoFeatureHeader } from './demo-feature-header'
 import { DemoFeatureLogo } from './demo-feature-logo'
 import { DemoFeatureMenu } from './demo-feature-menu'
+import { DemoFeatureNotFound } from './demo-feature-not-found'
 import { DemoFeatureSearchInput } from './demo-feature-search-input'
 import { DemoFeatureStack } from './demo-feature-stack'
 import { DemoFeatureTabRoutes } from './demo-feature-tab-routes'
@@ -33,6 +34,7 @@ export function DemoFeature() {
     { path: 'header', label: 'Header', element: <DemoFeatureHeader /> },
     { path: 'logo', label: 'Logo', element: <DemoFeatureLogo /> },
     { path: 'menu', label: 'Menu', element: <DemoFeatureMenu /> },
+    { path: 'not-found', label: 'Not Found', element: <DemoFeatureNotFound /> },
     { path: 'search-input', label: 'Search Input', element: <DemoFeatureSearchInput /> },
     { path: 'stack', label: 'Stack', element: <DemoFeatureStack /> },
     { path: 'tab-routes', label: 'Tab Routes', element: <DemoFeatureTabRoutes /> },
@@ -43,6 +45,7 @@ export function DemoFeature() {
   const routes = useRoutes([
     { index: true, element: <Navigate to={demos[0].path} replace /> },
     ...demos.map((demo) => ({ path: `${demo.path}/*`, element: demo.element })),
+    { path: '*', element: <UiNotFound to="/demo" /> },
   ])
 
   return (

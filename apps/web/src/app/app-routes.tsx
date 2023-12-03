@@ -1,4 +1,4 @@
-import { UiThemeLink } from '@pubkey-ui/core'
+import { UiNotFound, UiThemeLink } from '@pubkey-ui/core'
 import { lazy } from 'react'
 import { Link, Navigate, RouteObject, useRoutes } from 'react-router-dom'
 import { DemoFeature } from './features'
@@ -17,6 +17,7 @@ const routes: RouteObject[] = [
   { path: '/dashboard', element: <DashboardFeature /> },
   { path: '/demo/*', element: <DemoFeature /> },
   { path: '/dev', element: <DevFeature /> },
+  { path: '*', element: <UiNotFound /> },
 ]
 
 export function AppRoutes() {
