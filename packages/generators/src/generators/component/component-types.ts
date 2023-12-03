@@ -1,6 +1,6 @@
-import { ComponentGeneratorSchema } from '../component/component-generator-schema'
+import { ComponentGeneratorSchema } from './component-generator-schema'
 
-export const components: ComponentGeneratorSchema['type'][] = [
+export const componentTypes: ComponentGeneratorSchema['type'][] = [
   'alert',
   'back',
   'card',

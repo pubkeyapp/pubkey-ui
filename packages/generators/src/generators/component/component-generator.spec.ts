@@ -1,7 +1,7 @@
 import { Tree } from '@nx/devkit'
 import { createTreeWithEmptyWorkspace } from '@nx/devkit/testing'
 import { getRecursiveFileContents } from '../../'
-import { components } from '../components/components'
+import { componentTypes } from './component-types'
 
 import { componentGenerator } from './component-generator'
 import { ComponentGeneratorSchema } from './component-generator-schema'
@@ -14,7 +14,7 @@ describe('component generator', () => {
     tree = createTreeWithEmptyWorkspace()
   })
 
-  it.each(components)('should create files for %s', async (type) => {
+  it.each(componentTypes)('should create files for %s', async (type) => {
     await componentGenerator(tree, { ...options, type })
 
     const contents = getRecursiveFileContents(tree, '.')
