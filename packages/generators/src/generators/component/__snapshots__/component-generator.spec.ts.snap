@@ -105,6 +105,83 @@ exports[`component generator should create files for alert 1`] = `
 }
 `;
 
+exports[`component generator should create files for back 1`] = `
+{
+  ".prettierrc": {
+    "content": [
+      "{ "singleQuote": true }",
+    ],
+    "isBinary": false,
+    "path": "./.prettierrc",
+  },
+  "nx.json": {
+    "content": [
+      "{",
+      ""affected": { "defaultBase": "main" },",
+      ""targetDefaults": {",
+      ""build": { "cache": true },",
+      ""lint": { "cache": true },",
+      ""e2e": { "cache": true }",
+      "}",
+      "}",
+    ],
+    "isBinary": false,
+    "path": "./nx.json",
+  },
+  "package.json": {
+    "content": [
+      "{",
+      ""name": "@proj/source",",
+      ""dependencies": {},",
+      ""devDependencies": {}",
+      "}",
+    ],
+    "isBinary": false,
+    "path": "./package.json",
+  },
+  "test": {
+    "children": {
+      "index.ts": {
+        "content": [
+          "export * from './ui-back';",
+        ],
+        "isBinary": false,
+        "path": "./test/index.ts",
+      },
+      "ui-back.tsx": {
+        "content": [
+          "import { ActionIcon } from '@mantine/core';",
+          "import { IconArrowLeft } from '@tabler/icons-react';",
+          "import { useUiTheme } from '../ui-theme';",
+          "export function UiBack({ to = '../' }: { to?: string }) {",
+          "const { Link } = useUiTheme();",
+          "return (",
+          "<ActionIcon color="brand" component={Link} to={to} variant="light">",
+          "<IconArrowLeft />",
+          "</ActionIcon>",
+          ");",
+          "}",
+        ],
+        "isBinary": false,
+        "path": "./test/ui-back.tsx",
+      },
+    },
+    "path": "./test",
+  },
+  "tsconfig.base.json": {
+    "content": [
+      "{",
+      ""compilerOptions": {",
+      ""paths": {}",
+      "}",
+      "}",
+    ],
+    "isBinary": false,
+    "path": "./tsconfig.base.json",
+  },
+}
+`;
+
 exports[`component generator should create files for card 1`] = `
 {
   ".prettierrc": {
@@ -144,6 +221,7 @@ exports[`component generator should create files for card 1`] = `
       "index.ts": {
         "content": [
           "export * from './ui-card';",
+          "export * from './ui-card-title';",
         ],
         "isBinary": false,
         "path": "./test/index.ts",
@@ -451,12 +529,12 @@ exports[`component generator should create files for dashboard-grid 1`] = `
           "border-radius: var(--mantine-radius-md);",
           "height: rem(180px);",
           "background-color: light-dark(",
-          "var(--mantine-color-white),",
+          "var(--mantine-color-gray-0),",
           "var(--mantine-color-dark-7)",
           ");",
           "transition: box-shadow 150ms ease, transform 100ms ease;",
           "@mixin hover {",
-          "box-shadow: var(--mantine-shadow-md) !important;",
+          "box-shadow: var(--mantine-shadow-md);",
           "transform: scale(1.05);",
           "}",
           "}",
@@ -512,7 +590,11 @@ exports[`component generator should create files for dashboard-grid 1`] = `
           "color={theme.colors[item.color ?? getColorByIndex(index)][6]}",
           "size={64}",
           "/>",
-          "<Text size="xs" mt={7}>",
+          "<Text",
+          "size="lg"",
+          "mt={7}",
+          "c={theme.colors[item.color ?? getColorByIndex(index)][6]}",
+          ">",
           "{item.label}",
           "</Text>",
           "</UnstyledButton>",
@@ -521,6 +603,7 @@ exports[`component generator should create files for dashboard-grid 1`] = `
           "<SimpleGrid",
           "cols={{ xs: 1, sm: 2, md: 3 }}",
           "spacing={{ base: 'sm', md: 'xl' }}",
+          "px="md"",
           ">",
           "{items}",
           "</SimpleGrid>",
@@ -1041,6 +1124,91 @@ exports[`component generator should create files for layout 1`] = `
 }
 `;
 
+exports[`component generator should create files for loader 1`] = `
+{
+  ".prettierrc": {
+    "content": [
+      "{ "singleQuote": true }",
+    ],
+    "isBinary": false,
+    "path": "./.prettierrc",
+  },
+  "nx.json": {
+    "content": [
+      "{",
+      ""affected": { "defaultBase": "main" },",
+      ""targetDefaults": {",
+      ""build": { "cache": true },",
+      ""lint": { "cache": true },",
+      ""e2e": { "cache": true }",
+      "}",
+      "}",
+    ],
+    "isBinary": false,
+    "path": "./nx.json",
+  },
+  "package.json": {
+    "content": [
+      "{",
+      ""name": "@proj/source",",
+      ""dependencies": {},",
+      ""devDependencies": {}",
+      "}",
+    ],
+    "isBinary": false,
+    "path": "./package.json",
+  },
+  "test": {
+    "children": {
+      "index.ts": {
+        "content": [
+          "export * from './ui-loader';",
+        ],
+        "isBinary": false,
+        "path": "./test/index.ts",
+      },
+      "ui-loader.tsx": {
+        "content": [
+          "import { Flex, Loader, LoaderProps } from '@mantine/core';",
+          "export function UiLoader({",
+          "size = 'xl',",
+          "type = 'oval',",
+          "flex = 'inline',",
+          "...props",
+          "}: LoaderProps & {",
+          "flex?: 'full' | 'inline';",
+          "}) {",
+          "return (",
+          "<Flex",
+          "h={flex === 'full' ? '100vh' : '100%'}",
+          "justify="center"",
+          "align="center"",
+          ">",
+          "<Loader size={size} type={type} {...props} />",
+          "</Flex>",
+          ");",
+          "}",
+        ],
+        "isBinary": false,
+        "path": "./test/ui-loader.tsx",
+      },
+    },
+    "path": "./test",
+  },
+  "tsconfig.base.json": {
+    "content": [
+      "{",
+      ""compilerOptions": {",
+      ""paths": {}",
+      "}",
+      "}",
+    ],
+    "isBinary": false,
+    "path": "./tsconfig.base.json",
+  },
+}
+`;
+
 exports[`component generator should create files for logo 1`] = `
 {
   ".prettierrc": {
@@ -1351,6 +1519,128 @@ exports[`component generator should create files for menu 1`] = `
         ],
         "isBinary": false,
         "path": "./test/ui-menu.tsx",
+      },
+    },
+    "path": "./test",
+  },
+  "tsconfig.base.json": {
+    "content": [
+      "{",
+      ""compilerOptions": {",
+      ""paths": {}",
+      "}",
+      "}",
+    ],
+    "isBinary": false,
+    "path": "./tsconfig.base.json",
+  },
+}
+`;
+
+exports[`component generator should create files for not-found 1`] = `
+{
+  ".prettierrc": {
+    "content": [
+      "{ "singleQuote": true }",
+    ],
+    "isBinary": false,
+    "path": "./.prettierrc",
+  },
+  "nx.json": {
+    "content": [
+      "{",
+      ""affected": { "defaultBase": "main" },",
+      ""targetDefaults": {",
+      ""build": { "cache": true },",
+      ""lint": { "cache": true },",
+      ""e2e": { "cache": true }",
+      "}",
+      "}",
+    ],
+    "isBinary": false,
+    "path": "./nx.json",
+  },
+  "package.json": {
+    "content": [
+      "{",
+      ""name": "@proj/source",",
+      ""dependencies": {},",
+      ""devDependencies": {}",
+      "}",
+    ],
+    "isBinary": false,
+    "path": "./package.json",
+  },
+  "test": {
+    "children": {
+      "index.ts": {
+        "content": [
+          "export * from './ui-not-found';",
+        ],
+        "isBinary": false,
+        "path": "./test/index.ts",
+      },
+      "ui-not-found.module.css": {
+        "content": [
+          ".root {",
+          "padding-top: rem(80px);",
+          "padding-bottom: rem(80px);",
+          "}",
+          ".label {",
+          "text-align: center;",
+          "font-weight: 900;",
+          "font-size: rem(38px);",
+          "line-height: 1;",
+          "margin-bottom: calc(1.5 * var(--mantine-spacing-xl));",
+          "color: var(--mantine-color-gray-2);",
+          "@media (max-width: $mantine-breakpoint-sm) {",
+          "font-size: rem(32px);",
+          "}",
+          "}",
+          ".description {",
+          "max-width: rem(500px);",
+          "margin: auto;",
+          "margin-top: var(--mantine-spacing-xl);",
+          "margin-bottom: calc(1.5 * var(--mantine-spacing-xl));",
+          "}",
+          ".title {",
+          "text-align: center;",
+          "font-weight: 900;",
+          "font-size: rem(38px);",
+          "@media (max-width: $mantine-breakpoint-sm) {",
+          "font-size: rem(32px);",
+          "}",
+          "}",
+        ],
+        "isBinary": false,
+        "path": "./test/ui-not-found.module.css",
+      },
+      "ui-not-found.tsx": {
+        "content": [
+          "import { Button, Container, Group, Text, Title } from '@mantine/core';",
+          "import { useUiTheme } from '../ui-theme';",
+          "import classes from './ui-not-found.module.css';",
+          "export function UiNotFound({ to = '/' }: { to?: string }) {",
+          "const { Link } = useUiTheme();",
+          "return (",
+          "<Container className={classes.root}>",
+          "<div className={classes.label}>404</div>",
+          "<Title className={classes.title}>You have found a secret place.</Title>",
+          "<Text c="dimmed" size="lg" ta="center" className={classes.description}>",
+          "Unfortunately, this is only a 404 page. You may have mistyped the",
+          "address, or the page has been moved to another URL.",
+          "</Text>",
+          "<Group justify="center">",
+          "<Button variant="subtle" size="md" component={Link} to={to}>",
+          "Take me back!",
+          "</Button>",
+          "</Group>",
+          "</Container>",
+          ");",
+          "}",
+        ],
+        "isBinary": false,
+        "path": "./test/ui-not-found.tsx",
       },
     },
     "path": "./test",

@@ -1,8 +1,12 @@
 #!/usr/bin/env node
 
 import { createWorkspace } from 'create-nx-workspace'
+import { execAndWait } from 'create-nx-workspace/src/utils/child-process-utils'
+import { detectInvokedPackageManager } from 'create-nx-workspace/src/utils/package-manager'
+import { getPackageManagerCommand } from 'nx/src/utils/package-manager'
 
 async function main() {
+  const pm = detectInvokedPackageManager()
   const name = process.argv[2] // TODO: use libraries like yargs or enquirer to set your workspace name
   if (!name) {
     throw new Error('Please provide a name for the workspace')
@@ -18,9 +22,17 @@ async function main() {
   const { directory } = await createWorkspace(`@pubkey-ui/generators@${presetVersion}`, {
     name,
     nxCloud: false,
-    packageManager: 'npm',
+    packageManager: pm,
     webName: 'web',
+    commit: {
+      name: '',
+      email: '',
+      message: 'chore: initial commit',
+    },
   })
+
+  console.log('Installing dependencies...')
+  await execAndWait(getPackageManagerCommand(pm).install, directory)
 
   console.log(`Successfully created the workspace: ${directory}.`)
 }

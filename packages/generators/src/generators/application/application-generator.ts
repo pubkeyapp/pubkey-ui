@@ -12,6 +12,23 @@ import themeGenerator from '../theme/theme-generator'
 import { ApplicationGeneratorSchema } from './application-generator-schema'
 
 export async function applicationGenerator(tree: Tree, rawOptions: ApplicationGeneratorSchema) {
+  // Best prettier config ever.
+  tree.write(
+    '.prettierrc',
+    JSON.stringify(
+      {
+        singleQuote: true,
+        printWidth: 120,
+        semi: false,
+        trailingComma: 'all',
+        arrowParens: 'always',
+      },
+      null,
+      2,
+    ),
+  )
+  tree.write('.prettierignore', ['/dist', '/coverage', 'tmp', '/.yarn', '/.nx/cache'].join('\n'))
+
   const options: NormalizedApplicationGeneratorSchema = normalizeApplicationGeneratorSchema(rawOptions)
   // const npmScope = getNpmScope(tree)
   // Set up the base project.

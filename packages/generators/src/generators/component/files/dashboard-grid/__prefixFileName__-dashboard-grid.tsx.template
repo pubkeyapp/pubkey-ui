@@ -28,14 +28,14 @@ export function <%= prefix.className %>DashboardGrid({ links }: <%= prefix.class
   const items = links.map((item, index) => (
     <UnstyledButton component={Link} to={item.to} key={item.label} className={classes.item}>
       <item.icon color={theme.colors[item.color ?? getColorByIndex(index)][6]} size={64} />
-      <Text size="xs" mt={7}>
+      <Text size="lg" mt={7} c={theme.colors[item.color ?? getColorByIndex(index)][6]}>
         {item.label}
       </Text>
     </UnstyledButton>
   ))
 
   return (
-    <SimpleGrid cols={{ xs: 1, sm: 2, md: 3 }} spacing={{ base: 'sm', md: 'xl' }}>
+    <SimpleGrid cols={{ xs: 1, sm: 2, md: 3 }} spacing={{ base: 'sm', md: 'xl' }} px="md">
       {items}
     </SimpleGrid>
   )

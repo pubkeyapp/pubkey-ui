@@ -57,7 +57,9 @@ try {
 
   json.dependencies = {
     ...deps,
-    ...packages.reduce((acc, dep) => ({...acc, [dep]: version}), {}),
+    ...packages.reduce((acc, dep) => {
+      return { ...acc, [dep]: version }
+    }, {}),
   }
 
   writeFileSync(`package.json`, JSON.stringify(json, null, 2))
