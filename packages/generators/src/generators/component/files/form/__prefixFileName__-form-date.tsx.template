@@ -1,0 +1,14 @@
+import { <%= prefix.className %>FormField, <%= prefix.className %>FormFieldType } from './<%= prefix.fileName %>-form-field'
+
+export type <%= prefix.className %>FormDate<T> = Omit<<%= prefix.className %>FormField<T>, 'key' | 'options' | 'rows' | 'type'> & {
+  maxDate?: Date
+  minDate?: Date
+}
+
+export function formFieldDate<T>(key: keyof T, options: <%= prefix.className %>FormDate<T>): <%= prefix.className %>FormField<T> {
+  return {
+    key,
+    type: <%= prefix.className %>FormFieldType.Date,
+    ...options,
+  }
+}

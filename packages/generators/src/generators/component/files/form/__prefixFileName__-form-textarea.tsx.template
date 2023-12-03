@@ -1,0 +1,13 @@
+import { <%= prefix.className %>FormField, <%= prefix.className %>FormFieldType } from './<%= prefix.fileName %>-form-field'
+
+export type <%= prefix.className %>FormTextArea<T> = Omit<<%= prefix.className %>FormField<T>, 'key' | 'options' | 'type'> & {
+  rows?: number
+}
+
+export function formFieldTextarea<T>(key: keyof T, options: <%= prefix.className %>FormTextArea<T>): <%= prefix.className %>FormField<T> {
+  return {
+    key,
+    type: <%= prefix.className %>FormFieldType.Textarea,
+    ...options,
+  }
+}

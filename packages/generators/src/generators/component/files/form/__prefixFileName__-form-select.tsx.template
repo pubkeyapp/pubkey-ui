@@ -1,0 +1,11 @@
+import { <%= prefix.className %>FormField, <%= prefix.className %>FormFieldType } from './<%= prefix.fileName %>-form-field'
+
+export type <%= prefix.className %>FormSelect<T> = Omit<<%= prefix.className %>FormField<T>, 'key' | 'rows' | 'type'>
+
+export function formFieldSelect<T>(key: keyof T, options: <%= prefix.className %>FormSelect<T>): <%= prefix.className %>FormField<T> {
+  return {
+    key,
+    type: <%= prefix.className %>FormFieldType.Select,
+    ...options,
+  }
+}

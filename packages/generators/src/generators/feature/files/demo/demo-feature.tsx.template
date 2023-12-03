@@ -8,6 +8,7 @@ import { DemoFeatureCard } from './demo-feature-card'
 import { DemoFeatureCopy } from './demo-feature-copy'
 import { DemoFeatureDashboardGrid } from './demo-feature-dashboard-grid'
 import { DemoFeatureDebug } from './demo-feature-debug'
+import { DemoFeatureForm } from './demo-feature-form'
 import { DemoFeatureGroup } from './demo-feature-group'
 import { DemoFeatureHeader } from './demo-feature-header'
 import { DemoFeatureLoader } from './demo-feature-loader'
@@ -33,6 +34,7 @@ element: ReactNode
 { path: 'copy', label: 'Copy', element: <DemoFeatureCopy /> },
 { path: 'dashboard-grid', label: 'Dashboard Grid', element: <DemoFeatureDashboardGrid /> },
 { path: 'debug', label: 'Debug', element: <DemoFeatureDebug /> },
+{ path: 'form', label: 'Form', element: <DemoFeatureForm /> },
 { path: 'group', label: 'Group', element: <DemoFeatureGroup /> },
 { path: 'header', label: 'Header', element: <DemoFeatureHeader /> },
 { path: 'loader', label: 'Loader', element: <DemoFeatureLoader /> },

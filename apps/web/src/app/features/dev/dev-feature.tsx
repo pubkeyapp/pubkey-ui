@@ -1,6 +1,6 @@
 import { UiContainer } from '@pubkey-ui/core'
-import { DevFeatureLink } from './dev-feature-link'
 import { DevFeatureActionGrid } from './dev-feature-action-grid'
+import { DevFeatureLink } from './dev-feature-link'
 
 export function DevFeature() {
   return (
