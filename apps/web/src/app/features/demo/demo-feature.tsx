@@ -1,5 +1,5 @@
 import { Grid, NavLink } from '@mantine/core'
-import { UiContainer, UiNotFound, UiStack } from '@pubkey-ui/core'
+import { UiNotFound, UiPage, UiStack } from '@pubkey-ui/core'
 import { ReactNode } from 'react'
 import { Link, Navigate, useLocation, useRoutes } from 'react-router-dom'
 import { DemoFeatureAlerts } from './demo-feature-alerts'
@@ -15,6 +15,7 @@ import { DemoFeatureLoader } from './demo-feature-loader'
 import { DemoFeatureLogo } from './demo-feature-logo'
 import { DemoFeatureMenu } from './demo-feature-menu'
 import { DemoFeatureNotFound } from './demo-feature-not-found'
+import { DemoFeaturePage } from './demo-feature-page'
 import { DemoFeatureSearchInput } from './demo-feature-search-input'
 import { DemoFeatureStack } from './demo-feature-stack'
 import { DemoFeatureTabRoutes } from './demo-feature-tab-routes'
@@ -41,6 +42,7 @@ export function DemoFeature() {
     { path: 'logo', label: 'Logo', element: <DemoFeatureLogo /> },
     { path: 'menu', label: 'Menu', element: <DemoFeatureMenu /> },
     { path: 'not-found', label: 'Not Found', element: <DemoFeatureNotFound /> },
+    { path: 'page', label: 'Page', element: <DemoFeaturePage /> },
     { path: 'search-input', label: 'Search Input', element: <DemoFeatureSearchInput /> },
     { path: 'stack', label: 'Stack', element: <DemoFeatureStack /> },
     { path: 'tab-routes', label: 'Tab Routes', element: <DemoFeatureTabRoutes /> },
@@ -55,7 +57,7 @@ export function DemoFeature() {
   ])
 
   return (
-    <UiContainer>
+    <UiPage title="Demo">
       <Grid>
         <Grid.Col span={{ base: 12, sm: 2 }}>
           {demos.map((demo) => {
@@ -69,6 +71,6 @@ export function DemoFeature() {
           <UiStack gap="xl">{routes}</UiStack>
         </Grid.Col>
       </Grid>
-    </UiContainer>
+    </UiPage>
   )
 }

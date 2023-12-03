@@ -1,8 +1,8 @@
 import { rem, Switch, SwitchProps, useMantineTheme } from '@mantine/core'
 import { IconMoonStars, IconSun } from '@tabler/icons-react'
-import { useUiColorScheme } from '../ui-theme'
+import { use<%= prefix.className %>ColorScheme } from '../<%= prefix.fileName %>-theme'
 
-export function UiThemeSwitch(props: SwitchProps) {
+export function <%= prefix.className %>ThemeSwitch(props: SwitchProps) {
   const theme = useMantineTheme()
 
   const sunIcon = <IconSun style={{width: rem(16), height: rem(16)}} stroke={2.5} color={theme.colors.yellow[4]}/>
@@ -10,7 +10,7 @@ export function UiThemeSwitch(props: SwitchProps) {
   const moonIcon = (
     <IconMoonStars style={{width: rem(16), height: rem(16)}} stroke={2.5} color={theme.colors.brand[6]}/>
   )
-  const {toggleColorScheme, colorScheme} = useUiColorScheme()
+  const {toggleColorScheme, colorScheme} = use<%= prefix.className %>ColorScheme()
 
   return (
     <Switch

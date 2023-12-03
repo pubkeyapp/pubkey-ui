@@ -1,6 +1,6 @@
 import { Flex, Loader, LoaderProps } from '@mantine/core'
 
-export function UiLoader({
+export function <%= prefix.className %>Loader({
   size = 'xl',
   type = 'oval',
   flex = 'inline',

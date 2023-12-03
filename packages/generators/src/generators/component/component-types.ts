@@ -16,6 +16,7 @@ export const componentTypes: ComponentGeneratorSchema['type'][] = [
   'logo',
   'menu',
   'not-found',
+  'page',
   'search-input',
   'stack',
   'tab-routes',

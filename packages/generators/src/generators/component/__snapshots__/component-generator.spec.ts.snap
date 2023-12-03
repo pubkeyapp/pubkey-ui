@@ -2085,6 +2085,107 @@ exports[`component generator should create files for not-found 1`] = `
 }
 `;
 
+exports[`component generator should create files for page 1`] = `
+{
+  ".prettierrc": {
+    "content": [
+      "{ "singleQuote": true }",
+    ],
+    "isBinary": false,
+    "path": "./.prettierrc",
+  },
+  "nx.json": {
+    "content": [
+      "{",
+      ""affected": { "defaultBase": "main" },",
+      ""targetDefaults": {",
+      ""build": { "cache": true },",
+      ""lint": { "cache": true },",
+      ""e2e": { "cache": true }",
+      "}",
+      "}",
+    ],
+    "isBinary": false,
+    "path": "./nx.json",
+  },
+  "package.json": {
+    "content": [
+      "{",
+      ""name": "@proj/source",",
+      ""dependencies": {},",
+      ""devDependencies": {}",
+      "}",
+    ],
+    "isBinary": false,
+    "path": "./package.json",
+  },
+  "test": {
+    "children": {
+      "index.ts": {
+        "content": [
+          "export * from './ui-page';",
+        ],
+        "isBinary": false,
+        "path": "./test/index.ts",
+      },
+      "ui-page.tsx": {
+        "content": [
+          "import { Box, Group, Title } from '@mantine/core';",
+          "import { ReactNode } from 'react';",
+          "import { UiContainer } from '../ui-container';",
+          "import { UiGroup } from '../ui-group';",
+          "import { UiStack } from '../ui-stack';",
+          "export function UiPage({",
+          "children,",
+          "leftAction,",
+          "rightAction,",
+          "title,",
+          "}: {",
+          "children: ReactNode;",
+          "leftAction?: ReactNode;",
+          "rightAction?: ReactNode;",
+          "title?: ReactNode;",
+          "}) {",
+          "return (",
+          "<UiContainer>",
+          "<UiStack>",
+          "<Box>",
+          "<UiGroup>",
+          "<Group>",
+          "{leftAction ? leftAction : null}",
+          "<Title order={2}>{title ?? ''}</Title>",
+          "</Group>",
+          "{rightAction ? <Group>{rightAction}</Group> : null}",
+          "</UiGroup>",
+          "</Box>",
+          "<UiStack my="xs" gap="xl">",
+          "{children}",
+          "</UiStack>",
+          "</UiStack>",
+          "</UiContainer>",
+          ");",
+          "}",
+        ],
+        "isBinary": false,
+        "path": "./test/ui-page.tsx",
+      },
+    },
+    "path": "./test",
+  },
+  "tsconfig.base.json": {
+    "content": [
+      "{",
+      ""compilerOptions": {",
+      ""paths": {}",
+      "}",
+      "}",
+    ],
+    "isBinary": false,
+    "path": "./tsconfig.base.json",
+  },
+}
+`;
+
 exports[`component generator should create files for search-input 1`] = `
 {
   ".prettierrc": {

@@ -29,6 +29,7 @@ export interface ComponentGeneratorSchema {
     | 'logo'
     | 'menu'
     | 'not-found'
+    | 'page'
     | 'search-input'
     | 'stack'
     | 'tab-routes'

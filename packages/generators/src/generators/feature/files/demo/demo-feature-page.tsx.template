@@ -1,0 +1,19 @@
+import { Button, SimpleGrid } from '@mantine/core'
+import { <%= prefix.className %>Back, <%= prefix.className %>Card, <%= prefix.className %>Page, <%= prefix.className %>Stack } from '<%= uiImport %>'
+
+export function DemoFeaturePage() {
+  return (
+    <<%= prefix.className %>Card title="Page">
+      <<%= prefix.className %>Page title="Page title" leftAction={<<%= prefix.className %>Back />} rightAction={<Button variant="outline">Right action</Button>}>
+        <<%= prefix.className %>Card title="Card with Grid inside Page">
+          <SimpleGrid cols={2}>
+            <<%= prefix.className %>Stack>1</<%= prefix.className %>Stack>
+            <<%= prefix.className %>Stack>2</<%= prefix.className %>Stack>
+            <<%= prefix.className %>Stack>3</<%= prefix.className %>Stack>
+            <<%= prefix.className %>Stack>4</<%= prefix.className %>Stack>
+          </SimpleGrid>
+        </<%= prefix.className %>Card>
+      </<%= prefix.className %>Page>
+    </<%= prefix.className %>Card>
+  )
+}

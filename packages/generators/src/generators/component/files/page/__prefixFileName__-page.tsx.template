@@ -1,0 +1,36 @@
+import { Box, Group, Title } from '@mantine/core'
+import { ReactNode } from 'react'
+import { <%= prefix.className %>Container } from '../<%= prefix.fileName %>-container'
+import { <%= prefix.className %>Group } from '../<%= prefix.fileName %>-group'
+import { <%= prefix.className %>Stack } from '../<%= prefix.fileName %>-stack'
+
+export function <%= prefix.className %>Page({
+  children,
+  leftAction,
+  rightAction,
+  title,
+}: {
+  children: ReactNode
+  leftAction?: ReactNode
+  rightAction?: ReactNode
+  title?: ReactNode
+}) {
+  return (
+    <<%= prefix.className %>Container>
+      <<%= prefix.className %>Stack>
+        <Box>
+          <<%= prefix.className %>Group>
+            <Group>
+              {leftAction ? leftAction : null}
+              <Title order={2}>{title ?? ''}</Title>
+            </Group>
+            {rightAction ? <Group>{rightAction}</Group> : null}
+          </<%= prefix.className %>Group>
+        </Box>
+        <<%= prefix.className %>Stack my="xs" gap="xl">
+          {children}
+        </<%= prefix.className %>Stack>
+      </<%= prefix.className %>Stack>
+    </<%= prefix.className %>Container>
+  )
+}

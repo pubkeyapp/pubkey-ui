@@ -6,5 +6,9 @@ export interface UiGroupProps extends GroupProps {
 }
 
 export function UiGroup({ children, ...props }: UiGroupProps) {
-  return <Group {...props}>{children}</Group>
+  return (
+    <Group justify="space-between" {...props}>
+      {children}
+    </Group>
+  )
 }
