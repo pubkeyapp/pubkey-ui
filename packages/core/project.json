@@ -28,9 +28,18 @@
             "glob": "packages/core/README.md",
             "input": ".",
             "output": "."
+          },
+          {
+            "input": "./packages/core/src",
+            "glob": "**/(*.css)",
+            "output": "./src"
           }
         ]
       }
+    },
+    "publish": {
+      "command": "node tools/scripts/publish.mjs core {args.ver} {args.tag}",
+      "dependsOn": ["build"]
     },
     "test": {
       "executor": "@nx/jest:jest",

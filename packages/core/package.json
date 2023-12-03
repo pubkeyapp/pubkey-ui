@@ -1,4 +1,17 @@
 {
   "name": "@pubkey-ui/core",
-  "version": "0.0.1"
+  "version": "0.0.1",
+  "dependencies": {
+    "@mantine/core": "^7.2.2",
+    "@mantine/dates": "^7.2.2",
+    "@mantine/form": "^7.2.2",
+    "@mantine/hooks": "^7.2.2",
+    "@mantine/modals": "^7.2.2",
+    "@mantine/notifications": "^7.2.2",
+    "timeago-react": "^3.0.6"
+  },
+  "typings": "./index.esm.d.ts",
+  "module": "./index.esm.js",
+  "type": "module",
+  "main": "./index.esm.js"
 }
