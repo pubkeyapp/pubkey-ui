@@ -1,4 +1,5 @@
 export * from './ui-alert'
+export * from './ui-back'
 export * from './ui-card'
 export * from './ui-container'
 export * from './ui-copy'

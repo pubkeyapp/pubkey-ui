@@ -3,6 +3,7 @@ import { UiContainer, UiNotFound, UiStack } from '@pubkey-ui/core'
 import { ReactNode } from 'react'
 import { Link, Navigate, useLocation, useRoutes } from 'react-router-dom'
 import { DemoFeatureAlerts } from './demo-feature-alerts'
+import { DemoFeatureBack } from './demo-feature-back'
 import { DemoFeatureCard } from './demo-feature-card'
 import { DemoFeatureCopy } from './demo-feature-copy'
 import { DemoFeatureDashboardGrid } from './demo-feature-dashboard-grid'
@@ -26,6 +27,7 @@ export function DemoFeature() {
     element: ReactNode
   }[] = [
     { path: 'alerts', label: 'Alerts', element: <DemoFeatureAlerts /> },
+    { path: 'back', label: 'Back', element: <DemoFeatureBack /> },
     { path: 'card', label: 'Card', element: <DemoFeatureCard /> },
     { path: 'copy', label: 'Copy', element: <DemoFeatureCopy /> },
     { path: 'dashboard-grid', label: 'Dashboard Grid', element: <DemoFeatureDashboardGrid /> },

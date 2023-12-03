@@ -1,0 +1,13 @@
+import { ActionIcon } from '@mantine/core'
+import { IconArrowLeft } from '@tabler/icons-react'
+import { use<%= prefix.className %>Theme } from '../<%= prefix.fileName %>-theme'
+
+export function <%= prefix.className %>Back({ to = '../' }: { to?: string }) {
+  const { Link } = use<%= prefix.className %>Theme()
+
+  return (
+    <ActionIcon color="brand" component={Link} to={to} variant="light">
+      <IconArrowLeft />
+    </ActionIcon>
+  )
+}
