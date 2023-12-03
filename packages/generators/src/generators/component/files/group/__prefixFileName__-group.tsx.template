@@ -6,5 +6,7 @@ export interface <%= prefix.className %>GroupProps extends GroupProps {
 }
 
 export function <%= prefix.className %>Group({ children, ...props }: <%= prefix.className %>GroupProps) {
-  return <Group {...props}>{children}</Group>
+  return <Group justify="space-between" {...props}>
+    {children}
+  </Group>
 }

@@ -20,10 +20,10 @@ export function UiPage({
       <UiStack>
         <Box>
           <UiGroup>
-            <UiGroup>
+            <Group>
               {leftAction ? leftAction : null}
               <Title order={2}>{title ?? ''}</Title>
-            </UiGroup>
+            </Group>
             {rightAction ? <Group>{rightAction}</Group> : null}
           </UiGroup>
         </Box>

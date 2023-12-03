@@ -1,12 +1,12 @@
-import { ActionIcon } from '@mantine/core'
+import { ActionIcon, ActionIconProps } from '@mantine/core'
 import { IconArrowLeft } from '@tabler/icons-react'
 import { useUiTheme } from '../ui-theme'
 
-export function UiBack({ to = '../' }: { to?: string }) {
+export function UiBack({ to = '../', ...props }: ActionIconProps & { to?: string }) {
   const { Link } = useUiTheme()
 
   return (
-    <ActionIcon color="brand" component={Link} to={to} variant="light">
+    <ActionIcon color="brand" size="sm" variant="light" component={Link} to={to} {...props}>
       <IconArrowLeft />
     </ActionIcon>
   )

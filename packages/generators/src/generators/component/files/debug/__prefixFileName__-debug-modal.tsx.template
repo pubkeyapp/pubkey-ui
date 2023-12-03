@@ -1,4 +1,4 @@
-import { ActionIcon, Tooltip } from '@mantine/core'
+import { ActionIcon, ActionIconProps, Tooltip } from '@mantine/core'
 import { modals } from '@mantine/modals'
 import { IconBug } from '@tabler/icons-react'
 import { <%= prefix.className %>Debug } from './<%= prefix.fileName %>-debug'
@@ -11,10 +11,16 @@ export function handleDebugModalClick({ data, title }: { data: string | unknown;
   })
 }
 
-export function <%= prefix.className %>DebugModal({ data, title }: { data: string | unknown; title?: string }) {
+export function <%= prefix.className %>DebugModal({ data, title, ...props }: ActionIconProps & { data: string | unknown; title?: string }) {
   return (
     <Tooltip label="Show debug data">
-      <ActionIcon color="brand" variant="subtle" onClick={() => handleDebugModalClick({ data, title })}>
+      <ActionIcon
+        color="brand"
+        variant="light"
+        size="sm"
+        onClick={() => handleDebugModalClick({ data, title })}
+        {...props}
+      >
         <IconBug size={16} />
       </ActionIcon>
     </Tooltip>
