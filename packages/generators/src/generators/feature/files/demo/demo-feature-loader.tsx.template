@@ -1,0 +1,14 @@
+import { SimpleGrid } from '@mantine/core'
+import { <%= prefix.className %>Card, <%= prefix.className %>Loader } from '<%= uiImport %>'
+
+export function DemoFeatureLoader() {
+  return (
+    <<%= prefix.className %>Card title="Loader">
+      <SimpleGrid cols={3}>
+        <<%= prefix.className %>Loader />
+        <<%= prefix.className %>Loader type="dots" />
+        <<%= prefix.className %>Loader type="bars" />
+      </SimpleGrid>
+    </<%= prefix.className %>Card>
+  )
+}

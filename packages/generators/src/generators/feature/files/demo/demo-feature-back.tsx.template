@@ -1,9 +1,9 @@
-import { UiBack, UiCard } from '@pubkey-ui/core'
+import { <%= prefix.className %>Back, <%= prefix.className %>Card } from '<%= uiImport %>'
 
 export function DemoFeatureBack() {
   return (
-    <UiCard title="Back">
-      <UiBack />
-    </UiCard>
+    <<%= prefix.className %>Card title="Back">
+      <<%= prefix.className %>Back />
+    </<%= prefix.className %>Card>
   )
 }

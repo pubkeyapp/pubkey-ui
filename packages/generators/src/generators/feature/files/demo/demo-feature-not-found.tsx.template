@@ -1,10 +1,10 @@
-import { UiCardTitle, UiNotFound, UiStack } from '@pubkey-ui/core'
+import { <%= prefix.className %>CardTitle, <%= prefix.className %>NotFound, <%= prefix.className %>Stack } from '<%= uiImport %>'
 
 export function DemoFeatureNotFound() {
   return (
-    <UiStack>
-      <UiCardTitle>NotFound</UiCardTitle>
-      <UiNotFound />
-    </UiStack>
+    <<%= prefix.className %>Stack>
+      <<%= prefix.className %>CardTitle>NotFound</<%= prefix.className %>CardTitle>
+      <<%= prefix.className %>NotFound />
+    </<%= prefix.className %>Stack>
   )
 }

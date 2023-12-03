@@ -10,6 +10,7 @@ import { DemoFeatureDashboardGrid } from './demo-feature-dashboard-grid'
 import { DemoFeatureDebug } from './demo-feature-debug'
 import { DemoFeatureGroup } from './demo-feature-group'
 import { DemoFeatureHeader } from './demo-feature-header'
+import { DemoFeatureLoader } from './demo-feature-loader'
 import { DemoFeatureLogo } from './demo-feature-logo'
 import { DemoFeatureMenu } from './demo-feature-menu'
 import { DemoFeatureNotFound } from './demo-feature-not-found'
@@ -34,6 +35,7 @@ export function DemoFeature() {
     { path: 'debug', label: 'Debug', element: <DemoFeatureDebug /> },
     { path: 'group', label: 'Group', element: <DemoFeatureGroup /> },
     { path: 'header', label: 'Header', element: <DemoFeatureHeader /> },
+    { path: 'loader', label: 'Loader', element: <DemoFeatureLoader /> },
     { path: 'logo', label: 'Logo', element: <DemoFeatureLogo /> },
     { path: 'menu', label: 'Menu', element: <DemoFeatureMenu /> },
     { path: 'not-found', label: 'Not Found', element: <DemoFeatureNotFound /> },
