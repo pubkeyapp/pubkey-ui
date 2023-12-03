@@ -56,6 +56,9 @@ dependencies:
   '@solana/wallet-adapter-solflare':
     specifier: ^0.6.28
     version: 0.6.28(@solana/web3.js@1.87.6)
+  '@solana/web3.js':
+    specifier: ^1.87.6
+    version: 1.87.6
   '@swc/helpers':
     specifier: ~0.5.2
     version: 0.5.3
