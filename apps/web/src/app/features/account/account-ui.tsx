@@ -144,7 +144,7 @@ export function AccountTokens({ address }: { address: PublicKey }) {
                   <Table.Tr>
                     <Table.Th>Public Key</Table.Th>
                     <Table.Th>Mint</Table.Th>
-                    <Table.Th align="right">Balance</Table.Th>
+                    <Table.Th ta="right">Balance</Table.Th>
                   </Table.Tr>
                 </Table.Thead>
                 <Table.Tbody>
@@ -165,7 +165,7 @@ export function AccountTokens({ address }: { address: PublicKey }) {
                         />
                       </Table.Td>
                       <Table.Td align="right">
-                        <AccountTokenBalance ff="monospace" address={address} />
+                        <AccountTokenBalance ff="monospace" address={pubkey} />
                       </Table.Td>
                     </Table.Tr>
                   ))}
@@ -232,7 +232,7 @@ export function AccountTransactions({ address }: { address: PublicKey }) {
               <Table.Th>Signature</Table.Th>
               <Table.Th align="right">Slot</Table.Th>
               <Table.Th>Block Time</Table.Th>
-              <Table.Th align="right">Status</Table.Th>
+              <Table.Th ta="right">Result</Table.Th>
             </Table.Tr>
           </Table.Thead>
           <Table.Tbody>
