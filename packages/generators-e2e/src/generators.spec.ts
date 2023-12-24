@@ -10,9 +10,9 @@ describe('generators', () => {
 
     // The plugin has been built and published to a local registry in the jest globalSetup
     // Install the plugin built with the latest source code into the test repo
-    execSync(`npm install @pubkey-ui/generators@e2e`, {
+    execSync(`pnpm install @pubkey-ui/generators@e2e`, {
       cwd: projectDirectory,
-      stdio: 'inherit',
+      stdio: 'pipe',
       env: process.env,
     })
   })
@@ -26,11 +26,17 @@ describe('generators', () => {
   })
 
   it('should be installed', () => {
-    // npm ls will fail if the package is not installed properly
-    execSync('npm ls @pubkey-ui/generators', {
+    // pnpm why will fail if the package is not installed properly
+    const result = execSync('pnpm why @pubkey-ui/generators', {
       cwd: projectDirectory,
-      stdio: 'inherit',
+      stdio: 'pipe',
     })
+    const output = result?.toString('utf-8')
+
+    if (!output?.length) {
+      throw new Error('The plugin was not installed properly')
+    }
+    expect(output).toContain('@pubkey-ui/generators')
   })
 })
 
@@ -51,7 +57,7 @@ function createTestProject() {
     recursive: true,
   })
 
-  execSync(`npx --yes create-nx-workspace@latest ${projectName} --preset apps --no-nxCloud --no-interactive`, {
+  execSync(`pnpx create-nx-workspace@latest ${projectName} --preset apps --no-nxCloud --no-interactive --pm pnpm`, {
     cwd: dirname(projectDirectory),
     stdio: 'inherit',
     env: process.env,

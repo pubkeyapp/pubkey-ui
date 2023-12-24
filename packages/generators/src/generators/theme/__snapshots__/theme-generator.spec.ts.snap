@@ -13,11 +13,7 @@ exports[`theme generator should run successfully 1`] = `
     "content": [
       "{",
       ""affected": { "defaultBase": "main" },",
-      ""targetDefaults": {",
-      ""build": { "cache": true },",
-      ""lint": { "cache": true },",
-      ""e2e": { "cache": true }",
-      "}",
+      ""targetDefaults": { "build": { "cache": true }, "lint": { "cache": true } }",
       "}",
     ],
     "isBinary": false,

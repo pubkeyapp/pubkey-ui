@@ -16,11 +16,14 @@ describe('create-pubkey-ui-app', () => {
   it('should be installed', () => {
     projectDirectory = createTestProject()
 
-    // npm ls will fail if the package is not installed properly
-    execSync('npm ls @pubkey-ui/generators', {
+    // pnpm why will fail if the package is not installed properly
+    const result = execSync('pnpm why @pubkey-ui/generators', {
       cwd: projectDirectory,
-      stdio: 'inherit',
+      stdio: 'pipe',
     })
+    if (!result.toString().length) {
+      throw new Error('The plugin was not installed properly')
+    }
   })
 })
 
@@ -28,7 +31,7 @@ describe('create-pubkey-ui-app', () => {
  * Creates a test project with create-nx-workspace and installs the plugin
  * @returns The directory where the test project was created
  */
-function createTestProject(extraArgs = '') {
+function createTestProject() {
   const projectName = 'test-project'
   const projectDirectory = join(process.cwd(), 'tmp', projectName)
 
@@ -41,9 +44,9 @@ function createTestProject(extraArgs = '') {
     recursive: true,
   })
 
-  execSync(`npx --yes create-pubkey-ui-app@e2e ${projectName} ${extraArgs}`, {
+  execSync(`npx --yes create-pubkey-ui-app@e2e ${projectName} --verbose`, {
     cwd: dirname(projectDirectory),
-    stdio: 'inherit',
+    stdio: 'pipe',
     env: process.env,
   })
   console.log(`Created test project in "${projectDirectory}"`)

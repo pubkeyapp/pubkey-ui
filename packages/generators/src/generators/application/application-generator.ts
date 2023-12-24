@@ -1,5 +1,5 @@
 import { getProjects, Tree, updateJson } from '@nx/devkit'
-import { anchorApplicationGenerator } from '@solana-developers/preset-anchor'
+import { anchorApplicationGenerator } from '@beeman/preset-anchor'
 import { join } from 'path'
 import { generateReactApplication } from '../../utils/generate-react-application'
 import {

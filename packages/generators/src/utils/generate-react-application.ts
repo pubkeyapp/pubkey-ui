@@ -1,5 +1,5 @@
 import { getProjects, Tree } from '@nx/devkit'
-import { Linter } from '@nx/linter'
+import { Linter } from '@nx/eslint'
 import { applicationGenerator as reactApplicationGenerator } from '@nx/react/src/generators/application/application'
 import { NormalizedApplicationGeneratorSchema } from './normalize-application-schema'
 

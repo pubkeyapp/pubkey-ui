@@ -12,14 +12,15 @@ async function main() {
     throw new Error('Please provide a name for the workspace')
   }
 
-  console.log(`Creating the workspace: ${name}`)
-
   // This assumes "@pubkey-ui/generators" and "create-pubkey-ui-app" are at the same version
   // eslint-disable-next-line @typescript-eslint/no-var-requires
   const presetVersion = require('../package.json').version
+  const presetName = '@pubkey-ui/generators'
+  const preset = `${presetName}@${presetVersion}`
+  console.log(`Creating the workspace: ${name} with preset: ${preset}`)
 
   // TODO: update below to customize the workspace
-  const { directory } = await createWorkspace(`@pubkey-ui/generators@${presetVersion}`, {
+  const { directory } = await createWorkspace(preset, {
     name,
     nxCloud: false,
     packageManager: pm,
