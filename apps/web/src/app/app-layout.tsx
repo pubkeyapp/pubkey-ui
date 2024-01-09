@@ -3,7 +3,7 @@ import { UiHeader, UiLayout, UiMenu, UiThemeSwitch } from '@pubkey-ui/core'
 import { IconSettings, IconUser, IconUserCog } from '@tabler/icons-react'
 import { ReactNode } from 'react'
 import { AccountChecker } from './features/account/account-ui'
-import { ClusterChecker } from './features/cluster/cluster-ui'
+import { ClusterChecker, ClusterUiSelect } from './features/cluster/cluster-ui'
 
 export function AppLayout({ children }: { children: ReactNode }) {
   return (
@@ -18,6 +18,7 @@ export function AppLayout({ children }: { children: ReactNode }) {
           ]}
           profile={
             <Group>
+              <ClusterUiSelect />
               <UiThemeSwitch />
               <UiMenu
                 position="bottom-end"
