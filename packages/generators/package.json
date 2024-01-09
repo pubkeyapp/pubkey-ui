@@ -2,12 +2,12 @@
   "name": "@pubkey-ui/generators",
   "version": "0.0.1",
   "dependencies": {
-    "@nx/devkit": "17.2.7",
+    "@nx/devkit": "17.2.8",
     "tslib": "^2.3.0",
-    "@nx/js": "17.2.7",
-    "@nx/react": "17.2.7",
+    "@nx/js": "17.2.8",
+    "@nx/react": "17.2.8",
     "@beeman/preset-anchor": "2.0.0",
-    "@nx/eslint": "17.2.7"
+    "@nx/eslint": "17.2.8"
   },
   "type": "commonjs",
   "main": "./src/index.js",
