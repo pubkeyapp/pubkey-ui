@@ -22,7 +22,14 @@ import { useQueryClient } from '@tanstack/react-query'
 import { useMemo, useState } from 'react'
 import { useCluster } from '../cluster/cluster-data-access'
 import { ExplorerLink } from '../cluster/cluster-ui'
-import { useAccount } from './account-data-access'
+import {
+  useGetBalance,
+  useGetSignatures,
+  useGetTokenAccounts,
+  useGetTokenBalance,
+  useRequestAirdrop,
+  useTransferSol,
+} from './account-data-access'
 
 export function ellipsify(str = '', len = 4) {
   if (str.length > 30) {
@@ -32,7 +39,7 @@ export function ellipsify(str = '', len = 4) {
 }
 
 export function AccountBalance({ address, ...props }: { address: PublicKey } & TitleProps) {
-  const { getBalance: query } = useAccount({ address })
+  const query = useGetBalance({ address })
 
   return (
     <Title onClick={() => query.refetch()} {...props}>
@@ -49,7 +56,8 @@ export function AccountChecker() {
 }
 export function AccountBalanceCheck({ address }: { address: PublicKey }) {
   const { cluster } = useCluster()
-  const { getBalance: query, requestAirdrop } = useAccount({ address })
+  const query = useGetBalance({ address })
+  const requestAirdrop = useRequestAirdrop({ address })
 
   if (query.isLoading) {
     return null
@@ -72,7 +80,7 @@ export function AccountBalanceCheck({ address }: { address: PublicKey }) {
               variant="light"
               color="yellow"
               size="xs"
-              onClick={() => requestAirdrop.mutateAsync(1).catch((err) => console.log(err))}
+              onClick={() => requestAirdrop.mutateAsync('1').catch((err) => console.log(err))}
             >
               Request Airdrop
             </Button>
@@ -99,7 +107,7 @@ export function AccountButtons({ address }: { address: PublicKey }) {
 
 export function AccountTokens({ address }: { address: PublicKey }) {
   const [showAll, setShowAll] = useState(false)
-  const { getTokenAccounts: query } = useAccount({ address })
+  const query = useGetTokenAccounts({ address })
   const client = useQueryClient()
   const items = useMemo(() => {
     if (showAll) return query.data
@@ -188,18 +196,18 @@ export function AccountTokens({ address }: { address: PublicKey }) {
 }
 
 export function AccountTokenBalance({ address, ...props }: { address: PublicKey } & TextProps) {
-  const { getTokenBalance } = useAccount({ address })
-  return getTokenBalance.isLoading ? (
+  const query = useGetTokenBalance({ address })
+  return query.isLoading ? (
     <Loader />
-  ) : getTokenBalance.data ? (
-    <Text {...props}>{getTokenBalance.data?.value.uiAmount}</Text>
+  ) : query.data ? (
+    <Text {...props}>{query.data?.value.uiAmount}</Text>
   ) : (
     <div>Error</div>
   )
 }
 
 export function AccountTransactions({ address }: { address: PublicKey }) {
-  const { getSignatures: query } = useAccount({ address })
+  const query = useGetSignatures({ address })
   const [showAll, setShowAll] = useState(false)
 
   const items = useMemo(() => {
@@ -294,8 +302,8 @@ function ModalReceive({ address, ...props }: { address: PublicKey }) {
 
 function ModalAirdrop({ address, ...props }: ButtonProps & { address: PublicKey }) {
   const [opened, { close, open }] = useDisclosure(false)
-  const { requestAirdrop: mutation } = useAccount({ address })
-  const [amount, setAmount] = useState(2)
+  const mutation = useRequestAirdrop({ address })
+  const [amount, setAmount] = useState('2')
 
   return (
     <>
@@ -306,9 +314,11 @@ function ModalAirdrop({ address, ...props }: ButtonProps & { address: PublicKey 
         <TextInput
           disabled={mutation.isPending}
           type="number"
+          step="any"
+          min="0"
           placeholder="Amount"
           value={amount}
-          onChange={(e) => setAmount(Number(e.target.value))}
+          onChange={(e) => setAmount(e.target.value)}
         />
         <Button
           disabled={!amount || mutation.isPending}
@@ -326,9 +336,9 @@ function ModalAirdrop({ address, ...props }: ButtonProps & { address: PublicKey 
 function ModalSend({ address, ...props }: ButtonProps & { address: PublicKey }) {
   const [opened, { close, open }] = useDisclosure(false)
   const wallet = useWallet()
-  const { transferSol: mutation } = useAccount({ address })
+  const mutation = useTransferSol({ address })
   const [destination, setDestination] = useState('')
-  const [amount, setAmount] = useState(1)
+  const [amount, setAmount] = useState('1')
 
   if (!address || !wallet.sendTransaction) {
     return <div>Wallet not connected</div>
@@ -350,9 +360,11 @@ function ModalSend({ address, ...props }: ButtonProps & { address: PublicKey }) 
         <TextInput
           disabled={mutation.isPending}
           type="number"
+          step="any"
+          min="0"
           placeholder="Amount"
           value={amount}
-          onChange={(e) => setAmount(Number(e.target.value))}
+          onChange={(e) => setAmount(e.target.value)}
         />
         <Button
           disabled={!destination || !amount || mutation.isPending}
