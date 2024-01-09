@@ -1,7 +1,5 @@
-import { Grid, NavLink } from '@mantine/core'
-import { <%= prefix.className %>NotFound, <%= prefix.className %>Page, <%= prefix.className %>Stack } from '<%= uiImport %>'
+import { <%= prefix.className %>GridRoutes, <%= prefix.className %>Page } from '<%= uiImport %>'
 import { ReactNode } from 'react'
-import { Link, Navigate, useLocation, useRoutes } from 'react-router-dom'
 import { DemoFeatureAlerts } from './demo-feature-alerts'
 import { DemoFeatureAnchor } from './demo-feature-anchor'
 import { DemoFeatureBack } from './demo-feature-back'
@@ -10,6 +8,7 @@ import { DemoFeatureCopy } from './demo-feature-copy'
 import { DemoFeatureDashboardGrid } from './demo-feature-dashboard-grid'
 import { DemoFeatureDebug } from './demo-feature-debug'
 import { DemoFeatureForm } from './demo-feature-form'
+import { DemoFeatureGridRoutes } from './demo-feature-grid-routes'
 import { DemoFeatureGroup } from './demo-feature-group'
 import { DemoFeatureHeader } from './demo-feature-header'
 import { DemoFeatureLoader } from './demo-feature-loader'
@@ -24,7 +23,6 @@ import { DemoFeatureTime } from './demo-feature-time'
 import { DemoFeatureToast } from './demo-feature-toast'
 
 export function DemoFeature() {
-  const { pathname } = useLocation()
   const demos: {
     path: string
     label: string
@@ -38,6 +36,7 @@ export function DemoFeature() {
     { path: 'dashboard-grid', label: 'Dashboard Grid', element: <DemoFeatureDashboardGrid /> },
     { path: 'debug', label: 'Debug', element: <DemoFeatureDebug /> },
     { path: 'form', label: 'Form', element: <DemoFeatureForm /> },
+    { path: 'grid-routes', label: 'Grid Routes', element: <DemoFeatureGridRoutes /> },
     { path: 'group', label: 'Group', element: <DemoFeatureGroup /> },
     { path: 'header', label: 'Header', element: <DemoFeatureHeader /> },
     { path: 'loader', label: 'Loader', element: <DemoFeatureLoader /> },
@@ -52,27 +51,9 @@ export function DemoFeature() {
     { path: 'toast', label: 'Toast', element: <DemoFeatureToast /> },
   ]
 
-  const routes = useRoutes([
-    { index: true, element: <Navigate to={demos[0].path} replace /> },
-    ...demos.map((demo) => ({ path: `${demo.path}/*`, element: demo.element })),
-    { path: '*', element: <<%= prefix.className %>NotFound to="/demo" /> },
-  ])
-
   return (
     <<%= prefix.className %>Page title="Demo">
-      <Grid>
-        <Grid.Col span={{ base: 12, sm: 2 }}>
-          {demos.map((demo) => {
-            const to = `/demo/${demo.path}`
-            return (
-              <NavLink active={pathname.startsWith(to)} component={Link} key={demo.path} label={demo.label} to={to} />
-            )
-          })}
-        </Grid.Col>
-        <Grid.Col span={{ base: 12, sm: 10 }}>
-          <<%= prefix.className %>Stack gap="xl">{routes}</<%= prefix.className %>Stack>
-        </Grid.Col>
-      </Grid>
+      <<%= prefix.className %>GridRoutes basePath="/demo" routes={demos} />
     </<%= prefix.className %>Page>
   )
 }

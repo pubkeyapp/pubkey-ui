@@ -1,0 +1,48 @@
+import { Grid, GridColProps, GridProps, NavLink } from '@mantine/core'
+import { ReactNode, useMemo } from 'react'
+import { Link, Navigate, useLocation, useRoutes } from 'react-router-dom'
+import { <%= prefix.className %>NotFound } from '../<%= prefix.fileName %>-not-found'
+
+export interface <%= prefix.className %>GridRoute {
+  path: string
+  label?: string
+  element: ReactNode
+}
+export interface <%= prefix.className %>GridRoutesProps extends GridProps {
+  basePath: string
+  routes: <%= prefix.className %>GridRoute[]
+  leftColProps?: GridColProps
+  rightColProps?: GridColProps
+}
+
+export function <%= prefix.className %>GridRoutes({ basePath, routes, leftColProps, rightColProps, ...props }: <%= prefix.className %>GridRoutesProps) {
+  const { pathname } = useLocation()
+
+  const links = useMemo(
+    () =>
+      routes
+        .filter((app) => app.label)
+        .map((app) => {
+          const to = `${basePath}/${app.path}`
+          return <NavLink active={pathname.startsWith(to)} component={Link} key={app.path} label={app.label} to={to} />
+        }),
+    [basePath, pathname, routes],
+  )
+
+  const router = useRoutes([
+    { index: true, element: <Navigate to={routes[0].path} replace /> },
+    ...routes.map((item) => ({ path: `${item.path}/*`, element: item.element })),
+    { path: '*', element: <<%= prefix.className %>NotFound to={basePath} /> },
+  ])
+
+  return (
+    <Grid {...props}>
+      <Grid.Col span={{ base: 12, sm: 2 }} {...rightColProps}>
+        {links}
+      </Grid.Col>
+      <Grid.Col span={{ base: 12, sm: 10 }} {...leftColProps}>
+        {router}
+      </Grid.Col>
+    </Grid>
+  )
+}

@@ -10,6 +10,7 @@ export const componentTypes: ComponentGeneratorSchema['type'][] = [
   'dashboard-grid',
   'debug',
   'form',
+  'grid-routes',
   'group',
   'header',
   'layout',

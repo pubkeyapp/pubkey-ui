@@ -1,0 +1,48 @@
+import { Grid, GridColProps, GridProps, NavLink } from '@mantine/core'
+import { ReactNode, useMemo } from 'react'
+import { Link, Navigate, useLocation, useRoutes } from 'react-router-dom'
+import { UiNotFound } from '../ui-not-found'
+
+export interface UiGridRoute {
+  path: string
+  label?: string
+  element: ReactNode
+}
+export interface UiGridRoutesProps extends GridProps {
+  basePath: string
+  routes: UiGridRoute[]
+  leftColProps?: GridColProps
+  rightColProps?: GridColProps
+}
+
+export function UiGridRoutes({ basePath, routes, leftColProps, rightColProps, ...props }: UiGridRoutesProps) {
+  const { pathname } = useLocation()
+
+  const links = useMemo(
+    () =>
+      routes
+        .filter((app) => app.label)
+        .map((app) => {
+          const to = `${basePath}/${app.path}`
+          return <NavLink active={pathname.startsWith(to)} component={Link} key={app.path} label={app.label} to={to} />
+        }),
+    [basePath, pathname, routes],
+  )
+
+  const router = useRoutes([
+    { index: true, element: <Navigate to={routes[0].path} replace /> },
+    ...routes.map((item) => ({ path: `${item.path}/*`, element: item.element })),
+    { path: '*', element: <UiNotFound to={basePath} /> },
+  ])
+
+  return (
+    <Grid {...props}>
+      <Grid.Col span={{ base: 12, sm: 2 }} {...rightColProps}>
+        {links}
+      </Grid.Col>
+      <Grid.Col span={{ base: 12, sm: 10 }} {...leftColProps}>
+        {router}
+      </Grid.Col>
+    </Grid>
+  )
+}
