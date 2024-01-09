@@ -15,6 +15,7 @@ export interface ComponentGeneratorSchema {
    */
   type:
     | 'alert'
+    | 'anchor'
     | 'back'
     | 'card'
     | 'container'

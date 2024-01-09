@@ -204,6 +204,7 @@ exports[`theme generator should run successfully 1`] = `
                   "index.ts": {
                     "content": [
                       "export * from './ui-alert';",
+                      "export * from './ui-anchor';",
                       "export * from './ui-back';",
                       "export * from './ui-card';",
                       "export * from './ui-container';",
@@ -306,6 +307,52 @@ exports[`theme generator should run successfully 1`] = `
                       },
                     },
                     "path": "./test-target/src/app/ui/ui-alert",
+                  },
+                  "ui-anchor": {
+                    "children": {
+                      "index.ts": {
+                        "content": [
+                          "export * from './ui-anchor';",
+                        ],
+                        "isBinary": false,
+                        "path": "./test-target/src/app/ui/ui-anchor/index.ts",
+                      },
+                      "ui-anchor.tsx": {
+                        "content": [
+                          "import { Anchor, AnchorProps } from '@mantine/core';",
+                          "import { ReactNode } from 'react';",
+                          "import { Link } from 'react-router-dom';",
+                          "export interface UiAnchorProps extends AnchorProps {",
+                          "children: ReactNode;",
+                          "href?: string;",
+                          "to?: string;",
+                          "target?: HTMLAnchorElement['target'];",
+                          "}",
+                          "export function UiAnchor({",
+                          "children,",
+                          "href,",
+                          "target,",
+                          "to,",
+                          "...props",
+                          "}: UiAnchorProps) {",
+                          "return to ? (",
+                          "<Anchor component={Link} to={to} target={target} {...props}>",
+                          "{children}",
+                          "</Anchor>",
+                          ") : href ? (",
+                          "<Anchor component="a" href={href} target={target} {...props}>",
+                          "{children}",
+                          "</Anchor>",
+                          ") : (",
+                          "children",
+                          ");",
+                          "}",
+                        ],
+                        "isBinary": false,
+                        "path": "./test-target/src/app/ui/ui-anchor/ui-anchor.tsx",
+                      },
+                    },
+                    "path": "./test-target/src/app/ui/ui-anchor",
                   },
                   "ui-back": {
                     "children": {

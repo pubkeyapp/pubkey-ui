@@ -3,6 +3,7 @@ import { <%= prefix.className %>NotFound, <%= prefix.className %>Page, <%= prefi
 import { ReactNode } from 'react'
 import { Link, Navigate, useLocation, useRoutes } from 'react-router-dom'
 import { DemoFeatureAlerts } from './demo-feature-alerts'
+import { DemoFeatureAnchor } from './demo-feature-anchor'
 import { DemoFeatureBack } from './demo-feature-back'
 import { DemoFeatureCard } from './demo-feature-card'
 import { DemoFeatureCopy } from './demo-feature-copy'
@@ -30,6 +31,7 @@ export function DemoFeature() {
     element: ReactNode
   }[] = [
     { path: 'alerts', label: 'Alerts', element: <DemoFeatureAlerts /> },
+    { path: 'anchor', label: 'Anchor', element: <DemoFeatureAnchor /> },
     { path: 'back', label: 'Back', element: <DemoFeatureBack /> },
     { path: 'card', label: 'Card', element: <DemoFeatureCard /> },
     { path: 'copy', label: 'Copy', element: <DemoFeatureCopy /> },

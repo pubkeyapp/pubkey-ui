@@ -121,6 +121,96 @@ exports[`component generator should create files for alert 1`] = `
 }
 `;
 
+exports[`component generator should create files for anchor 1`] = `
+{
+  ".prettierrc": {
+    "content": [
+      "{ "singleQuote": true }",
+    ],
+    "isBinary": false,
+    "path": "./.prettierrc",
+  },
+  "nx.json": {
+    "content": [
+      "{",
+      ""affected": { "defaultBase": "main" },",
+      ""targetDefaults": { "build": { "cache": true }, "lint": { "cache": true } }",
+      "}",
+    ],
+    "isBinary": false,
+    "path": "./nx.json",
+  },
+  "package.json": {
+    "content": [
+      "{",
+      ""name": "@proj/source",",
+      ""dependencies": {},",
+      ""devDependencies": {}",
+      "}",
+    ],
+    "isBinary": false,
+    "path": "./package.json",
+  },
+  "test": {
+    "children": {
+      "index.ts": {
+        "content": [
+          "export * from './ui-anchor';",
+        ],
+        "isBinary": false,
+        "path": "./test/index.ts",
+      },
+      "ui-anchor.tsx": {
+        "content": [
+          "import { Anchor, AnchorProps } from '@mantine/core';",
+          "import { ReactNode } from 'react';",
+          "import { Link } from 'react-router-dom';",
+          "export interface UiAnchorProps extends AnchorProps {",
+          "children: ReactNode;",
+          "href?: string;",
+          "to?: string;",
+          "target?: HTMLAnchorElement['target'];",
+          "}",
+          "export function UiAnchor({",
+          "children,",
+          "href,",
+          "target,",
+          "to,",
+          "...props",
+          "}: UiAnchorProps) {",
+          "return to ? (",
+          "<Anchor component={Link} to={to} target={target} {...props}>",
+          "{children}",
+          "</Anchor>",
+          ") : href ? (",
+          "<Anchor component="a" href={href} target={target} {...props}>",
+          "{children}",
+          "</Anchor>",
+          ") : (",
+          "children",
+          ");",
+          "}",
+        ],
+        "isBinary": false,
+        "path": "./test/ui-anchor.tsx",
+      },
+    },
+    "path": "./test",
+  },
+  "tsconfig.base.json": {
+    "content": [
+      "{",
+      ""compilerOptions": {",
+      ""paths": {}",
+      "}",
+      "}",
+    ],
+    "isBinary": false,
+    "path": "./tsconfig.base.json",
+  },
+}
+`;
+
 exports[`component generator should create files for back 1`] = `
 {
   ".prettierrc": {

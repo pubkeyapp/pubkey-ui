@@ -2,6 +2,7 @@ import { ComponentGeneratorSchema } from './component-generator-schema'
 
 export const componentTypes: ComponentGeneratorSchema['type'][] = [
   'alert',
+  'anchor',
   'back',
   'card',
   'container',

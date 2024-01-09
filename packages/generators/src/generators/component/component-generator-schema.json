@@ -17,6 +17,7 @@
       "description": "The type of component to create",
       "enum": [
         "alert",
+        "anchor",
         "back",
         "card",
         "container",
