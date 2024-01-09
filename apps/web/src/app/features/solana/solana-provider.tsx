@@ -7,12 +7,10 @@ import {
   useWallet,
   WalletProvider,
 } from '@solana/wallet-adapter-react'
-import { WalletModalProvider, WalletMultiButton } from '@solana/wallet-adapter-react-ui'
+import { WalletModalProvider, WalletMultiButton } from '@pubkeyapp/wallet-adapter-mantine-ui'
 import { SolflareWalletAdapter } from '@solana/wallet-adapter-solflare'
 import { ReactNode, useCallback, useMemo } from 'react'
 import { toWalletAdapterNetwork, useCluster } from '../cluster/cluster-data-access'
-
-require('@solana/wallet-adapter-react-ui/styles.css')
 
 export const WalletButton = WalletMultiButton
 

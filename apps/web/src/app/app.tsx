@@ -10,15 +10,15 @@ const client = new QueryClient()
 export function App() {
   return (
     <QueryClientProvider client={client}>
-      <ClusterProvider>
-        <SolanaProvider>
-          <UiThemeProvider link={ThemeLink}>
+      <UiThemeProvider link={ThemeLink}>
+        <ClusterProvider>
+          <SolanaProvider>
             <AppLayout>
               <AppRoutes />
             </AppLayout>
-          </UiThemeProvider>
-        </SolanaProvider>
-      </ClusterProvider>
+          </SolanaProvider>
+        </ClusterProvider>
+      </UiThemeProvider>
     </QueryClientProvider>
   )
 }

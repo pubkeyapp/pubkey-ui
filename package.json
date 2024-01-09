@@ -13,6 +13,7 @@
   "private": true,
   "packageManager": "pnpm@8.14.0",
   "dependencies": {
+    "@beeman/preset-anchor": "^2.0.0",
     "@coral-xyz/anchor": "^0.29.0",
     "@mantine/core": "^7.3.0",
     "@mantine/dates": "^7.3.0",
@@ -23,7 +24,7 @@
     "@mantine/notifications": "^7.3.0",
     "@mantine/spotlight": "^7.3.0",
     "@nx/devkit": "17.2.7",
-    "@beeman/preset-anchor": "^2.0.0",
+    "@pubkeyapp/wallet-adapter-mantine-ui": "^2.3.0",
     "@solana/spl-token": "^0.3.9",
     "@solana/wallet-adapter-base": "^0.9.23",
     "@solana/wallet-adapter-react": "^0.15.35",
