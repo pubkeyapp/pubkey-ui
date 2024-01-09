@@ -3,40 +3,40 @@ import { ReactElement, ReactNode } from 'react'
 import { Navigate, Route, Routes, useLocation, useNavigate } from 'react-router-dom'
 
 export interface <%= prefix.className %>TabRoute {
-  component: ReactNode
+  element: ReactNode
   label: ReactElement | string
-  value: string
+  path: string
 }
 
 export function <%= prefix.className %>TabRoutes({
   grow = false,
   tabs,
-  baseUrl,
+  basePath,
   ...props
 }: Omit<TabsProps, 'children'> & {
   children?: ReactNode
-  baseUrl?: string
+  basePath?: string
   grow?: boolean
   tabs: <%= prefix.className %>TabRoute[]
 }) {
   const navigate = useNavigate()
   const location = useLocation()
-  // Set the active tab based on matching the location pathname with the tab value
-  const activeTab = tabs.find((tab) => location.pathname.includes(`/${tab.value}`))?.value
+  // Set the active tab based on matching the location pathname with the tab path
+  const activeTab = tabs.find((tab) => location.pathname.includes(`/${tab.path}`))?.path
   // Set default redirect route to the first tab
-  const redirect = tabs.length && tabs[0].value !== '' ? tabs[0].value : undefined
+  const redirect = tabs.length && tabs[0].path !== '' ? tabs[0].path : undefined
 
   return (
     <Box>
       <Tabs
         value={activeTab}
-        onChange={(value) => navigate(`${baseUrl ? `${baseUrl}/${value}` : value}`)}
+        onChange={(value) => navigate(`${basePath ? `${basePath}/${value}` : value}`)}
         mb="md"
         {...props}
       >
         <Tabs.List grow={grow}>
           {tabs.map((tab) => (
-            <Tabs.Tab key={tab.value} value={tab.value}>
+            <Tabs.Tab key={tab.path} value={tab.path}>
               <Text>{tab.label}</Text>
             </Tabs.Tab>
           ))}
@@ -45,7 +45,7 @@ export function <%= prefix.className %>TabRoutes({
       <Routes>
         {redirect ? <Route index element={<Navigate replace to={`./${redirect}`} />} /> : null}
         {tabs.map((tab) => (
-          <Route key={tab.value} path={`${tab.value}/*`} element={tab.component} />
+          <Route key={tab.path} path={`${tab.path}/*`} element={tab.element} />
         ))}
         <Route path="*" element={<Navigate replace to={`./${redirect}`} />} />
       </Routes>

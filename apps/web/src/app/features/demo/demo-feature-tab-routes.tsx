@@ -5,30 +5,30 @@ export function DemoFeatureTabRoutes() {
   return (
     <UiCard title="Tab Routes">
       <UiTabRoutes
-        baseUrl="/demo/tab-routes"
+        basePath="/demo/tab-routes"
         tabs={[
           {
-            value: 'overview',
+            path: 'overview',
             label: 'Overview',
-            component: (
+            element: (
               <SimpleGrid cols={2} spacing="md">
                 <UiCard title="Overview">Overview</UiCard>
               </SimpleGrid>
             ),
           },
           {
-            value: 'content',
+            path: 'content',
             label: 'Content',
-            component: (
+            element: (
               <SimpleGrid cols={2} spacing="md">
                 <UiCard title="Content">Content</UiCard>
               </SimpleGrid>
             ),
           },
           {
-            value: 'settings',
+            path: 'settings',
             label: 'Settings',
-            component: (
+            element: (
               <SimpleGrid cols={2} spacing="md">
                 <UiCard title="Settings">Settings</UiCard>
               </SimpleGrid>
