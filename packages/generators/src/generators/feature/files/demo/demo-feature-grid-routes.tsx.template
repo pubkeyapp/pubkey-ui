@@ -1,5 +1,6 @@
-import { SimpleGrid } from '@mantine/core'
+import { Badge, SimpleGrid } from '@mantine/core'
 import { <%= prefix.className %>Card, <%= prefix.className %>GridRoutes } from '<%= uiImport %>'
+import { IconDashboard } from '@tabler/icons-react'
 
 export function DemoFeatureGridRoutes() {
   return (
@@ -8,11 +9,17 @@ export function DemoFeatureGridRoutes() {
         basePath="/demo/grid-routes"
         routes={[
           {
-            path: 'overview',
-            label: 'Overview',
+            path: 'dashboard',
+            label: 'Dashboard',
+            leftSection: <IconDashboard />,
+            rightSection: (
+              <Badge size="xs" color="brand" variant="outline">
+                New
+              </Badge>
+            ),
             element: (
               <SimpleGrid cols={2} spacing="md">
-                <<%= prefix.className %>Card title="Overview">Overview</<%= prefix.className %>Card>
+                <UiCard title="Dashboard">Dashboard</UiCard>
               </SimpleGrid>
             ),
           },
@@ -21,8 +28,13 @@ export function DemoFeatureGridRoutes() {
             label: 'Content',
             element: (
               <SimpleGrid cols={2} spacing="md">
-                <<%= prefix.className %>Card title="Content">Content</<%= prefix.className %>Card>
+                <UiCard title="Content">Content</UiCard>
               </SimpleGrid>
+            ),
+            rightSection: (
+              <Badge size="xs" color="brand" variant="outline">
+                New
+              </Badge>
             ),
           },
           {
@@ -30,7 +42,7 @@ export function DemoFeatureGridRoutes() {
             label: 'Settings',
             element: (
               <SimpleGrid cols={2} spacing="md">
-                <<%= prefix.className %>Card title="Settings">Settings</<%= prefix.className %>Card>
+                <UiCard title="Settings">Settings</UiCard>
               </SimpleGrid>
             ),
           },

@@ -1,5 +1,6 @@
-import { SimpleGrid } from '@mantine/core'
+import { Badge, SimpleGrid } from '@mantine/core'
 import { UiCard, UiGridRoutes } from '@pubkey-ui/core'
+import { IconDashboard } from '@tabler/icons-react'
 
 export function DemoFeatureGridRoutes() {
   return (
@@ -8,11 +9,17 @@ export function DemoFeatureGridRoutes() {
         basePath="/demo/grid-routes"
         routes={[
           {
-            path: 'overview',
-            label: 'Overview',
+            path: 'dashboard',
+            label: 'Dashboard',
+            leftSection: <IconDashboard />,
+            rightSection: (
+              <Badge size="xs" color="brand" variant="outline">
+                New
+              </Badge>
+            ),
             element: (
               <SimpleGrid cols={2} spacing="md">
-                <UiCard title="Overview">Overview</UiCard>
+                <UiCard title="Dashboard">Dashboard</UiCard>
               </SimpleGrid>
             ),
           },
@@ -23,6 +30,11 @@ export function DemoFeatureGridRoutes() {
               <SimpleGrid cols={2} spacing="md">
                 <UiCard title="Content">Content</UiCard>
               </SimpleGrid>
+            ),
+            rightSection: (
+              <Badge size="xs" color="brand" variant="outline">
+                New
+              </Badge>
             ),
           },
           {

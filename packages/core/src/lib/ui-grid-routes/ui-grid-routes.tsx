@@ -1,11 +1,11 @@
-import { Grid, GridColProps, GridProps, NavLink } from '@mantine/core'
+import { Grid, GridColProps, GridProps, NavLink, NavLinkProps } from '@mantine/core'
 import { ReactNode, useMemo } from 'react'
 import { Link, Navigate, useLocation, useRoutes } from 'react-router-dom'
 import { UiNotFound } from '../ui-not-found'
 
-export interface UiGridRoute {
+export interface UiGridRoute extends NavLinkProps {
   path: string
-  label?: string
+  label?: ReactNode
   element: ReactNode
 }
 export interface UiGridRoutesProps extends GridProps {
@@ -22,9 +22,11 @@ export function UiGridRoutes({ basePath, routes, leftColProps, rightColProps, ..
     () =>
       routes
         .filter((app) => app.label)
-        .map((app) => {
-          const to = `${basePath}/${app.path}`
-          return <NavLink active={pathname.startsWith(to)} component={Link} key={app.path} label={app.label} to={to} />
+        .map(({ path, label, element, ...props }) => {
+          const to = `${basePath}/${path}`
+          return (
+            <NavLink active={pathname.startsWith(to)} component={Link} key={path} label={label} to={to} {...props} />
+          )
         }),
     [basePath, pathname, routes],
   )
