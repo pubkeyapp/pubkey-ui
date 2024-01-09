@@ -11,6 +11,7 @@
     "sync-schemas": "ts-node ./tools/scripts/sync-schemas.ts"
   },
   "private": true,
+  "packageManager": "pnpm@8.14.0",
   "dependencies": {
     "@coral-xyz/anchor": "^0.29.0",
     "@mantine/core": "^7.3.0",
