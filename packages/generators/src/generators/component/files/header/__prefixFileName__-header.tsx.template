@@ -25,12 +25,9 @@ export interface <%= prefix.className %>HeaderLink {
 export function <%= prefix.className %>Header(props: <%= prefix.className %>HeaderProps) {
   const { pathname } = useLocation()
   const [drawerOpened, { toggle: drawerToggle }] = useDisclosure(false)
-  const burger = props.toggle ? <Burger opened={props.opened} onClick={props.toggle} size="sm" hiddenFrom="md" /> : null
   const opened = props.opened ?? drawerOpened
   const toggle = props.toggle ?? drawerToggle
-  const close = () => {
-    if (opened && props.toggle) props.toggle()
-  }
+  const burger = props.links?.length ? <Burger opened={opened} onClick={toggle} size="sm" hiddenFrom="md" /> : null
 
   const items = props.links?.map((link) => (
     <Anchor
@@ -43,6 +40,11 @@ export function <%= prefix.className %>Header(props: <%= prefix.className %>Head
       {link.label}
     </Anchor>
   ))
+
+  function close() {
+    if (!opened || !props.toggle) return
+    props.toggle()
+  }
 
   return (
     <header className={classes.header}>
