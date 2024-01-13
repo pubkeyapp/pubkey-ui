@@ -4,12 +4,16 @@ import { IconSettings, IconUser, IconUserCog } from '@tabler/icons-react'
 import { ReactNode } from 'react'
 import { AccountChecker } from './features/account/account-ui'
 import { ClusterChecker, ClusterUiSelect } from './features/cluster/cluster-ui'
+import { useDisclosure } from '@mantine/hooks'
 
 export function AppLayout({ children }: { children: ReactNode }) {
+  const [opened, { toggle }] = useDisclosure(false)
   return (
     <UiLayout
       header={
         <UiHeader
+          opened={opened}
+          toggle={toggle}
           links={[
             { label: 'Dashboard', link: '/dashboard' },
             { label: 'Account', link: '/account' },

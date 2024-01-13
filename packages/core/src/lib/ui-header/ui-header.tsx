@@ -1,6 +1,7 @@
-import { Anchor, Burger, Group } from '@mantine/core'
+import { Anchor, Burger, Drawer, DrawerProps, Group, ScrollArea, Stack } from '@mantine/core'
 import { ReactNode } from 'react'
 import cx from 'clsx'
+import { useDisclosure } from '@mantine/hooks'
 import { Link, useLocation } from 'react-router-dom'
 import { UiLogo, UiLogoType } from '../ui-logo'
 
@@ -8,6 +9,7 @@ import classes from './ui-header.module.css'
 
 export interface UiHeaderProps {
   base?: string
+  drawerProps?: DrawerProps
   logo?: ReactNode
   logoSmall?: ReactNode
   links?: UiHeaderLink[]
@@ -20,20 +22,27 @@ export interface UiHeaderLink {
   label: string
 }
 
-export function UiHeader({ base, links = [], logo, logoSmall, opened, profile, toggle }: UiHeaderProps) {
+export function UiHeader(props: UiHeaderProps) {
   const { pathname } = useLocation()
-  const items = links.map((link) => (
+  const [drawerOpened, { toggle: drawerToggle }] = useDisclosure(false)
+  const burger = props.toggle ? <Burger opened={props.opened} onClick={props.toggle} size="sm" hiddenFrom="md" /> : null
+  const opened = props.opened ?? drawerOpened
+  const toggle = props.toggle ?? drawerToggle
+  const close = () => {
+    if (opened && props.toggle) props.toggle()
+  }
+
+  const items = props.links?.map((link) => (
     <Anchor
       component={Link}
       key={link.label}
       to={link.link}
       className={cx(classes.link, { [classes.linkActive]: pathname.startsWith(link.link) })}
+      onClick={close}
     >
       {link.label}
     </Anchor>
   ))
-
-  const burger = toggle ? <Burger opened={opened} onClick={toggle} size="sm" hiddenFrom="md" /> : null
 
   return (
     <header className={classes.header}>
@@ -41,9 +50,9 @@ export function UiHeader({ base, links = [], logo, logoSmall, opened, profile, t
         <Group>
           <Group>
             {burger}
-            <Anchor component={Link} to={base ?? '/'} display="flex">
-              <Group hiddenFrom="md">{logoSmall ?? <UiLogo height={28} />}</Group>
-              <Group visibleFrom="md">{logo ?? <UiLogoType height={28} />}</Group>
+            <Anchor component={Link} to={props.base ?? '/'} display="flex">
+              <Group hiddenFrom="md">{props.logoSmall ?? <UiLogo height={28} />}</Group>
+              <Group visibleFrom="md">{props.logo ?? <UiLogoType height={28} />}</Group>
             </Anchor>
           </Group>
           <Group gap={5} className={classes.links} visibleFrom="md">
@@ -51,8 +60,24 @@ export function UiHeader({ base, links = [], logo, logoSmall, opened, profile, t
           </Group>
         </Group>
 
-        <Group>{profile}</Group>
+        {props.profile ? <Group>{props.profile}</Group> : null}
       </div>
+      <Drawer
+        opened={opened}
+        onClose={toggle}
+        title={
+          <Group>
+            <Anchor component={Link} to={props.base ?? '/'} display="flex" onClick={close}>
+              {props.logo ?? <UiLogoType height={28} />}
+            </Anchor>
+          </Group>
+        }
+        hiddenFrom="md"
+        scrollAreaComponent={ScrollArea}
+        {...props.drawerProps}
+      >
+        <Stack gap="sm">{items}</Stack>
+      </Drawer>
     </header>
   )
 }
