@@ -134,6 +134,7 @@ export function UiForm<T>({
                   key={field.key?.toString()}
                   description={field.description}
                   label={field.label}
+                  multiple={field.multiple}
                   placeholder={field.placeholder ?? field.label}
                   required={field.required}
                   data={field.options ?? []}

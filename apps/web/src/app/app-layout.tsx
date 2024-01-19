@@ -17,7 +17,8 @@ export function AppLayout({ children }: { children: ReactNode }) {
           links={[
             { label: 'Dashboard', link: '/dashboard' },
             { label: 'Account', link: '/account' },
-            { label: 'Demo', link: '/demo' },
+            { label: 'Clusters', link: '/clusters' },
+            { label: 'UI Demo', link: '/ui-demo' },
             { label: 'Dev', link: '/dev' },
           ]}
           profile={

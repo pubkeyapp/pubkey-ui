@@ -1,5 +1,5 @@
 import { UiContainer, UiDashboardGrid } from '@pubkey-ui/core'
-import { IconApps, IconBug, IconListDetails, IconServer } from '@tabler/icons-react'
+import { IconApps, IconBug, IconKey, IconListDetails, IconServer } from '@tabler/icons-react'
 
 export function DashboardFeature() {
   return (
@@ -10,6 +10,7 @@ export function DashboardFeature() {
           { to: '/clusters', label: 'Clusters', icon: IconServer },
           { to: '/demo', label: 'Demo', icon: IconApps },
           { to: '/dev', label: 'Dev', icon: IconBug },
+          { to: '/keypairs', label: 'Keypairs', icon: IconKey },
         ]}
       />
     </UiContainer>
