@@ -1,11 +1,18 @@
-import { UiCard, UiContainer } from '@pubkey-ui/core'
+import { UiContainer, UiDashboardGrid } from '@pubkey-ui/core'
+import { IconApps, IconBug, IconKey, IconListDetails, IconServer } from '@tabler/icons-react'
 
 export function DashboardFeature() {
   return (
     <UiContainer>
-      <UiCard title="Dashboard">
-        <div>GM</div>
-      </UiCard>
+      <UiDashboardGrid
+        links={[
+          { to: '/account', label: 'Account', icon: IconListDetails },
+          { to: '/clusters', label: 'Clusters', icon: IconServer },
+          { to: '/demo', label: 'Demo', icon: IconApps },
+          { to: '/dev', label: 'Dev', icon: IconBug },
+          { to: '/keypairs', label: 'Keypairs', icon: IconKey },
+        ]}
+      />
     </UiContainer>
   )
 }
