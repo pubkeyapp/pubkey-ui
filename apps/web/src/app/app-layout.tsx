@@ -18,6 +18,7 @@ export function AppLayout({ children }: { children: ReactNode }) {
             { label: 'Dashboard', link: '/dashboard' },
             { label: 'Account', link: '/account' },
             { label: 'Clusters', link: '/clusters' },
+            { label: 'Solana', link: '/solana' },
             { label: 'UI Demo', link: '/ui-demo' },
             { label: 'Dev', link: '/dev' },
           ]}

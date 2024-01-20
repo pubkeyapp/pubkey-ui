@@ -9,6 +9,7 @@ const AccountList = lazy(() => import('./features/account/account-list-feature')
 const AccountDetail = lazy(() => import('./features/account/account-detail-feature'))
 const ClusterFeature = lazy(() => import('./features/cluster/cluster-feature'))
 const KeypairFeature = lazy(() => import('./features/keypair/keypair-feature'))
+const SolanaFeature = lazy(() => import('./features/solana/solana-feature'))
 
 const routes: RouteObject[] = [
   { path: '/', element: <Navigate to="/dashboard" replace /> },
@@ -16,6 +17,7 @@ const routes: RouteObject[] = [
   { path: '/account/:address', element: <AccountDetail /> },
   { path: '/clusters', element: <ClusterFeature /> },
   { path: '/dashboard', element: <DashboardFeature /> },
+  { path: '/solana/*', element: <SolanaFeature /> },
   { path: '/ui-demo/*', element: <DemoFeature /> },
   { path: '/dev', element: <DevFeature /> },
   { path: '/keypairs', element: <KeypairFeature /> },
