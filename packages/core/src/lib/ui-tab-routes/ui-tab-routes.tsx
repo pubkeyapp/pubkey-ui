@@ -1,6 +1,7 @@
 import { Box, Tabs, TabsProps, Text } from '@mantine/core'
-import { ReactElement, ReactNode } from 'react'
+import { ReactElement, ReactNode, Suspense } from 'react'
 import { Navigate, Route, Routes, useLocation, useNavigate } from 'react-router-dom'
+import { UiLoader } from '../ui-loader'
 
 export interface UiTabRoute {
   element: ReactNode
@@ -42,13 +43,15 @@ export function UiTabRoutes({
           ))}
         </Tabs.List>
       </Tabs>
-      <Routes>
-        {redirect ? <Route index element={<Navigate replace to={`./${redirect}`} />} /> : null}
-        {tabs.map((tab) => (
-          <Route key={tab.path} path={`${tab.path}/*`} element={tab.element} />
-        ))}
-        <Route path="*" element={<Navigate replace to={`./${redirect}`} />} />
-      </Routes>
+      <Suspense fallback={<UiLoader />}>
+        <Routes>
+          {redirect ? <Route index element={<Navigate replace to={`./${redirect}`} />} /> : null}
+          {tabs.map((tab) => (
+            <Route key={tab.path} path={`${tab.path}/*`} element={tab.element} />
+          ))}
+          <Route path="*" element={<Navigate replace to={`./${redirect}`} />} />
+        </Routes>
+      </Suspense>
     </Box>
   )
 }

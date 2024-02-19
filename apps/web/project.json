@@ -54,7 +54,8 @@
       },
       "configurations": {
         "development": {
-          "buildTarget": "web:build:development"
+          "buildTarget": "web:build:development",
+          "port": 4321
         },
         "production": {
           "buildTarget": "web:build:production",

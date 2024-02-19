@@ -1,7 +1,8 @@
 import { Grid, GridColProps, GridProps, NavLink, NavLinkProps } from '@mantine/core'
-import { ReactNode, useMemo } from 'react'
+import { ReactNode, Suspense, useMemo } from 'react'
 import { Link, Navigate, useLocation, useRoutes } from 'react-router-dom'
 import { <%= prefix.className %>NotFound } from '../<%= prefix.fileName %>-not-found'
+import { <%= prefix.className %>Loader } from '../<%= prefix.fileName %>-loader'
 
 export interface <%= prefix.className %>GridRoute extends NavLinkProps {
   path: string
@@ -43,7 +44,7 @@ export function <%= prefix.className %>GridRoutes({ basePath, routes, leftColPro
         {links}
       </Grid.Col>
       <Grid.Col span={{ base: 12, sm: 10 }} {...leftColProps}>
-        {router}
+        <Suspense fallback={<UiLoader />}>{router}</Suspense>
       </Grid.Col>
     </Grid>
   )
