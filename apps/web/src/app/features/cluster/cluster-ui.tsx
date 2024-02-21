@@ -8,7 +8,11 @@ import { ReactNode, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { ClusterNetwork, useCluster } from './cluster-data-access'
 
-export function ExplorerLink({ path, label, ...props }: { path: string; label: string } & AnchorProps) {
+export function ExplorerLink({
+  path,
+  label = 'View on Explorer',
+  ...props
+}: { path: string; label?: string } & AnchorProps) {
   const { getExplorerUrl } = useCluster()
   return (
     <Anchor href={getExplorerUrl(path)} target="_blank" rel="noopener noreferrer" {...props}>
