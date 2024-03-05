@@ -23,10 +23,10 @@
   font-weight: 500;
 
   @mixin hover {
-    background-color: light-dark(var(--mantine-color-gray-0), var(--mantine-color-dark-6));
+    background-color: light-dark(var(--mantine-color-gray-0), var(--mantine-color-dark-7));
   }
 }
 .linkActive {
-  background-color: light-dark(var(--mantine-color-gray-0), var(--mantine-color-dark-6));
+  background-color: light-dark(var(--mantine-color-gray-0), var(--mantine-color-dark-8));
   color: light-dark(var(--mantine-color-brand-6), var(--mantine-color-brand-4));
 }

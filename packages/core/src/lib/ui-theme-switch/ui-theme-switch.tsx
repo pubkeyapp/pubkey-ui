@@ -15,7 +15,7 @@ export function UiThemeSwitch(props: SwitchProps) {
   return (
     <Switch
       size="lg"
-      color={'dark.6'}
+      color="dark.8"
       onLabel={sunIcon}
       offLabel={moonIcon}
       onChange={() => toggleColorScheme()}
