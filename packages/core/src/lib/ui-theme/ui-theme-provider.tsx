@@ -1,4 +1,11 @@
-import { ColorSchemeScript, createTheme, DEFAULT_THEME, Loader, MantineProvider } from '@mantine/core'
+import {
+  ColorSchemeScript,
+  createTheme,
+  DEFAULT_THEME,
+  Loader,
+  MantineProvider,
+  MantineThemeOverride,
+} from '@mantine/core'
 import { ModalsProvider } from '@mantine/modals'
 import { Notifications } from '@mantine/notifications'
 import { createContext, FunctionComponent, ReactNode, Suspense, useContext } from 'react'
@@ -7,7 +14,7 @@ import { UiColorSchemeProvider } from './ui-color-scheme-provider'
 // Import the mantine theme styles
 import './ui-theme-styles'
 
-const theme = createTheme({
+const defaultTheme = createTheme({
   colors: {
     brand: DEFAULT_THEME.colors.blue,
   },
@@ -27,13 +34,18 @@ export const defaultUiThemeLink: UiThemeLink = ({ children, ...props }) => (
   </a>
 )
 
+export interface UiThemeProviderOptions {
+  children: ReactNode
+  link?: UiThemeLink
+  theme?: MantineThemeOverride
+}
 export interface UiThemeProviderContext {
   Link: UiThemeLink
 }
 
 const Context = createContext<UiThemeProviderContext>({} as UiThemeProviderContext)
 
-export function UiThemeProvider({ children, link }: { children: ReactNode; link?: UiThemeLink }) {
+export function UiThemeProvider({ children, link, theme }: UiThemeProviderOptions) {
   const value: UiThemeProviderContext = {
     Link: link ?? defaultUiThemeLink,
   }
@@ -41,7 +53,7 @@ export function UiThemeProvider({ children, link }: { children: ReactNode; link?
   return (
     <Context.Provider value={value}>
       <ColorSchemeScript defaultColorScheme="auto" />
-      <MantineProvider theme={theme} defaultColorScheme="auto">
+      <MantineProvider theme={theme ?? defaultTheme} defaultColorScheme="auto">
         <UiColorSchemeProvider>
           <ModalsProvider>
             <Notifications />

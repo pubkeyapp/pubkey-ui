@@ -1,4 +1,4 @@
-import { ColorSchemeScript, createTheme, DEFAULT_THEME, Loader, MantineProvider } from '@mantine/core'
+import { ColorSchemeScript, createTheme, DEFAULT_THEME, Loader, MantineProvider, MantineThemeOverride } from '@mantine/core'
 import { ModalsProvider } from '@mantine/modals'
 import { Notifications } from '@mantine/notifications'
 import { createContext, FunctionComponent, ReactNode, Suspense, useContext } from 'react'
@@ -7,7 +7,7 @@ import { <%= prefix.className %>ColorSchemeProvider } from './<%= prefix.fileNam
 // Import the mantine theme styles
 import './<%= prefix.fileName %>-theme-styles'
 
-const theme = createTheme({
+const defaultTheme = createTheme({
   colors: {
     brand: DEFAULT_THEME.colors.blue,
   },
@@ -27,13 +27,18 @@ export const default<%= prefix.className %>ThemeLink: <%= prefix.className %>The
   </a>
 )
 
+export interface <%= prefix.className %>ThemeProviderOptions {
+  children: ReactNode
+  link?: <%= prefix.className %>ThemeLink
+  theme?: MantineThemeOverride
+}
 export interface <%= prefix.className %>ThemeProviderContext {
   Link: <%= prefix.className %>ThemeLink
 }
 
 const Context = createContext<<%= prefix.className %>ThemeProviderContext>({} as <%= prefix.className %>ThemeProviderContext)
 
-export function <%= prefix.className %>ThemeProvider({ children, link }: { children: ReactNode; link?: <%= prefix.className %>ThemeLink }) {
+export function <%= prefix.className %>ThemeProvider({ children, link, theme }: <%= prefix.className %>ThemeProviderOptions) {
   const value: <%= prefix.className %>ThemeProviderContext = {
     Link: link ?? default<%= prefix.className %>ThemeLink,
   }
@@ -41,7 +46,7 @@ export function <%= prefix.className %>ThemeProvider({ children, link }: { child
   return (
     <Context.Provider value={value}>
       <ColorSchemeScript defaultColorScheme="auto" />
-      <MantineProvider theme={theme} defaultColorScheme="auto">
+      <MantineProvider theme={theme ?? defaultTheme} defaultColorScheme="auto">
         <<%= prefix.className %>ColorSchemeProvider>
           <ModalsProvider>
             <Notifications />

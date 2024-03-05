@@ -1,0 +1,2 @@
+export * from './<%= prefixFileName %>-theme-select-colors'
+export * from './<%= prefixFileName %>-theme-select-provider'

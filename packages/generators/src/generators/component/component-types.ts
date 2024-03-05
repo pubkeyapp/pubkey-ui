@@ -23,6 +23,7 @@ export const componentTypes: ComponentGeneratorSchema['type'][] = [
   'stack',
   'tab-routes',
   'theme',
+  'theme-select',
   'theme-switch',
   'time',
   'toast',
