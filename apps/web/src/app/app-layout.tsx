@@ -2,9 +2,10 @@ import { Avatar, Group, rem } from '@mantine/core'
 import { UiHeader, UiLayout, UiMenu, UiThemeSwitch } from '@pubkey-ui/core'
 import { IconSettings, IconUser, IconUserCog } from '@tabler/icons-react'
 import { ReactNode } from 'react'
+import { useDisclosure } from '@mantine/hooks'
 import { AccountChecker } from './features/account/account-ui'
 import { ClusterChecker, ClusterUiSelect } from './features/cluster/cluster-ui'
-import { useDisclosure } from '@mantine/hooks'
+import { AppThemeSelect } from './app-theme.provider'
 
 export function AppLayout({ children }: { children: ReactNode }) {
   const [opened, { toggle }] = useDisclosure(false)
@@ -19,10 +20,12 @@ export function AppLayout({ children }: { children: ReactNode }) {
             { label: 'Account', link: '/account' },
             { label: 'Demo', link: '/demo' },
             { label: 'Dev', link: '/dev' },
+            { label: 'Themes', link: '/themes' },
           ]}
           profile={
             <Group>
               <ClusterUiSelect />
+              <AppThemeSelect />
               <UiThemeSwitch />
               <UiMenu
                 position="bottom-end"
