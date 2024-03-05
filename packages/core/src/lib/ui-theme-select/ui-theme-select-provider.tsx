@@ -27,12 +27,16 @@ export interface UiThemeSelectProviderContext {
 
 const Context = createContext<UiThemeSelectProviderContext>({} as UiThemeSelectProviderContext)
 
-export function UiThemeSelectProvider({ children, ...props }: UiThemeProviderOptions & { themes?: UiTheme[] }) {
+export function UiThemeSelectProvider({
+  children,
+  theme,
+  ...props
+}: UiThemeProviderOptions & { theme?: UiTheme; themes?: UiTheme[] }) {
   const themes = useMemo(() => props.themes ?? defaultThemes, [props.themes])
 
   const [selectedId, setSelectedId] = useState(themes[0].id)
-
-  const selected = useMemo(() => themes.find((t) => t.id === selectedId) ?? themes[0], [themes, selectedId])
+  const themeId = useMemo(() => (theme?.id ? theme.id : selectedId), [theme, selectedId])
+  const selected = useMemo(() => themes.find((t) => t.id === themeId) ?? themes[0], [themes, themeId])
   const compiled = useMemo(() => createTheme(selected.theme), [selected.theme])
 
   const value: UiThemeSelectProviderContext = {

@@ -1,0 +1,22 @@
+import { Button, Group } from '@mantine/core'
+import { <%= prefix.className %>Card, <%= prefix.className %>Stack, <%= prefix.className %>ThemeSelect, use<%= prefix.className %>ThemeSelect } from '<%= uiImport %>'
+
+export function DemoFeatureThemeSelect() {
+  const { themes, selected, selectTheme } = use<%= prefix.className %>ThemeSelect()
+  return (
+    <<%= prefix.className %>Stack>
+      <<%= prefix.className %>Card title="ThemeSelect">
+        <<%= prefix.className %>ThemeSelect />
+      </<%= prefix.className %>Card>
+      <<%= prefix.className %>Card title="ThemeSelect">
+        <Group>
+          {themes.map((item) => (
+            <Button disabled={selected.id === item.id} key={item.id} onClick={() => selectTheme(item.id)}>
+              {item.id}
+            </Button>
+          ))}
+        </Group>
+      </<%= prefix.className %>Card>
+    </<%= prefix.className %>Stack>
+  )
+}

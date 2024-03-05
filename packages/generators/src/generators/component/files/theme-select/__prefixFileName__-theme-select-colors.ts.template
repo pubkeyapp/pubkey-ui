@@ -2,8 +2,10 @@ import { DEFAULT_THEME, MantineColor, MantineColorsTuple } from '@mantine/core'
 
 export const MANTINE_COLORS = DEFAULT_THEME.colors
 
+export type BackgroundColors = 'gray' | 'neutral' | 'slate' | 'stone' | 'zinc'
+
 // https://unpkg.com/browse/tailwindcss@3.4.1/lib/public/colors.js
-export const TAILWIND_COLORS: Record<'gray' | 'neutral' | 'slate' | 'stone' | 'zinc', MantineColorsTuple> = {
+export const BACKGROUND_COLORS: Record<BackgroundColors, MantineColorsTuple> = {
   gray: [
     // '#f9fafb',
     '#f3f4f6',
@@ -70,6 +72,8 @@ export const TAILWIND_COLORS: Record<'gray' | 'neutral' | 'slate' | 'stone' | 'z
     '#09090b',
   ],
 }
+
+export const backgroundColorIds: BackgroundColors[] = ['gray', 'neutral', 'slate', 'stone', 'zinc'] as const
 
 export const mantineColorIds: MantineColor[] = [
   'blue',

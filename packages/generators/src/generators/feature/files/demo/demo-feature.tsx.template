@@ -19,6 +19,7 @@ import { DemoFeaturePage } from './demo-feature-page'
 import { DemoFeatureSearchInput } from './demo-feature-search-input'
 import { DemoFeatureStack } from './demo-feature-stack'
 import { DemoFeatureTabRoutes } from './demo-feature-tab-routes'
+import { DemoFeatureThemeSelect } from './demo-feature-theme-select'
 import { DemoFeatureTime } from './demo-feature-time'
 import { DemoFeatureToast } from './demo-feature-toast'
 
@@ -47,6 +48,7 @@ export function DemoFeature() {
     { path: 'search-input', label: 'Search Input', element: <DemoFeatureSearchInput /> },
     { path: 'stack', label: 'Stack', element: <DemoFeatureStack /> },
     { path: 'tab-routes', label: 'Tab Routes', element: <DemoFeatureTabRoutes /> },
+    { path: 'theme-select', label: 'Theme Select', element: <DemoFeatureThemeSelect /> },
     { path: 'time', label: 'Time', element: <DemoFeatureTime /> },
     { path: 'toast', label: 'Toast', element: <DemoFeatureToast /> },
   ]
