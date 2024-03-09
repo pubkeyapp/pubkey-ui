@@ -18,7 +18,7 @@ const routes: RouteObject[] = [
   { path: '/dashboard', element: <DashboardFeature /> },
   { path: '/demo/*', element: <DemoFeature /> },
   { path: '/dev', element: <DevFeature /> },
-  { path: '/themes', element: <ThemesFeature /> },
+  { path: '/themes/*', element: <ThemesFeature /> },
   { path: '*', element: <UiNotFound /> },
 ]
 

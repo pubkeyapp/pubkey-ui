@@ -3,6 +3,7 @@ import {
   BACKGROUND_COLORS,
   BackgroundColors,
   defaultThemes,
+  mantineColorIds,
   themeWithBrand,
   UiTheme,
   UiThemeSelectProvider,
@@ -10,24 +11,55 @@ import {
 import { ThemeLink } from './app-routes'
 import { atomWithStorage } from 'jotai/utils'
 import { atom, useAtomValue, useSetAtom } from 'jotai/index'
-import { Button, MantineColor, Menu } from '@mantine/core'
+import { Button, Divider, MantineColor, Menu } from '@mantine/core'
+import { Link } from 'react-router-dom'
 
 export interface AppTheme extends UiTheme {
   active?: boolean
 }
 
+function createAppTheme(color: MantineColor, dark?: BackgroundColors) {
+  const id = `${color}-${dark ?? 'default'}`
+  // Make sure `color` and `dark` are valid values
+  if (dark && !Object.keys(BACKGROUND_COLORS).includes(dark ?? 'default')) {
+    throw new Error(`Invalid value for dark: ${dark}`)
+  }
+  if (!mantineColorIds.includes(color)) {
+    console.log(`Invalid color: ${color}`)
+    throw new Error(`Invalid value for color: ${color}`)
+  }
+
+  return {
+    id,
+    theme: themeWithBrand(color, {
+      components: {
+        Input: {
+          styles: {
+            root: {
+              // backgroundColor: 'transparent',
+            },
+          },
+        },
+      },
+      colors: { dark: dark ? BACKGROUND_COLORS[dark] : undefined },
+    }),
+  }
+}
+
 const appThemes: AppTheme[] = [
   ...defaultThemes,
-  { id: 'gray-pink', theme: themeWithBrand('pink', { colors: { dark: BACKGROUND_COLORS['gray'] } }) },
-  { id: 'zinc-pink', theme: themeWithBrand('pink', { colors: { dark: BACKGROUND_COLORS['zinc'] } }) },
-  { id: 'neutral-pink', theme: themeWithBrand('pink', { colors: { dark: BACKGROUND_COLORS['neutral'] } }) },
-  { id: 'slate-pink', theme: themeWithBrand('pink', { colors: { dark: BACKGROUND_COLORS['slate'] } }) },
-  { id: 'stone-pink', theme: themeWithBrand('pink', { colors: { dark: BACKGROUND_COLORS['stone'] } }) },
-  { id: 'gray-blue', theme: themeWithBrand('blue', { colors: { dark: BACKGROUND_COLORS['gray'] } }) },
-  { id: 'zinc-blue', theme: themeWithBrand('blue', { colors: { dark: BACKGROUND_COLORS['zinc'] } }) },
-  { id: 'neutral-blue', theme: themeWithBrand('blue', { colors: { dark: BACKGROUND_COLORS['neutral'] } }) },
-  { id: 'slate-blue', theme: themeWithBrand('blue', { colors: { dark: BACKGROUND_COLORS['slate'] } }) },
-  { id: 'stone-blue', theme: themeWithBrand('blue', { colors: { dark: BACKGROUND_COLORS['stone'] } }) },
+  createAppTheme('blue'),
+  createAppTheme('red'),
+  createAppTheme('pink'),
+  createAppTheme('grape'),
+  createAppTheme('violet'),
+  createAppTheme('indigo'),
+  createAppTheme('cyan'),
+  createAppTheme('green'),
+  createAppTheme('lime'),
+  createAppTheme('yellow'),
+  createAppTheme('orange'),
+  createAppTheme('teal'),
 ]
 
 const initialThemes = appThemes
@@ -39,7 +71,7 @@ const themesAtom = atomWithStorage<AppTheme[]>('pubkey-ui-app-themes', initialTh
 const activeThemesAtom = atom<AppTheme[]>((get) => {
   const themes = get(themesAtom)
   const theme = get(themeAtom)
-  return themes.map((item) => ({
+  return themes?.map((item) => ({
     ...item,
     active: item.id === theme.id,
   }))
@@ -48,7 +80,7 @@ const activeThemesAtom = atom<AppTheme[]>((get) => {
 const activeThemeAtom = atom<AppTheme>((get) => {
   const themes = get(activeThemesAtom)
 
-  return themes.find((item) => item.active) || themes[0]
+  return themes?.find((item) => item.active) || themes[0]
 })
 
 export interface AppThemeProviderContext {
@@ -56,7 +88,7 @@ export interface AppThemeProviderContext {
   themes: AppTheme[]
   addTheme: (color: MantineColor, dark?: BackgroundColors) => void
   setTheme: (theme: AppTheme) => void
-  resetThemes: () => void
+  resetThemes: () => Promise<void>
 }
 
 const Context = createContext<AppThemeProviderContext>({} as AppThemeProviderContext)
@@ -71,27 +103,25 @@ export function AppThemeProvider({ children }: { children: ReactNode }) {
     theme,
     themes,
     addTheme: (color: MantineColor, dark?: BackgroundColors) => {
-      const id = `${color}-${dark ?? 'default'}`
+      const theme = createAppTheme(color, dark)
       // Make sure we don't add a theme with the same id
-      if (themes.find((item) => item.id === id)) {
+      if (themes.find((item) => item.id === theme.id)) {
         return
       }
-      const theme: AppTheme = {
-        id,
-        theme: themeWithBrand(color, { colors: { dark: dark ? BACKGROUND_COLORS[dark] : undefined } }),
-      }
+
       setThemes((prev) => [...prev, theme])
       setTheme(theme)
     },
-    resetThemes: () => {
-      setThemes(initialThemes)
+    resetThemes: async () => {
+      setTheme({ ...initialTheme })
+      setThemes(() => [...initialThemes])
     },
     setTheme,
   }
 
   return (
     <Context.Provider value={value}>
-      <UiThemeSelectProvider link={ThemeLink} theme={value.theme} themes={value.themes}>
+      <UiThemeSelectProvider link={ThemeLink} theme={value.theme ?? undefined} themes={value.themes ?? []}>
         {children}
       </UiThemeSelectProvider>
     </Context.Provider>
@@ -116,6 +146,10 @@ export function AppThemeSelect() {
             {item.id}
           </Menu.Item>
         ))}
+        <Divider />
+        <Menu.Item component={Link} to="/themes">
+          App Themes
+        </Menu.Item>
       </Menu.Dropdown>
     </Menu>
   )
