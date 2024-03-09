@@ -27,6 +27,7 @@ export interface ComponentGeneratorSchema {
     | 'grid-routes'
     | 'group'
     | 'header'
+    | 'info-table'
     | 'helpers'
     | 'layout'
     | 'loader'

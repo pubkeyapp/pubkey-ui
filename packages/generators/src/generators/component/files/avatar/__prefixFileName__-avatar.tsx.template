@@ -1,15 +1,15 @@
 import { Avatar, AvatarProps, Tooltip } from '@mantine/core'
 import { getColorByIndex, getIntFromString } from '../<%= prefixFileName %>-helpers'
-import { UiAnchor } from '../<%= prefixFileName %>-anchor'
+import { <%= prefix.className %>Anchor } from '../<%= prefixFileName %>-anchor'
 
-export type UiAvatarProps = Omit<AvatarProps, 'src'> & {
+export type <%= prefix.className %>AvatarProps = Omit<AvatarProps, 'src'> & {
   url?: string | null
   name?: string | null
   to?: string
   tooltipLabel?: string
 }
 
-export function UiAvatar({ url, name, to, tooltipLabel, ...props }: UiAvatarProps) {
+export function <%= prefix.className %>Avatar({ url, name, to, tooltipLabel, ...props }: <%= prefix.className %>AvatarProps) {
   const firstLetter = name?.charAt(0) ?? '?'
 
   const content = url?.length ? (
@@ -20,7 +20,7 @@ export function UiAvatar({ url, name, to, tooltipLabel, ...props }: UiAvatarProp
     </Avatar>
   )
 
-  const anchor = <UiAnchor to={to}>{content}</UiAnchor>
+  const anchor = <<%= prefix.className %>Anchor to={to}>{content}</<%= prefix.className %>Anchor>
 
   return tooltipLabel ? (
     <Tooltip label={tooltipLabel} withArrow>

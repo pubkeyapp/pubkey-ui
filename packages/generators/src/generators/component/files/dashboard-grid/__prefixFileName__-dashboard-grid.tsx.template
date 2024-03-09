@@ -1,6 +1,6 @@
 import { SimpleGrid, Text, UnstyledButton, useMantineTheme } from '@mantine/core'
 import { ComponentType } from 'react'
-import { getColorByIndex } from '../ui-helpers'
+import { getColorByIndex } from '../<%= prefix.fileName %>-helpers'
 import { use<%= prefix.className %>Theme } from '../<%= prefix.fileName %>-theme'
 import classes from './<%= prefix.fileName %>-dashboard-grid.module.css'
 

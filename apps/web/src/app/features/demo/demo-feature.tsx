@@ -12,6 +12,7 @@ import { DemoFeatureForm } from './demo-feature-form'
 import { DemoFeatureGridRoutes } from './demo-feature-grid-routes'
 import { DemoFeatureGroup } from './demo-feature-group'
 import { DemoFeatureHeader } from './demo-feature-header'
+import { DemoFeatureInfoTable } from './demo-feature-info-table'
 import { DemoFeatureLoader } from './demo-feature-loader'
 import { DemoFeatureLogo } from './demo-feature-logo'
 import { DemoFeatureMenu } from './demo-feature-menu'
@@ -43,6 +44,7 @@ export function DemoFeature() {
     { path: 'grid-routes', label: 'Grid Routes', element: <DemoFeatureGridRoutes /> },
     { path: 'group', label: 'Group', element: <DemoFeatureGroup /> },
     { path: 'header', label: 'Header', element: <DemoFeatureHeader /> },
+    { path: 'info-table', label: 'Info Table', element: <DemoFeatureInfoTable /> },
     { path: 'loader', label: 'Loader', element: <DemoFeatureLoader /> },
     { path: 'logo', label: 'Logo', element: <DemoFeatureLogo /> },
     { path: 'menu', label: 'Menu', element: <DemoFeatureMenu /> },

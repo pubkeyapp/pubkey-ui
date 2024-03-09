@@ -15,6 +15,7 @@ export const componentTypes: ComponentGeneratorSchema['type'][] = [
   'group',
   'header',
   'helpers',
+  'info-table',
   'layout',
   'loader',
   'logo',

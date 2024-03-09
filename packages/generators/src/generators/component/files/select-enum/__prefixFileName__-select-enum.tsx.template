@@ -1,6 +1,6 @@
 import { MultiSelect, MultiSelectProps, Select, SelectProps } from '@mantine/core'
 
-export function UiMultiSelectEnum<T>({
+export function <%= prefix.className %>MultiSelectEnum<T>({
   values,
   setValues,
   options,
@@ -20,7 +20,7 @@ export function UiMultiSelectEnum<T>({
   )
 }
 
-export function UiSelectEnum<T>({
+export function <%= prefix.className %>SelectEnum<T>({
   value,
   setValue,
   options,

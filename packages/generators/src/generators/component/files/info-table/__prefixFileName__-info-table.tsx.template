@@ -1,0 +1,23 @@
+import { Table, TableProps } from '@mantine/core'
+import { ReactNode } from 'react'
+
+export type <%= prefix.className %>InfoItem = [ReactNode, ReactNode] | undefined
+export type <%= prefix.className %>InfoItems = <%= prefix.className %>InfoItem[]
+export type <%= prefix.className %>InfoTableProps = TableProps & { items: <%= prefix.className %>InfoItems; tdw?: string }
+
+export function <%= prefix.className %>InfoTable({ items, tdw = '25%', ...props }: <%= prefix.className %>InfoTableProps) {
+  const filtered = items.filter(Boolean) as [ReactNode, ReactNode][]
+  if (!filtered.length) return null
+  return (
+    <Table {...props}>
+      <Table.Tbody>
+        {filtered.map(([key, value], index) => (
+          <Table.Tr key={index}>
+            <Table.Td w={tdw}>{key}</Table.Td>
+            <Table.Th>{value}</Table.Th>
+          </Table.Tr>
+        ))}
+      </Table.Tbody>
+    </Table>
+  )
+}

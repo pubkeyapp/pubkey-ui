@@ -44,7 +44,7 @@ export function <%= prefix.className %>GridRoutes({ basePath, routes, leftColPro
         {links}
       </Grid.Col>
       <Grid.Col span={{ base: 12, sm: 10 }} {...leftColProps}>
-        <Suspense fallback={<UiLoader />}>{router}</Suspense>
+        <Suspense fallback={<<%= prefix.className %>Loader />}>{router}</Suspense>
       </Grid.Col>
     </Grid>
   )
