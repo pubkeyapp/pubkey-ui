@@ -1,18 +1,18 @@
 import { SimpleGrid } from '@mantine/core'
 import { <%= prefix.className %>Card, <%= prefix.className %>TabRoutes } from '<%= uiImport %>'
 
-export function DemoFeatureTabRoutes() {
+export function DemoFeatureTabRoutes({ basePath = '/demo/tab-routes' }: { basePath?: string }) {
   return (
     <<%= prefix.className %>Card title="Tab Routes">
       <<%= prefix.className %>TabRoutes
-        basePath="/demo/tab-routes"
+        basePath={basePath}
         tabs={[
           {
-            path: 'overview',
-            label: 'Overview',
+            path: 'dashboard',
+            label: 'Dashboard',
             element: (
               <SimpleGrid cols={2} spacing="md">
-                <<%= prefix.className %>Card title="Overview">Overview</<%= prefix.className %>Card>
+                <<%= prefix.className %>Card title="Dashboard">Dashboard</<%= prefix.className %>Card>
               </SimpleGrid>
             ),
           },

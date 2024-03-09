@@ -7,6 +7,7 @@ export function DemoFeatureCard() {
       <UiCard withBorder title="Card" shadow="lg">
         CARD CONTENT
       </UiCard>
+      <UiCard withBorder title="Empty Card" shadow="lg" />
     </UiStack>
   )
 }

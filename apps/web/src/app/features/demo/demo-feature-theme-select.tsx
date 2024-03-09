@@ -1,5 +1,5 @@
 import { Button, Group } from '@mantine/core'
-import { UiCard, UiDebugModal, UiStack, UiThemeSelect, useUiThemeSelect } from '@pubkey-ui/core'
+import { UiCard, UiStack, UiThemeSelect, useUiThemeSelect } from '@pubkey-ui/core'
 
 export function DemoFeatureThemeSelect() {
   const { themes, selected, selectTheme } = useUiThemeSelect()
@@ -17,7 +17,6 @@ export function DemoFeatureThemeSelect() {
           ))}
         </Group>
       </UiCard>
-      <UiDebugModal data={{ themes, selected }} />
     </UiStack>
   )
 }

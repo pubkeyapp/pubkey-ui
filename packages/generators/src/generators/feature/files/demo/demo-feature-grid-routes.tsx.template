@@ -2,11 +2,11 @@ import { Badge, SimpleGrid } from '@mantine/core'
 import { <%= prefix.className %>Card, <%= prefix.className %>GridRoutes } from '<%= uiImport %>'
 import { IconDashboard } from '@tabler/icons-react'
 
-export function DemoFeatureGridRoutes() {
+export function DemoFeatureGridRoutes({ basePath = '/demo/grid-routes' }: { basePath?: string }) {
   return (
     <<%= prefix.className %>Card title="Grid Routes">
       <<%= prefix.className %>GridRoutes
-        basePath="/demo/grid-routes"
+        basePath={basePath}
         routes={[
           {
             path: 'dashboard',

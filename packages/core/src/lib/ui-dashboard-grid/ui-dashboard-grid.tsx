@@ -1,14 +1,8 @@
 import { SimpleGrid, Text, UnstyledButton, useMantineTheme } from '@mantine/core'
-import { useUiTheme } from '../ui-theme'
 import { ComponentType } from 'react'
-
+import { getColorByIndex } from '../ui-helpers'
+import { useUiTheme } from '../ui-theme'
 import classes from './ui-dashboard-grid.module.css'
-
-const linkColors = ['violet', 'indigo', 'blue', 'green', 'teal', 'cyan', 'pink', 'red', 'orange']
-
-export function getColorByIndex(index: number) {
-  return linkColors[index % linkColors.length]
-}
 
 export interface UiDashboardItem {
   icon: ComponentType<{ color?: string; size: number | string }>

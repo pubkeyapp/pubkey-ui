@@ -3,6 +3,7 @@ import { ComponentGeneratorSchema } from './component-generator-schema'
 export const componentTypes: ComponentGeneratorSchema['type'][] = [
   'alert',
   'anchor',
+  'avatar',
   'back',
   'card',
   'container',
@@ -13,6 +14,7 @@ export const componentTypes: ComponentGeneratorSchema['type'][] = [
   'grid-routes',
   'group',
   'header',
+  'helpers',
   'layout',
   'loader',
   'logo',
@@ -20,6 +22,7 @@ export const componentTypes: ComponentGeneratorSchema['type'][] = [
   'not-found',
   'page',
   'search-input',
+  'select-enum',
   'stack',
   'tab-routes',
   'theme',

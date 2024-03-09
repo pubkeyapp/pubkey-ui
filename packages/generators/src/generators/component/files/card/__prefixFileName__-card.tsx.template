@@ -1,10 +1,10 @@
-import { Box, Paper, PaperProps, Skeleton } from '@mantine/core'
+import { Box, Paper, PaperProps, Skeleton, Stack } from '@mantine/core'
 import { use<%= prefix.className %>Breakpoints } from '../<%= prefix.fileName %>-theme'
 import { ReactNode } from 'react'
 import { <%= prefix.className %>CardTitle } from './<%= prefix.fileName %>-card-title'
 
 interface <%= prefix.className %>CardProps extends PaperProps {
-  children: ReactNode
+  children?: ReactNode
   loading?: boolean
   title?: ReactNode
 }
@@ -14,10 +14,10 @@ export function <%= prefix.className %>Card({ loading, title, ...props }: <%= pr
 
   return (
     <Paper p={isSm ? 'xs' : 'md'} withBorder {...props}>
-      {title ? (
-        <Box mb={isSm ? 'xs' : 'md'}>{typeof title === 'string' ? <<%= prefix.className %>CardTitle>{title}</<%= prefix.className %>CardTitle> : title}</Box>
-      ) : null}
-     {loading ? <Skeleton visible={loading}>{props.children}</Skeleton> : props.children}
+      <Stack gap={isSm ? 'xs' : 'md'}>
+        {title ? <Box>{typeof title === 'string' ? <<%= prefix.className %>CardTitle>{title}</<%= prefix.className %>CardTitle> : title}</Box> : null}
+        {props.children ? loading ? <Skeleton visible={loading}>{props.children}</Skeleton> : props.children : null}
+      </Stack>
     </Paper>
   )
 }

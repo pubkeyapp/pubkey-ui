@@ -18,6 +18,7 @@
       "enum": [
         "alert",
         "anchor",
+        "avatar",
         "back",
         "card",
         "container",
@@ -28,6 +29,7 @@
         "grid-routes",
         "group",
         "header",
+        "helpers",
         "layout",
         "loader",
         "logo",
@@ -35,6 +37,7 @@
         "not-found",
         "page",
         "search-input",
+        "select-enum",
         "stack",
         "tab-routes",
         "theme",

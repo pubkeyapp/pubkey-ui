@@ -16,6 +16,7 @@ export interface ComponentGeneratorSchema {
   type:
     | 'alert'
     | 'anchor'
+    | 'avatar'
     | 'back'
     | 'card'
     | 'container'
@@ -26,6 +27,7 @@ export interface ComponentGeneratorSchema {
     | 'grid-routes'
     | 'group'
     | 'header'
+    | 'helpers'
     | 'layout'
     | 'loader'
     | 'logo'
@@ -33,6 +35,7 @@ export interface ComponentGeneratorSchema {
     | 'not-found'
     | 'page'
     | 'search-input'
+    | 'select-enum'
     | 'stack'
     | 'tab-routes'
     | 'theme'

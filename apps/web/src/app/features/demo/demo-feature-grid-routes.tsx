@@ -2,11 +2,11 @@ import { Badge, SimpleGrid } from '@mantine/core'
 import { UiCard, UiGridRoutes } from '@pubkey-ui/core'
 import { IconDashboard } from '@tabler/icons-react'
 
-export function DemoFeatureGridRoutes() {
+export function DemoFeatureGridRoutes({ basePath = '/demo/grid-routes' }: { basePath?: string }) {
   return (
     <UiCard title="Grid Routes">
       <UiGridRoutes
-        basePath="/demo/grid-routes"
+        basePath={basePath}
         routes={[
           {
             path: 'dashboard',

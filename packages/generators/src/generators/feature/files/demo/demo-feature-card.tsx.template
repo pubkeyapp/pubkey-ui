@@ -7,6 +7,7 @@ export function DemoFeatureCard() {
       <<%= prefix.className %>Card withBorder title="Card" shadow="lg">
         CARD CONTENT
       </<%= prefix.className %>Card>
+      <UiCard withBorder title="Empty Card" shadow="lg" />
     </<%= prefix.className %>Stack>
   )
 }

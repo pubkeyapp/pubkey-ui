@@ -1,18 +1,18 @@
 import { SimpleGrid } from '@mantine/core'
 import { UiCard, UiTabRoutes } from '@pubkey-ui/core'
 
-export function DemoFeatureTabRoutes() {
+export function DemoFeatureTabRoutes({ basePath = '/demo/tab-routes' }: { basePath?: string }) {
   return (
     <UiCard title="Tab Routes">
       <UiTabRoutes
-        basePath="/demo/tab-routes"
+        basePath={basePath}
         tabs={[
           {
-            path: 'overview',
-            label: 'Overview',
+            path: 'dashboard',
+            label: 'Dashboard',
             element: (
               <SimpleGrid cols={2} spacing="md">
-                <UiCard title="Overview">Overview</UiCard>
+                <UiCard title="Dashboard">Dashboard</UiCard>
               </SimpleGrid>
             ),
           },
