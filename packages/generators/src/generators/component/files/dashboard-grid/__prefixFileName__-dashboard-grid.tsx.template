@@ -5,7 +5,7 @@ import { use<%= prefix.className %>Theme } from '../<%= prefix.fileName %>-theme
 import classes from './<%= prefix.fileName %>-dashboard-grid.module.css'
 
 export interface <%= prefix.className %>DashboardItem {
-  icon: ComponentType<{ color?: string; size: number | string }>
+  icon: ComponentType<{ color?: string; size: number | string | undefined }>
   label: string
   to: string
   color?: string

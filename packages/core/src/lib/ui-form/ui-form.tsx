@@ -18,7 +18,8 @@ function cleanupValues<T>({ fields, values }: { fields: UiFormField<T>[]; values
   }, {} as Partial<T>)
 }
 
-export function UiForm<T>({
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export function UiForm<T extends Record<string, any>>({
   children,
   model,
   fields,

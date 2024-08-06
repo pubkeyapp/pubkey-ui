@@ -22,7 +22,7 @@ async function main() {
   // TODO: update below to customize the workspace
   const { directory } = await createWorkspace(preset, {
     name,
-    nxCloud: false,
+    nxCloud: 'skip',
     packageManager: pm,
     webName: 'web',
     commit: {

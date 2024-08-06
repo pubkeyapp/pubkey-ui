@@ -5,7 +5,7 @@ import { useUiTheme } from '../ui-theme'
 import classes from './ui-dashboard-grid.module.css'
 
 export interface UiDashboardItem {
-  icon: ComponentType<{ color?: string; size: number | string }>
+  icon: ComponentType<{ color?: string; size: number | string | undefined }>
   label: string
   to: string
   color?: string
