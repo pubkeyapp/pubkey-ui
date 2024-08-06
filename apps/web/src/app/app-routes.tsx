@@ -5,6 +5,7 @@ import { DemoFeature } from './features'
 import { DashboardFeature } from './features/dashboard/dashboard-feature'
 import { DevFeature } from './features/dev/dev-feature'
 import { ThemesFeature } from './features/themes/themes-feature'
+import { PlaygroundFeature } from './features/playground/playground.feature'
 
 const AccountList = lazy(() => import('./features/account/account-list-feature'))
 const AccountDetail = lazy(() => import('./features/account/account-detail-feature'))
@@ -18,6 +19,7 @@ const routes: RouteObject[] = [
   { path: '/dashboard', element: <DashboardFeature /> },
   { path: '/demo/*', element: <DemoFeature /> },
   { path: '/dev', element: <DevFeature /> },
+  { path: '/playground/*', element: <PlaygroundFeature /> },
   { path: '/themes/*', element: <ThemesFeature /> },
   { path: '*', element: <UiNotFound /> },
 ]
