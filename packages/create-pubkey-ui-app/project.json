@@ -3,6 +3,8 @@
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "packages/create-pubkey-ui-app/bin",
   "projectType": "library",
+  "tags": [],
+  "implicitDependencies": ["generators"],
   "targets": {
     "build": {
       "executor": "@nx/js:tsc",
@@ -19,8 +21,7 @@
       "dependsOn": ["build"]
     },
     "lint": {
-      "executor": "@nx/eslint:lint",
-      "outputs": ["{options.outputFile}"]
+      "executor": "@nx/eslint:lint"
     },
     "test": {
       "executor": "@nx/jest:jest",
@@ -29,7 +30,5 @@
         "jestConfig": "packages/create-pubkey-ui-app/jest.config.ts"
       }
     }
-  },
-  "tags": [],
-  "implicitDependencies": ["generators"]
+  }
 }

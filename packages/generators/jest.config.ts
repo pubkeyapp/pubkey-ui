@@ -8,4 +8,6 @@ export default {
   transformIgnorePatterns: ['node_modules/(?!.*\\.d.ts$)'],
   moduleFileExtensions: ['ts', 'js', 'html'],
   coverageDirectory: '../../coverage/packages/generators',
+  testEnvironment: 'node',
+  testTimeout: 30000,
 }
