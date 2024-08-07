@@ -27,6 +27,15 @@
         "{workspaceRoot}/.eslintignore",
         "{workspaceRoot}/eslint.config.js"
       ]
+    },
+    "@nx/vite:test": {
+      "cache": true,
+      "inputs": ["default", "^production"]
+    },
+    "@nx/vite:build": {
+      "cache": true,
+      "dependsOn": ["^build"],
+      "inputs": ["production", "^production"]
     }
   },
   "namedInputs": {
@@ -46,10 +55,10 @@
   "generators": {
     "@nx/react": {
       "application": {
+        "babel": true,
         "style": "css",
         "linter": "eslint",
-        "bundler": "webpack",
-        "babel": true
+        "bundler": "webpack"
       },
       "component": {
         "style": "css"
