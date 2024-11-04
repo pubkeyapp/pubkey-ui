@@ -2,10 +2,11 @@ import { Anchor, Burger, Drawer, DrawerProps, Group, ScrollArea, Stack } from '@
 import { ReactNode } from 'react'
 import cx from 'clsx'
 import { useDisclosure } from '@mantine/hooks'
-import { Link, useLocation } from 'react-router-dom'
+import { useLocation } from 'react-router-dom'
 import { UiLogo, UiLogoType } from '../ui-logo'
 
 import classes from './ui-header.module.css'
+import { useUiTheme } from '../ui-theme'
 
 export interface UiHeaderProps {
   base?: string
@@ -24,6 +25,7 @@ export interface UiHeaderLink {
 
 export function UiHeader(props: UiHeaderProps) {
   const { pathname } = useLocation()
+  const { Link } = useUiTheme()
   const [drawerOpened, { toggle: drawerToggle }] = useDisclosure(false)
   const opened = props.opened ?? drawerOpened
   const toggle = props.toggle ?? drawerToggle

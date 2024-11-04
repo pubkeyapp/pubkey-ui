@@ -1,0 +1,54 @@
+{
+  "name": "remix-test",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/remix-test",
+  "projectType": "application",
+  "tags": [],
+  "targets": {
+    "build": {
+      "executor": "@nx/remix:build",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/apps/remix-test"
+      }
+    },
+    "serve": {
+      "executor": "@nx/remix:serve",
+      "options": {
+        "command": "pnpm exec remix-serve build/index.js",
+        "manual": true,
+        "port": 4200
+      }
+    },
+    "start": {
+      "dependsOn": ["build"],
+      "command": "remix-serve build/index.js",
+      "options": {
+        "cwd": "apps/remix-test"
+      }
+    },
+    "static-serve": {
+      "dependsOn": ["build"],
+      "command": "remix-serve build/index.js",
+      "options": {
+        "cwd": "apps/remix-test"
+      }
+    },
+    "typecheck": {
+      "command": "tsc --project tsconfig.app.json",
+      "options": {
+        "cwd": "apps/remix-test"
+      }
+    },
+    "test": {
+      "executor": "@nx/vite:test",
+      "outputs": ["{options.reportsDirectory}"],
+      "options": {
+        "reportsDirectory": "../../coverage/apps/remix-test"
+      }
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint"
+    }
+  }
+}

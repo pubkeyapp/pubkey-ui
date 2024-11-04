@@ -1,6 +1,8 @@
 import '@mantine/core/styles.css'
-import { ColorSchemeScript, MantineProvider } from '@mantine/core'
+import { ColorSchemeScript } from '@mantine/core'
 import { Links, Meta, Outlet, Scripts, ScrollRestoration } from '@remix-run/react'
+import { AppThemeProvider } from './app-theme.provider'
+import './styles.css'
 
 export function Layout({ children }: { children: React.ReactNode }) {
   return (
@@ -13,7 +15,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <ColorSchemeScript defaultColorScheme="dark" />
       </head>
       <body>
-        <MantineProvider>{children}</MantineProvider>
+        <AppThemeProvider>{children}</AppThemeProvider>
         <ScrollRestoration />
         <Scripts />
       </body>

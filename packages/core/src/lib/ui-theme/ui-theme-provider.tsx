@@ -8,7 +8,7 @@ import {
 } from '@mantine/core'
 import { ModalsProvider } from '@mantine/modals'
 import { Notifications } from '@mantine/notifications'
-import { createContext, FunctionComponent, ReactNode, Suspense, useContext } from 'react'
+import { createContext, FunctionComponent, MouseEvent, ReactNode, Suspense, useContext } from 'react'
 import { UiColorSchemeProvider } from './ui-color-scheme-provider'
 
 // Import the mantine theme styles
@@ -26,6 +26,7 @@ export type UiThemeLink = FunctionComponent<{
   to: string
   target?: HTMLAnchorElement['target']
   rel?: HTMLAnchorElement['rel']
+  onClick?: (event: MouseEvent<HTMLAnchorElement>) => void
 }>
 
 export const defaultUiThemeLink: UiThemeLink = ({ children, ...props }) => (

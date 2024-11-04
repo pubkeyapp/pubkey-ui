@@ -1,6 +1,6 @@
 import { Anchor, AnchorProps } from '@mantine/core'
 import { ReactNode } from 'react'
-import { Link } from 'react-router-dom'
+import { useUiTheme } from '../ui-theme'
 
 export interface UiAnchorProps extends AnchorProps {
   children: ReactNode
@@ -10,6 +10,7 @@ export interface UiAnchorProps extends AnchorProps {
 }
 
 export function UiAnchor({ children, href, target, to, ...props }: UiAnchorProps) {
+  const { Link } = useUiTheme()
   return to ? (
     <Anchor component={Link} to={to} target={target} {...props}>
       {children}

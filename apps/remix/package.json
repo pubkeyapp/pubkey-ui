@@ -1,11 +1,5 @@
 {
-  "name": "pubkey-remix-test",
   "private": true,
   "sideEffects": false,
-  "type": "module",
-  "scripts": {
-    "dev": "remix vite:dev",
-    "start": "remix-serve ./build/server/index.js",
-    "typecheck": "tsc"
-  }
+  "type": "module"
 }
